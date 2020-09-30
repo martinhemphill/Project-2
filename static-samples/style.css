@@ -1,5 +1,5 @@
 .login-form {
-    width:80%;
+    width:100%;
     margin-left:10%;
     margin-top:10%;
     margin-bottom:10%;
@@ -15,8 +15,9 @@
     margin-top:10%;
 }
 
-
-
-.submit-row {
-    margin-left:38%
+.btn {
+    margin-left:27%;
+    margin-right:20%
 }
+
+

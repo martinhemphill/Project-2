@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <head>
-    <title>search</title>
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <title> View books</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <meta charset="utf-8" />
@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,14 +19,71 @@
             </button>
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Recommendations </a>
-                    <a class="nav-link active" href="#">View Books <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="#">Profile</a>
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="recommend.html">Recommendations </a>
+                    <a class="nav-link active" href="search.html">View Books <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="profile.html">Profile</a>
+                    <a class="nav-link" href="login.html">Login</a>
                 </div>
             </div>
         </nav>
     </header>
+
+    <main id="viewBookContent">
+        <div class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <button id="addBook">Add Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <button id="addBook">Add Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <button id="addBook">Add Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button id="refresh">refresh</button>
+    
+    </main>
+
+       <!--footer section-->
+  <div class="footer">
+    <div class="text-center text-muted">
+      Names?
+    </div>
+  </div>
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"

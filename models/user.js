@@ -1,3 +1,8 @@
+// Sequelize with capital references the sequelize library 
+const Sequelize = require("sequelize");
+// sequelize with a lowercase references our connection to the DB using config.js
+const sequelize = require("../config/config");
+
 const bcrypt = require('bcrypt');
 
 module.exports = function (sequelize, DataTypes) {

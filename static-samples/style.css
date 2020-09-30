@@ -1,0 +1,22 @@
+.login-form {
+    width:80%;
+    margin-left:10%;
+    margin-top:10%;
+    margin-bottom:10%;
+    padding-left:25%;
+    padding-right:25%;
+    padding-top:10%;
+    padding-bottom:10%;
+    border:1px solid black;
+    border-radius: 5px;
+}
+
+.email-row {
+    margin-top:10%;
+}
+
+
+
+.submit-row {
+    margin-left:38%
+}

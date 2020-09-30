@@ -4,16 +4,15 @@
     <title>profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 
-
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,19 +20,75 @@
             </button>
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Recommendations </span></a>
-                    <a class="nav-link" href="#">View Books</a>
-                    <a class="nav-link active" href="#">Profile <span class="sr-only">(current)</a>
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="recommend.html">Recommendations </span></a>
+                    <a class="nav-link" href="search.html">View Books</a>
+                    <a class="nav-link active" href="profile.html">Profile <span class="sr-only">(current)</a>
+                    <a class="nav-link" href="login.html">Login</a>
                 </div>
             </div>
         </nav>
     </header>
 
+    <aside id="asideSection">
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Read</div>
+            <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">**This is where the users read books will go**</p>
+            </div>
+        </div>
+
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">TBR</div>
+            <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">**This is where the users To Read books will go**</p>
+            </div>
+        </div>
+    </aside>
+
+    <main id="profilePageContent">
+        <div class="card border-dark mb-3" style="max-width: 540px;">
+            <div class="card-header">User Name</div>
+            <div class="col-md-4">
+                <img src="..." class="card-img" alt="..." >
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Username</h5>
+                    <p class="card-text">**Member since area/ potential basic profile info?**</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="card border-dark mb-3" style="max-width: 540px;">
+            <div class="card-header">Currently Reading</div>
+            <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Reading now</h5>
+                    <p class="card-text">**this will be the users currently reading section** </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+      <!--footer section-->
+  <div class="footer">
+    <div class="text-center text-muted">
+      Names?
+    </div>
+  </div>
+
 
     <!-- jQuery CDN  -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
 
 </body>

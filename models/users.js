@@ -1,7 +1,7 @@
-// Sequelize with capital references the sequelize library 
-const Sequelize = require("sequelize");
+// Sequelize with capital references the sequelize library
+// const Sequelize = require("sequelize");
 // sequelize with a lowercase references our connection to the DB using config.js
-const sequelize = require("../config/config");
+// const sequelize = require("../config/config");
 
 const bcrypt = require('bcrypt');
 
@@ -36,8 +36,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     avatar: {
       type: DataTypes.STRING,
-      defaultValue: /*default image*?
-    },
+      defaultValue: false
+    }
   }, {
     timestamps: true,
     hooks: {
@@ -62,26 +62,27 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: 'cascade'
     });
 
-  // This will check if an unhashed password can be compared to the hashed password stored in our database
-  User.prototype.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-  };
+    // This will check if an unhashed password can be compared to the hashed password stored in our database
+    User.prototype.validPassword = function (password) {
+      return bcrypt.compareSync(password, this.password);
+    };
 
-  // Compares passwords
-  User.prototype.comparePasswords = function (password, callback) {
-    bcrypt.compare(password, this.password, (error, isMatch) => {
-      if (error) {
-        return callback(error);
-      }
-      return callback(null, isMatch);
-    });
-  };
+    // Compares passwords
+    User.prototype.comparePasswords = function (password, callback) {
+      bcrypt.compare(password, this.password, (error, isMatch) => {
+        if (error) {
+          return callback(error);
+        }
+        return callback(null, isMatch);
+      });
+    };
 
-  User.prototype.toJSON = function () {
-    const values = Object.assign({}, this.get());
-    delete values.password;
-    return values;
-  };
+    User.prototype.toJSON = function () {
+      const values = Object.assign({}, this.get());
+      delete values.password;
+      return values;
+    };
 
-  return User;
+    return User;
+  };
 };

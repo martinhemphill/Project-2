@@ -1,3 +1,52 @@
+/*header for all pages*/
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 56px;
+  z-index: 1;
+  overflow: none;
+}
+
+/* footer for all pages*/
+.footer {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    padding: 7px;
+    background-color: #444;
+    color: #fff;
+  }
+
+/* Profile Page*/
+#asideSection {
+  margin-right: 20px;
+  margin-top: 25px;
+  padding: 10px;
+  float: right;
+}
+
+#profilePageContent {
+  margin-left: 20px;
+  margin-top: 65px;
+  padding: 10px;
+}
+
+/*view books page*/
+#viewBookContent {
+  margin-top: 65px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+#refresh {
+  padding: 5px;
+  border-radius: 15px;
+}
+
 .login-form {
     width:100%;
     margin-left:10%;
@@ -20,4 +69,8 @@
     margin-right:20%
 }
 
+
+.submit-row {
+    margin-left:38%
+}
 

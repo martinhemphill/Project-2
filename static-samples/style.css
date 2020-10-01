@@ -120,12 +120,26 @@ header {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 /*view books page*/
 #viewBooks {
   margin-left: 25%;
   border: 2px solid #617056;
   font-family: 'Antic Slab', serif;
   font-weight: bold;
+=======
+.login-form {
+    width:100%;
+    margin-left:10%;
+    margin-top:10%;
+    margin-bottom:10%;
+    padding-left:25%;
+    padding-right:25%;
+    padding-top:10%;
+    padding-bottom:10%;
+    border:1px solid black;
+    border-radius: 5px;
+>>>>>>> de151be044d337fa6176d8d3bfe25d8d409653ee
 }
 
 #viewBooksTop {
@@ -136,6 +150,7 @@ header {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 #refresh {
   width: 50%;
   margin-left: 125%;
@@ -149,3 +164,15 @@ header {
   background-color: black;
   border: 2px solid #aeb4b2;
 }
+=======
+.btn {
+    margin-left:27%;
+    margin-right:20%
+}
+
+
+.submit-row {
+    margin-left:38%
+}
+
+>>>>>>> de151be044d337fa6176d8d3bfe25d8d409653ee

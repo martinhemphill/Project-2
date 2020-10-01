@@ -1,25 +1,30 @@
 module.exports = function (sequelize, DataTypes) {
-  const Connection = sequelize.define('connection', {
+  const readFuture = sequelize.define('currently_reading', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    followerID: {
+    isbn: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    followeeID: {
+    userID: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   });
-  Connection.associate = function (models) {
-    Connection.belongsTo(models.User, {
+  readFuture.associate = function (models) {
+    readFuture.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
-    return Connection;
+    readFuture.belongsTo(models.Book, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    return readFuture;
   };
 };

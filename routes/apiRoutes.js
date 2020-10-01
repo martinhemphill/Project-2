@@ -18,5 +18,8 @@ module.exports = (passport, db) => {
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
+  // GoodReads routes
+  router.get('/books', AppController.getBooks);
+
   return router;
 };

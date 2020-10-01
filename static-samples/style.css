@@ -137,6 +137,7 @@ header {
 }
 
 #refresh {
+
   width: 50%;
   margin-left: 125%;
   background: #617056;
@@ -149,3 +150,35 @@ header {
   background-color: black;
   border: 2px solid #aeb4b2;
 }
+
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.login-form {
+    width:100%;
+    margin-left:10%;
+    margin-top:10%;
+    margin-bottom:10%;
+    padding-left:25%;
+    padding-right:25%;
+    padding-top:10%;
+    padding-bottom:10%;
+    border:1px solid black;
+    border-radius: 5px;
+}
+
+.email-row {
+    margin-top:10%;
+}
+
+.btn {
+    margin-left:27%;
+    margin-right:20%
+}
+
+
+.submit-row {
+    margin-left:38%
+}
+

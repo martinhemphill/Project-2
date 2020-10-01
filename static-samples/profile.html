@@ -12,8 +12,8 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav id="navbar" class="navbar navbar-expand-lg">
+            <a id="siteName" class="navbar-brand" id="bookmarked" href="login.html"><img classs="img-responsive" width="125px" height="45px" src="./smallpng.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,66 @@
         </nav>
     </header>
 
-    <aside id="asideSection">
+    <section class="row userRow">
+        <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="card-header">Username</div>
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p class="card-text">**Member since area**</p>
+                  <p class="card-text">**Books read area**</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-md-6" id="readCard">
+          <div class="card mb-3" style="max-width: 18rem;">
+            <div class="card-header">Read</div>
+            <div class="card-body">
+              <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
+              <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
+            </div>
+        </div>
+          </div>
+        </section>
+
+        <section class="row readNowRow">
+            <div class="col-md-6">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card-header">Reading Now</div>
+                  <div class="col-md-4">
+                    <img src="..." class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <p class="card-text">**Book Info**</p>
+                      <p class="card-text">**Book Info**</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+              <div class="col-md-6" id="readCard">
+              <div class="card mb-3" style="max-width: 18rem;">
+                <div class="card-header">TBR</div>
+                <div class="card-body">
+                  <p class="card-text">**Book info for tbr book**</p>
+                  <p class="card-text">**Book info for tbr book**</p>
+                  <p class="card-text">**Book info for tbr book**</p>
+                </div>
+            </div>
+              </div>
+            </section>
+
+
+    <!-- <section class="row firstRow">
+        <div class="col-md-6">
         <div class="card border-dark mb-3" style="max-width: 18rem;">
             <div class="card-header">Read</div>
             <div class="card-body text-dark">
@@ -37,7 +96,24 @@
                 <p class="card-text">**This is where the users read books will go**</p>
             </div>
         </div>
+    </div>
 
+        <div class="col-md-6">
+        <div id="profilePageContent">
+            <div class="card border-dark mb-3" style="max-width: 540px;">
+                <div class="card-header">User Name</div>
+                <div class="col-md-4">
+                    <img src="..." class="card-img" alt="..." >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Username</h5>
+                        <p class="card-text">**Member since area/ potential basic profile info?**</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+</section>
         <div class="card border-dark mb-3" style="max-width: 18rem;">
             <div class="card-header">TBR</div>
             <div class="card-body text-dark">
@@ -46,21 +122,6 @@
             </div>
         </div>
     </aside>
-
-    <main id="profilePageContent">
-        <div class="card border-dark mb-3" style="max-width: 540px;">
-            <div class="card-header">User Name</div>
-            <div class="col-md-4">
-                <img src="..." class="card-img" alt="..." >
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <p class="card-text">**Member since area/ potential basic profile info?**</p>
-                </div>
-            </div>
-        </div>
-        </div>
 
 
         <div class="card border-dark mb-3" style="max-width: 540px;">
@@ -76,7 +137,7 @@
             </div>
         </div>
         </div>
-    </main>
+    </main> -->
 
       <!--footer section-->
   <div class="footer">

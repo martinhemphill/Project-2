@@ -20,14 +20,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     photo: {
-      type: DataTypes.STRING /*not sure how to do a link for an image*/
+      type: DataTypes.STRING
     },
     isbn: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   });
-  
+
   Book.associate = function (models) {
     Book.hasMany(models.Review, {
       onDelete: 'cascade'

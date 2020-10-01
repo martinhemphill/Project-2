@@ -33,7 +33,11 @@ module.exports = function (sequelize, DataTypes) {
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+    avater: {
+      type: DataTypes.STRING,
+      defaultValue: /*default image*?
+    },
   }, {
     timestamps: true,
     hooks: {

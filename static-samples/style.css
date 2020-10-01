@@ -48,7 +48,7 @@ header {
 }
 
 .login-form {
-    width:80%;
+    width:100%;
     margin-left:10%;
     margin-top:10%;
     margin-bottom:10%;
@@ -64,6 +64,13 @@ header {
     margin-top:10%;
 }
 
+.btn {
+    margin-left:27%;
+    margin-right:20%
+}
+
+
 .submit-row {
     margin-left:38%
 }
+

@@ -25,12 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     isbn: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
-    reviewID: {
-      type: DataTypes.INTEGER,
-      allowNull: true
     }
   });
+  
+  Book.associate = function (models) {
+    Book.hasMany(models.Review, {
+      onDelete: 'cascade'
+    });
+    Book.hasMany(models.Recommendation, {
+      onDelete: 'cascade'
+    });
+  };
 
   return Book;
 };

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Reviews = sequelize.define('Reviews', {
+  const Reviews = sequelize.define('Review', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,6 +22,18 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
+  Review.associate = function (models) {
+
+    Review.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    Review.belongsTo(models.Book, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
 
   return Reviews;
 };

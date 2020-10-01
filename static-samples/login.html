@@ -4,29 +4,75 @@
     <title>login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <!--NavBar-->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav id="navbar" class="navbar navbar-expand-lg">
+            <a id="siteName" class="navbar-brand" id="bookmarked" href="login.html"><img classs="img-responsive" width="125px" height="45px" src="./smallpng.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Recommendations </a>
-                    <a class="nav-link" href="#">View Books</a>
-                    <a class="nav-link" href="#">Profile</a>
-                    <a class="nav-link active" href="#">Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="recommend.html">Recommendations </a>
+                    <a class="nav-link" href="search.html">View Books</a>
+                    <a class="nav-link" href="profile.html">Profile</a>
+                    <a class="nav-link active" href="login.html">Login <span class="sr-only">(current)</span></a>
                 </div>
             </div>
         </nav>
     </header>
+
+
+  <!--login form section-->
+    <main class="container">
+        <section class="row">
+            <div class="col-md-12 login-logo">
+                    <!--Logo Image-->
+         <img src="./bookmarked.png" alt="logo" class="logoImage" width="400px">   
+            </div>
+        </section>
+
+        <!--start of the login form-->
+        <section class="row login-row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 form-colr">
+                <form id="form" class="login-form">
+                    <div class="form-group email-row row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group passwordRow row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3">
+                            </div>
+                        </div>
+                        <div class="form-group submit-row row">
+                            <div class="col-sm-12"></div>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary login-btn">Sign in</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary signup-btn">Sign up</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </section>
+    </main>
 
 
     <!-- jQuery CDN  -->

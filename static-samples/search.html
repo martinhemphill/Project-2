@@ -11,8 +11,8 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+      <nav id="navbar" class="navbar navbar-expand-lg">
+        <a id="siteName" class="navbar-brand" id="bookmarked" href="login.html"><img classs="img-responsive" width="125px" height="45px" src="./smallpng.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,8 +28,9 @@
         </nav>
     </header>
 
-    <main id="viewBookContent">
-        <div class="card mb-3" style="max-width: 740px;">
+      <section class="row">
+            <div class="col-md-12">
+          <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="..." class="card-img" alt="...">
@@ -43,8 +44,12 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="card mb-3" style="max-width: 740px;">
+          <section class="row">
+            <div class="col-md-12">
+          <div id="viewBooks" class="card mb-3" style="max-width: 740px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="..." class="card-img" alt="...">
@@ -58,23 +63,33 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="card mb-3" style="max-width: 740px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="..." class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button id="addBook">Add Book</button>
-                </div>
-              </div>
+      <section class="row">
+        <div class="col-md-12">
+      <div id="viewBooks" class="card mb-3" style="max-width: 740px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="..." class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <button id="addBook">Add Book</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <button id="refresh">refresh</button>
+  <section class="row">
+
+  </section>  <div class="col-sm-4">
+    <button id="refresh" type="submit" class="btn btn-primary">Refresh</button>
+</div>
     
     </main>
 

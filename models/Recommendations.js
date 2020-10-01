@@ -1,6 +1,6 @@
 
 module.exports = function (sequelize, DataTypes) {
-  const Recommendations = sequelize.define('Recommendations', {
+  const Recommendations = sequelize.define('Recommendation', {
     bookID: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -10,6 +10,20 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   });
+  
+  Recommendation.associate = function (models) {
+    
+    Recommendation.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    Recommendation.belongsTo(models.Book, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Recommendations;
 };

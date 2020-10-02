@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const readCurrent = sequelize.define('CurrentlyReading', {
+  const readCurrent = sequelize.define('readCurrent', {
   });
   readCurrent.associate = function (models) {
     readCurrent.belongsTo(models.User, {

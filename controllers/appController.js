@@ -89,6 +89,50 @@ module.exports = function (db) {
       }).catch(error => {
         console.log(error);
       });
+    },
+
+    // ========= POST ROUTES =========
+    addBookInternal: function (req, res) {
+      db.Book.create(req.body).then(function (dbBook) {
+        res.json(dbBook);
+      });
+    },
+
+    followUser: function (req, res) {
+      db.Connection.create(req.body).then(function (dbConnection) {
+        res.json(dbConnection);
+      });
+    },
+
+    addRecommendation: function (req, res) {
+      db.Recommendation.create(req.body).then(function (dbRecommendation) {
+        res.json(dbRecommendation);
+      });
+    },
+
+    addToFuture: function (req, res) {
+      db.readFuture.create(req.body).then(function (dbAddToFuture) {
+        res.json(dbAddToFuture);
+      });
+    },
+
+    addToCurrent: function (req, res) {
+      db.readCurrent.create(req.body).then(function (dbAddToCurrent) {
+        res.json(dbAddToCurrent);
+      });
+    },
+
+    addToPast: function (req, res) {
+      db.readPast.create(req.body).then(function (dbAddToPast) {
+        res.json(dbAddToPast);
+      });
+    },
+
+    addReview: function (req, res) {
+      db.Review.create(req.body).then(function (dbAddReview) {
+        res.json(dbAddReview);
+      });
     }
+
   };
 };

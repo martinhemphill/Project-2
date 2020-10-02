@@ -26,6 +26,8 @@ module.exports = (passport, db) => {
   router.get('/readingList/:id', AppController.getUserListFuture);
   router.get('/reviews', AppController.getBookReviews);
   router.get('/reviews/:id', AppController.getBookReviewsByID);
+  // POST
+  router.post('/books', AppController.addBookInternal);
 
   return router;
 };

@@ -21,6 +21,8 @@ module.exports = function (db) {
         res.json(dbExample);
       });
     },
+
+    // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
       db.User.findAll({}).then(data => {
         res.json(data);
@@ -132,7 +134,34 @@ module.exports = function (db) {
       db.Review.create(req.body).then(function (dbAddReview) {
         res.json(dbAddReview);
       });
-    }
+    },
 
+    // ========= DELETE ROUTES =========
+    unFollow: function (req, res) {
+      db.Connection.destroy({ where:
+        { followerID: req.params.followerID,
+          followeeID: req.params.followeeID }
+      }).then(function (dbConnection) {
+        res.json(dbConnection);
+      });
+    },
+    deleteFromPast: function (req, res) {
+      db.readPast.destroy({ where: { id: req.params.id }
+      }).then(function (dbReadPast) {
+        res.json(dbReadPast);
+      });
+    },
+    deleteFromCurrent: function (req, res) {
+      db.readCurrent.destroy({ where: { id: req.params.id }
+      }).then(function (dbReadCurrent) {
+        res.json(dbReadCurrent);
+      });
+    },
+    deleteFromFuture: function (req, res) {
+      db.readFuture.destroy({ where: { id: req.params.id }
+      }).then(function (dbReadFuture) {
+        res.json(dbReadFuture);
+      });
+    }
   };
 };

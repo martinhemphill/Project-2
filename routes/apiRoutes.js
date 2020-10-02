@@ -18,14 +18,24 @@ module.exports = (passport, db) => {
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
-  // GoodReads routes
+  // GoodReads GET routes
   router.get('/books', AppController.getBookInfo);
   router.get('/userInfo', AppController.getUserInfo);
-  router.get('/completedBooks/:id', AppController.getUserListPast);
-  router.get('/currentBooks/:id', AppController.getUserListCurrent);
-  router.get('/readingList/:id', AppController.getUserListFuture);
+  router.get('/readPast/:id', AppController.getUserListPast);
+  router.get('/readCurrent/:id', AppController.getUserListCurrent);
+  router.get('/readFuture/:id', AppController.getUserListFuture);
   router.get('/reviews', AppController.getBookReviews);
   router.get('/reviews/:id', AppController.getBookReviewsByID);
+  // Goodreads POST routes
+  router.post('/books', AppController.addBookInternal);
+  router.post('/connections', AppController.followUser);
+  router.post('/recommendations', AppController.addRecommendation);
+  router.post('/readFuture', AppController.addToFuture);
+  router.post('/readCurrent', AppController.addToCurrent);
+  router.post('/readPast', AppController.addToPast);
+  router.post('/reviews', AppController.addReview);
+  // Goodreads DELETE routes
+  router.post('/connections', AppController.unFollow);
 
   return router;
 };

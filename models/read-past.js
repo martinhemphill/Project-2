@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const readPast = sequelize.define('AlreadyCompleted', {});
+  const readPast = sequelize.define('readPast', {});
   readPast.associate = function (models) {
     readPast.belongsTo(models.User, {
       foreignKey: {

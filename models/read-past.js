@@ -1,24 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const readPast = sequelize.define('already_completed', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    isbn: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    userID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    reviewID: {
-      type: DataTypes.FLOAT,
-      allowNull: false
-    }
-  });
-
+  const readPast = sequelize.define('AlreadyCompleted', {});
   readPast.associate = function (models) {
     readPast.belongsTo(models.User, {
       foreignKey: {
@@ -30,6 +11,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-    return readPast;
   };
+  return readPast;
 };

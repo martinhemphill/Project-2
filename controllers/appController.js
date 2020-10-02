@@ -28,7 +28,7 @@ module.exports = function (db) {
         console.log(error);
       });
     },
-    getUserListPast: function( req, res) {
+    getUserListPast: function (req, res) {
       db.readPast.findAll({
         where: {
           userID: req.params.id

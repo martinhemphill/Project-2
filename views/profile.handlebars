@@ -1,76 +1,83 @@
 {{> nav/nav-block user=true register=false}}
 
-<div class="container">
-  <header align="center" class="header-wrap">
-    <h3>View or update your user</h3>
-    <div class="userId">
-      {{!-- <h3>Welcome, {{userInfo.firstName}}</h3> --}}
-      {{!-- <h5 id="user-number" data-useremail="{{userInfo.email}}">Account email: {{userInfo.email}}</h5> --}}
-    </div>
-    <h3 id="update-err-msg"></h3>
-  </header>
-
-  <form id="user-form">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputFirst">First Name</label>
-        <input type="text" class="form-control" id="inputFirst" value="{{userInfo.firstName}}" placeholder="John">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputLast">Last Name</label>
-        <input type="text" class="form-control" id="inputLast" value="{{userInfo.lastName}}" placeholder="Doe">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputPassword">Email</label>
-        <input type="text" class="form-control" id="inputEmail" value="{{userInfo.email}}">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" value="{{userInfo.password}}">
-      </div>
-    </div>
-
-    <div>
-      <button type="submit" id="update-user" data-id="{{userInfo.id}}" class="btn btn-primary">Update</button>
-      {{#unless userInfo.isAdmin}}
-        <button type="submit" id="delete-user" class="btn btn-primary">Delete</button>
-      {{/unless}}
-      <button type="submit" id="view-user" data-id="{{userInfo.id}}" class="btn btn-primary">Refresh</button>
-    </div>
-  </form>
-
-  <div class="modal" id="delete-user-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Re-Enter Credentials to delete user</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <h3 id="err-msg"></h3>
-          <form>
-            <div class="form-group">
-              <label for="userEmail">Email:</label>
-              <input type="text" class="form-control" id="userEmail">
+<header>
+    <nav id="navbar" class="navbar navbar-expand-lg">
+        <a id="siteName" class="navbar-brand" id="bookmarked" href="login.html"><img classs="img-responsive" width="125px" height="45px" src="./smallpng.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="recommend.html">Recommendations </span></a>
+                <a class="nav-link" href="search.html">View Books</a>
+                <a class="nav-link active" href="profile.html">Profile <span class="sr-only">(current)</a>
+                <a class="nav-link" href="login.html">Login</a>
             </div>
-            <div class="form-group">
-              <label for="userPassword">Password:</label>
-              <input type="password" class="form-control" id="userPassword">
-            </div>
-          </form>
         </div>
+    </nav>
+</header>
 
-        <div class="modal-footer">
-          <button id="confirm-delete" type="button" data-id="{{userInfo.id}}" class="btn btn-primary">Confirm Delete</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Nah I'll stay</button>
+<section class="row userRow">
+  <div class="col-md-6">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="card-header">Username</div>
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">**Member since area**</p>
+            <p class="card-text">**Books read area**</p>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-6" id="readCard">
+    <div class="card mb-3" style="max-width: 18rem;">
+      <div class="card-header">Read</div>
+        <div class="card-body">
+          <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
+          <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="row readNowRow">
+  <div class="col-md-6">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="card-header">Reading Now</div>
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">**Book Info**</p>
+            <p class="card-text">**Book Info**</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6" id="readCard">
+    <div class="card mb-3" style="max-width: 18rem;">
+      <div class="card-header">TBR</div>
+        <div class="card-body">
+          <p class="card-text">**Book info for tbr book**</p>
+          <p class="card-text">**Book info for tbr book**</p>
+          <p class="card-text">**Book info for tbr book**</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--footer section-->
+<div class="footer">
+  <div class="text-center text-muted">
+    Names?
   </div>
 </div>

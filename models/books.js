@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
-    // Model attibutes are defined here
+    // Model attributes are defined here
     isbn: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -1,10 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Connection = sequelize.define('connection', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
+  const Connection = sequelize.define('Connection', {
     followerID: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -20,6 +15,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-    return Connection;
   };
+  return Connection;
 };

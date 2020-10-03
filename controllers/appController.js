@@ -21,6 +21,8 @@ module.exports = function (db) {
         res.json(dbExample);
       });
     },
+
+    // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
       db.User.findAll({}).then(data => {
         res.json(data);
@@ -28,7 +30,7 @@ module.exports = function (db) {
         console.log(error);
       });
     },
-    getUserListPast: function( req, res) {
+    getUserListPast: function (req, res) {
       db.readPast.findAll({
         where: {
           userID: req.params.id
@@ -88,6 +90,77 @@ module.exports = function (db) {
         res.json(data);
       }).catch(error => {
         console.log(error);
+      });
+    },
+
+    // ========= POST ROUTES =========
+    addBookInternal: function (req, res) {
+      db.Book.create(req.body).then(function (dbBook) {
+        res.json(dbBook);
+      });
+    },
+
+    followUser: function (req, res) {
+      db.Connection.create(req.body).then(function (dbConnection) {
+        res.json(dbConnection);
+      });
+    },
+
+    addRecommendation: function (req, res) {
+      db.Recommendation.create(req.body).then(function (dbRecommendation) {
+        res.json(dbRecommendation);
+      });
+    },
+
+    addToFuture: function (req, res) {
+      db.readFuture.create(req.body).then(function (dbAddToFuture) {
+        res.json(dbAddToFuture);
+      });
+    },
+
+    addToCurrent: function (req, res) {
+      db.readCurrent.create(req.body).then(function (dbAddToCurrent) {
+        res.json(dbAddToCurrent);
+      });
+    },
+
+    addToPast: function (req, res) {
+      db.readPast.create(req.body).then(function (dbAddToPast) {
+        res.json(dbAddToPast);
+      });
+    },
+
+    addReview: function (req, res) {
+      db.Review.create(req.body).then(function (dbAddReview) {
+        res.json(dbAddReview);
+      });
+    },
+
+    // ========= DELETE ROUTES =========
+    unFollow: function (req, res) {
+      db.Connection.destroy({ where:
+        { followerID: req.params.followerID,
+          followeeID: req.params.followeeID }
+      }).then(function (dbConnection) {
+        res.json(dbConnection);
+      });
+    },
+    deleteFromPast: function (req, res) {
+      db.readPast.destroy({ where: { id: req.params.id }
+      }).then(function (dbReadPast) {
+        res.json(dbReadPast);
+      });
+    },
+    deleteFromCurrent: function (req, res) {
+      db.readCurrent.destroy({ where: { id: req.params.id }
+      }).then(function (dbReadCurrent) {
+        res.json(dbReadCurrent);
+      });
+    },
+    deleteFromFuture: function (req, res) {
+      db.readFuture.destroy({ where: { id: req.params.id }
+      }).then(function (dbReadFuture) {
+        res.json(dbReadFuture);
       });
     }
   };

@@ -1,15 +1,6 @@
 
 module.exports = function (sequelize, DataTypes) {
-  const Recommendation = sequelize.define('Recommendation', {
-    bookID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    userID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
-  });
+  const Recommendation = sequelize.define('Recommendation', {});
   Recommendation.associate = function (models) {
     Recommendation.belongsTo(models.User, {
       foreignKey: {

@@ -6,10 +6,16 @@ body {
   font-weight: bold;
 }
 
+/*login page jumbotron*/
 .jumbotron {
   background: rgba(0,0,0,0);
+  background-image: url("../images/bookmarked.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
+/*navbar for all pages*/
 .navbar{
   background: #617056;
 }
@@ -26,6 +32,7 @@ body {
   color: black;
 }
 
+/*login and reigster modal*/
 .modal {
   color: black;
 }
@@ -64,6 +71,7 @@ body {
  height: 65px;
 }
 
+/*container for login page*/
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
@@ -87,6 +95,7 @@ body {
   font-weight: 500;
 }
 
+
 .userId h2, .header-wrap h1 {
   text-transform: capitalize;
 }
@@ -99,6 +108,20 @@ hr {
   line-height: 2.5;
 }
 
+/*card body for all pages*/
 .card-body {
   color: #444;
+}
+
+/*add book button on view books page*/
+.addBook{
+  background: #aeb4b2;
+  color: black;
+  border: 2px solid #617056;
+  font-weight: bold;
+}
+
+.addBook:hover{
+  background-color: black;
+  border: 2px solid #aeb4b2;
 }

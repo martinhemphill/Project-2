@@ -18,6 +18,14 @@ module.exports = (db) => {
         description: 'Adam can\'t see this',
         UserId: 2
       });
+    }).then(() => {
+      db.Book.create({
+        isbn: 1,
+        author: 'jim',
+        title: 'book',
+        description: 'udahg',
+        photo: 'jshfksa'
+      });
     });
   });
 };

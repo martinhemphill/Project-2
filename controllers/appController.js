@@ -74,6 +74,13 @@ module.exports = function (db) {
           console.log(error);
         });
     },
+    getBookInfoInternal: function (req, res) {
+      db.Book.findAll({}).then(data => {
+        res.json(data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
     getBookReviews: function (req, res) {
       db.Review.findAll({}).then(data => {
         res.json(data);

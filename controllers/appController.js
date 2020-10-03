@@ -34,7 +34,8 @@ module.exports = function (db) {
       db.readPast.findAll({
         where: {
           userID: req.params.id
-        }
+        },
+        include: [db.User]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -45,7 +46,8 @@ module.exports = function (db) {
       db.readCurrent.findAll({
         where: {
           userID: req.params.id
-        }
+        },
+        include: [db.User]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -56,7 +58,8 @@ module.exports = function (db) {
       db.readFuture.findAll({
         where: {
           userID: req.params.id
-        }
+        },
+        include: [db.User]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -89,9 +92,32 @@ module.exports = function (db) {
       });
     },
     getBookReviewsByID: function (req, res) {
-      db.reviews.findAll({
+      db.Review.findAll({
         where: {
-          isbn: req.params.id
+          BookIsbn: req.params.id
+        },
+        include: [db.book]
+      }).then(data => {
+        res.json(data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    getFollowers: function (req, res) {
+      db.Connection.findAll({
+        where: {
+          followeeID: req.params.followeeID
+        }
+      }).then(data => {
+        res.json(data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    getFollowing: function (req, res) {
+      db.Connection.findAll({
+        where: {
+          followerID: req.params.followerID
         }
       }).then(data => {
         res.json(data);

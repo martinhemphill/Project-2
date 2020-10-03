@@ -1,21 +1,50 @@
 body {
   color: white;
   background-size: cover;
-  height:100%
+  height:100%;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
 }
 
 .jumbotron {
   background: rgba(0,0,0,0);
 }
 
+.navbar{
+  background: #617056;
+}
+
+.nav-link, .navbar-brand{
+  color: #aeb4b2;
+}
+
+.nav-link:hover{
+  color: black;
+}
+
+.navbar-brand:hover{
+  color: black;
+}
+
 .modal {
   color: black;
 }
 
+.modal-header{
+  background: #aeb4b2;
+  border: 5px #617056;
+}
+
 .btn {
-  color:white;
-  background:#cadde1;
-  border: 1px solid white;
+  background: #aeb4b2;
+  color: black;
+  border: 2px solid #617056;
+  font-weight: bold;
+}
+
+.btn:hover{
+  background-color: black;
+  border: 2px solid #aeb4b2;
 }
 
 #user-form, .header-wrap, #create-form, .create-user-wrap {
@@ -38,8 +67,9 @@ body {
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
+  background: #aeb4b2;
   height:100%;
+  border: 5px #617056;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 600px;

@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     avatar: {
       type: DataTypes.STRING,
-      defaultValue: false
+      allowNull: true
     }
   }, {
     timestamps: true,

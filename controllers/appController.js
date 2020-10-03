@@ -33,9 +33,9 @@ module.exports = function (db) {
     getUserListPast: function (req, res) {
       db.readPast.findAll({
         where: {
-          userID: req.params.id
+          UserId: req.params.id
         },
-        include: [db.User]
+        include: [db.Book]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -45,9 +45,9 @@ module.exports = function (db) {
     getUserListCurrent: function (req, res) {
       db.readCurrent.findAll({
         where: {
-          userID: req.params.id
+          UserId: req.params.id
         },
-        include: [db.User]
+        include: [db.Book]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -57,9 +57,9 @@ module.exports = function (db) {
     getUserListFuture: function (req, res) {
       db.readFuture.findAll({
         where: {
-          userID: req.params.id
+          UserId: req.params.id
         },
-        include: [db.User]
+        include: [db.Book]
       }).then(data => {
         res.json(data);
       }).catch(error => {

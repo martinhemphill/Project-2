@@ -64,12 +64,45 @@ module.exports = function (db) {
       });
     },
     getBookInfo: function (req, res) {
-      const queryURL = ('https://www.goodreads.com/book/title?&key=xSYGRFm0UFtN1PLA8A0DwA&title=Harry%20Potter');
+      const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&'
+      const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
+      const isbn = '978-0545162074';
+      const searchISBN = '&isbn_to_id=' + isbn;
+      const searchTitle = '&title=' + bookTitle;
+      const queryURL = 'https://www.goodreads.com/search/index.xml?' + apiKey + '&q=Harry Potter and the Sorcerers Stone';
       axios.get(queryURL)
         .then((response) => {
-          const result1 = convert.xml2json(response.data, { compact: true, spaces: 2, ignoreCdata: true });
-          console.log(result1);
-          // get book isbn, title, author, description, and photo
+          const result = JSON.parse(convert.xml2json(response.data, { compact: true, spaces: 2, ignoreCdata: true }));
+
+          const bookId = result.GoodreadsResponse.search.results.work[0].id._text;
+
+          const title = result.GoodreadsResponse.search.results.work[0].best_book.title._text;
+
+          const author = result.GoodreadsResponse.search.results.work[0].best_book.author.name._text;
+
+          const img = result.GoodreadsResponse.search.results.work[0].best_book.image_url._text;
+
+          const publicationYear = result.GoodreadsResponse.search.results.work[0].original_publication_year._text;
+
+          const rating = parseFloat(result.GoodreadsResponse.search.results.work[0].average_rating._text);
+
+          const getReview = (title) => {
+            const reviewURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + title + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+            axios.get(reviewURL)
+              .then(data => {
+                console.log(data.data.items[0].volumeInfo.description);
+              }).catch(error => {
+                console.log(error);
+              });
+          };
+
+          console.log(bookId);
+          console.log(title);
+          console.log(author);
+          console.log(img);
+          console.log(publicationYear);
+          console.log(rating);
+          getReview(title);
         }).catch(error => {
           console.log(error);
         });
@@ -100,7 +133,7 @@ module.exports = function (db) {
       });
     },
 
-    // ========= POST ROUTES =========
+    // ========= POST ROUTES ========
     addBookInternal: function (req, res) {
       db.Book.create(req.body).then(function (dbBook) {
         res.json(dbBook);

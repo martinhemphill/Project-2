@@ -4,78 +4,97 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2>{{msg}}</h2>
-         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+        <h2>Your next great read:</h2>
+        <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src={{this.img}} class="card-img" alt="bookImage">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"> {{this.title}}</h5>
+                <p class="card-text"> {{this.reviews}} </p>
+                <div class="dropdown">
+                   <select class="selectBook" id="bookInput">
+                      <option selected>Pick me!</option>
+                      <option value="28">Read</option>
+                      <option value="12">To Read</option>
+                      <option value="16">Currently Reading</option>
+                      </select>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <h2>Your next great read:</h2>
+          <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="..." class="card-img" alt="...">
+                <img src={{this.img}} class="card-img" alt="bookImage">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button id="addBook">Add Book</button>
+                  <h5 class="card-title"> {{this.title}}</h5>
+                  <p class="card-text"> {{this.reviews}} </p>
+                  <select class="selectBook" id="bookInput">
+                      <option selected>Pick me!</option>
+                      <option value="28">Read</option>
+                      <option value="12">To Read</option>
+                      <option value="16">Currently Reading</option>
+                      </select>
                 </div>
               </div>
             </div>
           </div>
 
-           <div class="col-12">
-        <h2>{{msg}}</h2>
-         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="..." class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button id="addBook">Add Book</button>
+          <div class="col-12">
+            <h2>Your next great read:</h2>
+            <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src={{this.img}} class="card-img" alt="bookImage">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"> {{this.title}}</h5>
+                    <p class="card-text"> {{this.reviews}} </p>
+                    <div class="dropdown">
+                      <select class="selectBook" id="bookInput">
+                      <option selected>Pick me!</option>
+                      <option value="28">Read</option>
+                      <option value="12">To Read</option>
+                      <option value="16">Currently Reading</option>
+                      </select>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {{!-- {{#each examples}}
+            <li data-id="{{this.id}}" class="list-group-item">
+              <a href="example/{{this.id}}">{{this.text}}</a>
+              <button class="btn btn-danger float-right delete">ｘ</button>
+            </li>
+            {{/each}}
+            </ul>
           </div>
-           <div class="col-12">
-        <h2>{{msg}}</h2>
-         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="..." class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button id="addBook">Add Book</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{!-- <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h4>Examples belong to this user:</h4>
-        <ul id="example-list" class="list-group"> --}}
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </div>
       </div>
+    </div> --}}
+
+    <div class="refreshBtn">
+      <button onClick="window.location.reload();" type="reload" class="btnRefresh btn-primary"> Refresh Books </button>
     </div>
-  </div>
-</div>
 
-<script src="/assets/js/example.js"></script>
+    <script src="/assets/js/example.js"></script>
 
-{{> modal/login-block}}
+    {{> modal/login-block}}
 
-<script>
-  var userId = {{userInfo.id}};
-</script>
+    <script>
+      var userId = {{ userInfo.id }};
+    </script>

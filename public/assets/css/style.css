@@ -32,6 +32,19 @@ body {
   color: black;
 }
 
+/* footer for all pages */
+.footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  padding: 7px;
+  background: #617056;
+  color: #aeb4b2;
+}
+
+
 /*login and reigster modal*/
 .modal {
   color: black;
@@ -122,6 +135,45 @@ hr {
 }
 
 .addBook:hover{
+  background-color: black;
+  border: 2px solid #aeb4b2;
+}
+
+/* Profile Page*/
+.userRow {
+  margin-top: 10%;
+  margin-left: 15%;
+  padding: 10px;
+}
+
+.readNowRow {
+  margin-left: 15%;
+  padding: 10px;
+}
+
+.card-header {
+  background-color: #aeb4b2;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
+}
+
+.card {
+  border: 2px solid #617056;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
+}
+
+/*view books page*/
+.btnRefresh{
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btnRefresh:hover{
   background-color: black;
   border: 2px solid #aeb4b2;
 }

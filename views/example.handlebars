@@ -3,21 +3,63 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-12">
         <h2>{{msg}}</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <button id="addBook">Add Book</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
+
+           <div class="col-12">
+        <h2>{{msg}}</h2>
+         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <button id="addBook">Add Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="col-12">
+        <h2>{{msg}}</h2>
+         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <button id="addBook">Add Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- <div class="form-group">
             <label for="example-description">Example Description</label>
             <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
         <h4>Examples belong to this user:</h4>
-        <ul id="example-list" class="list-group">
+        <ul id="example-list" class="list-group"> --}}
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="example/{{this.id}}">{{this.text}}</a>

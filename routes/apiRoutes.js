@@ -19,7 +19,8 @@ module.exports = (passport, db) => {
   router.delete('/examples/:id', AppController.deleteExample);
 
   // GoodReads GET routes
-  router.get('/books', AppController.getBookInfo);
+  router.get('/booksgr', AppController.getBookInfo);
+  router.get('/books', AppController.getBookInfoInternal);
   router.get('/userInfo', AppController.getUserInfo);
   router.get('/readPast/:id', AppController.getUserListPast);
   router.get('/readCurrent/:id', AppController.getUserListCurrent);

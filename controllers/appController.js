@@ -75,14 +75,14 @@ module.exports = function (db) {
         });
     },
     getBookReviews: function (req, res) {
-      db.reviews.findAll({}).then(data => {
+      db.Review.findAll({}).then(data => {
         res.json(data);
       }).catch(error => {
         console.log(error);
       });
     },
     getBookReviewsByID: function (req, res) {
-      db.reviews.findAll({
+      db.Review.findAll({
         where: {
           isbn: req.params.id
         }

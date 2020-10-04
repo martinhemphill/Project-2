@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 
 <head>
-    <title>profile</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 
 <body>
-    <header>
-        <nav id="navbar" class="navbar navbar-expand-lg">
-            <a id="siteName" class="navbar-brand" id="bookmarked" href="login.html"><img classs="img-responsive" width="125px" height="45px" src="./smallpng.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="recommend.html">Recommendations </span></a>
-                    <a class="nav-link" href="search.html">View Books</a>
-                    <a class="nav-link active" href="profile.html">Profile <span class="sr-only">(current)</a>
-                    <a class="nav-link" href="login.html">Login</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav id="navbar" class="navbar navbar-expand-lg">
+      <a id="siteName" class="navbar-brand" id="bookmarked" href="login.html"><img classs="img-responsive" width="125px"
+          height="45px" src="./smallpng.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="recommend.html">Recommendations </span></a>
+          <a class="nav-link" href="search.html">View Books</a>
+          <a class="nav-link active" href="profile.html">Profile <span class="sr-only">(current)</a>
+          <a class="nav-link" href="login.html">Login</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <section class="row userRow">
-        <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="card-header">Username</div>
-              <div class="col-md-4">
-                <img src="..." class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <p class="card-text">**Member since area**</p>
-                  <p class="card-text">**Books read area**</p>
-                </div>
-              </div>
-            </div>
+  <section class="row userRow">
+    <div class="col-md-6">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="card-header">Username</div>
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">**Member since area**</p>
+            <p class="card-text">**Books read area**</p>
           </div>
         </div>
+      </div>
+    </div>
+    </div>
 
-          <div class="col-md-6" id="readCard">
-          <div class="card mb-3" style="max-width: 18rem;">
-            <div class="card-header">Read</div>
-            <div class="card-body">
-              <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
-              <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
-            </div>
+    <div class="col-md-6" id="readCard">
+      <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">Read</div>
+        <div class="card-body">
+          <p class="card-text"> {{this.book}}</p>
+          <p class="card-text">{{this.title}}</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row readNowRow">
+    <div class="col-md-6">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="card-header">Reading Now</div>
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">**Book Info**</p>
+            <p class="card-text">**Book Info**</p>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+    </div>
 
-        <section class="row readNowRow">
-            <div class="col-md-6">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="card-header">Reading Now</div>
-                  <div class="col-md-4">
-                    <img src="..." class="card-img" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text">**Book Info**</p>
-                      <p class="card-text">**Book Info**</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-              <div class="col-md-6" id="readCard">
-              <div class="card mb-3" style="max-width: 18rem;">
-                <div class="card-header">TBR</div>
-                <div class="card-body">
-                  <p class="card-text">**Book info for tbr book**</p>
-                  <p class="card-text">**Book info for tbr book**</p>
-                  <p class="card-text">**Book info for tbr book**</p>
-                </div>
-            </div>
-              </div>
-            </section>
+    <div class="col-md-6" id="readCard">
+      <div class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header">TBR</div>
+        <div class="card-body">
+          <p class="card-text">**Book info for tbr book**</p>
+          <p class="card-text">**Book info for tbr book**</p>
+          <p class="card-text">**Book info for tbr book**</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!--footer section-->
+  <!--footer section-->
   <div class="footer">
     <div class="text-center text-muted">
       Names?
@@ -94,10 +95,10 @@
   </div>
 
 
-    <!-- jQuery CDN  -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="assets/script.js"></script>
+  <!-- jQuery CDN  -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="assets/script.js"></script>
 
 </body>
 

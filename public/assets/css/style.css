@@ -6,10 +6,16 @@ body {
   font-weight: bold;
 }
 
+/*login page jumbotron*/
 .jumbotron {
   background: rgba(0,0,0,0);
+  background-image: url("../images/bookmarked.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
+/*navbar for all pages*/
 .navbar{
   background: #617056;
 }
@@ -26,6 +32,20 @@ body {
   color: black;
 }
 
+/* footer for all pages */
+.footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  padding: 7px;
+  background: #617056;
+  color: #aeb4b2;
+}
+
+
+/*login and reigster modal*/
 .modal {
   color: black;
 }
@@ -64,6 +84,7 @@ body {
  height: 65px;
 }
 
+/*container for login page*/
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
@@ -87,6 +108,7 @@ body {
   font-weight: 500;
 }
 
+
 .userId h2, .header-wrap h1 {
   text-transform: capitalize;
 }
@@ -99,6 +121,59 @@ hr {
   line-height: 2.5;
 }
 
+/*card body for all pages*/
 .card-body {
   color: #444;
+}
+
+/*add book button on view books page*/
+.addBook{
+  background: #aeb4b2;
+  color: black;
+  border: 2px solid #617056;
+  font-weight: bold;
+}
+
+.addBook:hover{
+  background-color: black;
+  border: 2px solid #aeb4b2;
+}
+
+/* Profile Page*/
+.userRow {
+  margin-top: 10%;
+  margin-left: 15%;
+  padding: 10px;
+}
+
+.readNowRow {
+  margin-left: 15%;
+  padding: 10px;
+}
+
+.card-header {
+  background-color: #aeb4b2;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
+}
+
+.card {
+  border: 2px solid #617056;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
+}
+
+/*view books page*/
+.btnRefresh{
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btnRefresh:hover{
+  background-color: black;
+  border: 2px solid #aeb4b2;
 }

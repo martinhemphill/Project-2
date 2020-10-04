@@ -128,3 +128,12 @@ $('#login').on('click', function (event) {
     }
   });
 });
+
+$('select').on('change', function (event) {
+  event.preventDefault();
+  console.log($('#bookInput').val());
+});
+
+$('option').on('click', function () {
+  console.log(window.userId);
+});

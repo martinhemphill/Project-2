@@ -21,12 +21,14 @@ module.exports = (passport, db) => {
   // GoodReads GET routes
   router.get('/booksgr', AppController.getBookInfo);
   router.get('/books', AppController.getBookInfoInternal);
-  router.get('/userInfo', AppController.getUserInfo);
+  router.get('/userInfo/:id', AppController.getUserInfo);
   router.get('/readPast/:id', AppController.getUserListPast);
   router.get('/readCurrent/:id', AppController.getUserListCurrent);
   router.get('/readFuture/:id', AppController.getUserListFuture);
   router.get('/reviews', AppController.getBookReviews);
   router.get('/reviews/:id', AppController.getBookReviewsByID);
+  router.get('/connections/:followeeID', AppController.getFollowers);
+  router.get('/connections/:followerID', AppController.getFollowing);
   // Goodreads POST routes
   router.post('/books', AppController.addBookInternal);
   router.post('/connections', AppController.followUser);

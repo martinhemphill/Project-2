@@ -60,4 +60,6 @@ db.sequelize.sync(syncOptions).then(() => {
   });
 });
 
+console.log(`heres adam gates ${process.env.ADMIN_USER_PWD}`);
+
 module.exports = app;

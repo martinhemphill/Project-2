@@ -16,7 +16,7 @@
                 <p class="card-text"> {{this.reviews}} </p>
                 <div class="dropdown">
                    <select class="selectBook" id="bookInput">
-                      <option selected>Pick me!</option>
+                      <option>Pick me!</option>
                       <option value="28">Read</option>
                       <option value="12">To Read</option>
                       <option value="16">Currently Reading</option>
@@ -91,7 +91,9 @@
       <button onClick="window.location.reload();" type="reload" class="btnRefresh btn-primary"> Refresh Books </button>
     </div>
 
+    <script src="/assets/js/app.js"></script>
     <script src="/assets/js/example.js"></script>
+
 
     {{> modal/login-block}}
 

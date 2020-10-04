@@ -1,14 +1,14 @@
 body {
   color: white;
   background-size: cover;
-  height:100%;
+  height: 100%;
   font-family: 'Antic Slab', serif;
   font-weight: bold;
 }
 
 /*login page jumbotron*/
 .jumbotron {
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   background-image: url("../images/bookmarked.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -16,19 +16,20 @@ body {
 }
 
 /*navbar for all pages*/
-.navbar{
+.navbar {
   background: #617056;
 }
 
-.nav-link, .navbar-brand{
+.nav-link,
+.navbar-brand {
   color: #aeb4b2;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   color: black;
 }
 
-.navbar-brand:hover{
+.navbar-brand:hover {
   color: black;
 }
 
@@ -50,7 +51,7 @@ body {
   color: black;
 }
 
-.modal-header{
+.modal-header {
   background: #aeb4b2;
   border: 5px #617056;
 }
@@ -62,12 +63,15 @@ body {
   font-weight: bold;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: black;
   border: 2px solid #aeb4b2;
 }
 
-#user-form, .header-wrap, #create-form, .create-user-wrap {
+#user-form,
+.header-wrap,
+#create-form,
+.create-user-wrap {
   padding: 20px;
   border-radius: 15px;
   margin: 20px 0;
@@ -80,8 +84,8 @@ body {
 }
 
 #go-home {
- width: auto;
- height: 65px;
+  width: auto;
+  height: 65px;
 }
 
 /*container for login page*/
@@ -89,7 +93,7 @@ body {
   padding-bottom: 2%;
   margin-top: 10%;
   background: #aeb4b2;
-  height:100%;
+  height: 100%;
   border: 5px #617056;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -99,6 +103,7 @@ body {
 [data-useremail="true"] {
   color: white !important;
 }
+
 [data-register="true"] {
   color: white !important;
 }
@@ -109,7 +114,8 @@ body {
 }
 
 
-.userId h2, .header-wrap h1 {
+.userId h2,
+.header-wrap h1 {
   text-transform: capitalize;
 }
 
@@ -124,17 +130,28 @@ hr {
 /*card body for all pages*/
 .card-body {
   color: #444;
+  overflow-y: auto;
+}
+
+.container {
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 /*add book button on view books page*/
-.addBook{
+.addBook {
   background: #aeb4b2;
   color: black;
   border: 2px solid #617056;
   font-weight: bold;
 }
 
-.addBook:hover{
+.addBook:hover {
   background-color: black;
   border: 2px solid #aeb4b2;
 }
@@ -161,10 +178,17 @@ hr {
   border: 2px solid #617056;
   font-family: 'Antic Slab', serif;
   font-weight: bold;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 /*view books page*/
-.btnRefresh{
+.btnRefresh {
   background: white;
   color: black;
   border: 2px solid #617056;
@@ -173,7 +197,60 @@ hr {
   width: 100%;
 }
 
-.btnRefresh:hover{
+.btnRefresh:hover {
   background-color: black;
   border: 2px solid #aeb4b2;
 }
+
+.card-footer {
+  width: 100%;
+}
+
+.selectBook {
+  margin-left: 55%;
+}
+
+/*star rating on view books page*/
+.rate {
+  float: left;
+  height: 10px;
+  padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+  position: absolute;
+  top: -99px;
+}
+
+.rate:not(:checked)>label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+  content: '★ ';
+}
+
+.rate>input:checked~label {
+  color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+  color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+  color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */

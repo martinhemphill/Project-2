@@ -33,8 +33,9 @@ module.exports = function (db) {
     getUserListPast: function (req, res) {
       db.readPast.findAll({
         where: {
-          userID: req.params.id
-        }
+          UserId: req.params.id
+        },
+        include: [db.Book]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -44,8 +45,9 @@ module.exports = function (db) {
     getUserListCurrent: function (req, res) {
       db.readCurrent.findAll({
         where: {
-          userID: req.params.id
-        }
+          UserId: req.params.id
+        },
+        include: [db.Book]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -55,8 +57,9 @@ module.exports = function (db) {
     getUserListFuture: function (req, res) {
       db.readFuture.findAll({
         where: {
-          userID: req.params.id
-        }
+          UserId: req.params.id
+        },
+        include: [db.Book]
       }).then(data => {
         res.json(data);
       }).catch(error => {
@@ -124,7 +127,30 @@ module.exports = function (db) {
     getBookReviewsByID: function (req, res) {
       db.Review.findAll({
         where: {
-          isbn: req.params.id
+          BookIsbn: req.params.id
+        },
+        include: [db.book]
+      }).then(data => {
+        res.json(data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    getFollowers: function (req, res) {
+      db.Connection.findAll({
+        where: {
+          followeeID: req.params.followeeID
+        }
+      }).then(data => {
+        res.json(data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    getFollowing: function (req, res) {
+      db.Connection.findAll({
+        where: {
+          followerID: req.params.followerID
         }
       }).then(data => {
         res.json(data);

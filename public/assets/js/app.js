@@ -200,3 +200,33 @@ function addToListPast (user, book) {
     console.log(result);
   });
 };
+
+function followUser() {
+  const data = {
+    followerID: window.user,
+    followeeID: $(this).attr('title')
+  };
+  $.ajax({
+    type: 'POST',
+    url: 'api/connections',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  });
+}
+
+// ========DELETE========
+
+function unFollow() {
+  const data = {
+  followerID: window.user
+  followeeID: $('#div-name-placeholder')
+  }
+  $.ajax({
+    type:  'DELETE',
+    url: 'api/connections',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  })
+}

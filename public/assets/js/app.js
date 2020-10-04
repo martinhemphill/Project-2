@@ -128,3 +128,75 @@ $('#login').on('click', function (event) {
     }
   });
 });
+
+$('select').on('change', function (event) {
+  event.preventDefault();
+  console.log($('#bookInput').val());
+});
+
+$('option').on('click', function () {
+  console.log(window.userId);
+});
+
+// ========POST========
+
+function addToListFuture () {
+  const data = {
+    UserId: window.userId,
+    BookIsbn: $(this).attr('title')
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/readFuture',
+    data: data
+  }).then((result) => {
+    console.log(result);
+  });
+}
+
+function addToListCurrent () {
+  const data = {
+    UserId: window.userId,
+    BookIsbn: $(this).attr('title')
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/readCurrent',
+    data: data
+  }).then((result) => {
+    console.log(result);
+  });
+}
+
+function addReview () {
+  const data = {
+    rating: $('#ratings-div-placeholder').val(),
+    comments: $('#comments-div-placeholder').val(),
+    BookIsbn: $(this).attr('title'),
+    UserId: window.userId
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/reviews',
+    data: data
+  }).then(function (data) {
+    const user = data.userId;
+    const book = data.bookIsbn;
+
+    addToListPast(user, book);
+  });
+}
+
+function addToListPast (user, book) {
+  const data = {
+    UserId: user,
+    BookIsbn: book
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/readPast',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  });
+};

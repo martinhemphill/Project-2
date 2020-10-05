@@ -30,7 +30,6 @@ module.exports = (passport, db) => {
   // Goodreads POST routes
   router.post('/books', AppController.addBookInternal);
   router.post('/connections', AppController.followUser);
-  router.post('/recommendations', AppController.addRecommendation);
   router.post('/readFuture', AppController.addToFuture);
   router.post('/readCurrent', AppController.addToCurrent);
   router.post('/readPast', AppController.addToPast);

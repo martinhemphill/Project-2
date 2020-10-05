@@ -65,7 +65,7 @@ module.exports = function (sequelize, DataTypes) {
     User.belongsToMany(models.User, {
       through: 'Connections',
       as: 'Followee',
-      foreignKey: 'followeeid'
+      foreignKey: 'followeeId'
     });
   };
   // This will check if an unhashed password can be compared to the hashed password stored in our database

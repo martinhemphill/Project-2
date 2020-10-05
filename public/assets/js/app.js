@@ -201,7 +201,7 @@ function addToListPast (user, book) {
   });
 };
 
-function followUser() {
+function followUser () {
   const data = {
     followerID: window.user,
     followeeID: $(this).attr('title')
@@ -217,16 +217,30 @@ function followUser() {
 
 // ========DELETE========
 
-function unFollow() {
+function unFollow () {
   const data = {
-  followerID: window.user
-  followeeID: $('#div-name-placeholder')
-  }
+    followerID: window.user,
+    followeeID: $('#div-name-placeholder')
+  };
   $.ajax({
-    type:  'DELETE',
+    type: 'DELETE',
     url: 'api/connections',
     data: data
   }).then(function (result) {
     console.log(result);
-  })
+  });
+}
+
+function deleteFromCurrent() {
+  const data = {
+    userId: window.user,
+    BookIsbn: $('#div-name-placeholder')
+  };
+  $.ajax({
+    type: 'DELETE',
+    url: 'api/readCurrent',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  });
 }

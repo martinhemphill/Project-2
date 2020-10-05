@@ -24,7 +24,11 @@ module.exports = function (db) {
 
     // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
-      db.User.findAll({}).then(data => {
+      db.User.findOne({
+        where: {
+          userId: req.params.id
+        }
+      }).then(data => {
         res.json(data);
       }).catch(error => {
         console.log(error);
@@ -67,11 +71,11 @@ module.exports = function (db) {
       });
     },
     getBookInfo: function (req, res) {
-      const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&'
-      const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
-      const isbn = '978-0545162074';
-      const searchISBN = '&isbn_to_id=' + isbn;
-      const searchTitle = '&title=' + bookTitle;
+      const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&';
+      // const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
+      // const isbn = '978-0545162074';
+      // const searchISBN = '&isbn_to_id=' + isbn;
+      // const searchTitle = '&title=' + bookTitle;
       const queryURL = 'https://www.goodreads.com/search/index.xml?' + apiKey + '&q=Harry Potter and the Sorcerers Stone';
       axios.get(queryURL)
         .then((response) => {
@@ -209,12 +213,6 @@ module.exports = function (db) {
           followeeID: req.params.followeeID }
       }).then(function (dbConnection) {
         res.json(dbConnection);
-      });
-    },
-    deleteFromPast: function (req, res) {
-      db.readPast.destroy({ where: { id: req.params.id }
-      }).then(function (dbReadPast) {
-        res.json(dbReadPast);
       });
     },
     deleteFromCurrent: function (req, res) {

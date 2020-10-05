@@ -2,25 +2,32 @@
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     // Model attributes are defined here
-    isbn: {
+    bookId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    author: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    title: {
+    author: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    img: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    year: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    rating: {
+      type: DataTypes.FLOAT
     },
     description: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    photo: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     }
   });
 

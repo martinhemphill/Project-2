@@ -32,6 +32,7 @@ module.exports = (passport, db) => {
   router.get('/connections/:id', AppController.getFollowing);
 
   // Project POST routes
+
   router.post('/books', AppController.addBookInternal);
   router.post('/connections', AppController.followUser);
   router.post('/readFuture', AppController.addToFuture);

@@ -24,9 +24,10 @@ module.exports = function (db) {
 
     // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
-      db.User.findAll({
+
+      db.User.findOne({
         where: {
-          id: req.params.id
+          userId: req.params.id
         }
       }).then(data => {
         res.json(data);
@@ -78,7 +79,6 @@ module.exports = function (db) {
       // const searchISBN = '&isbn_to_id=' + isbn;
       // const searchTitle = '&title=' + bookTitle;
       const queryURL = 'https://www.goodreads.com/search/index.xml?' + apiKey + '&q=Harry Potter and the Sorcerers Stone';
-
       axios.get(queryURL)
         .then((response) => {
           const title = response.data.items[0].volumeInfo.title;

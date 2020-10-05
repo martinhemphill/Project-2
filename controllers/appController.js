@@ -158,12 +158,6 @@ module.exports = function (db) {
       });
     },
 
-    addRecommendation: function (req, res) {
-      db.Recommendation.create(req.body).then(function (dbRecommendation) {
-        res.json(dbRecommendation);
-      });
-    },
-
     addToFuture: function (req, res) {
       db.readFuture.create(req.body).then(function (dbAddToFuture) {
         res.json(dbAddToFuture);

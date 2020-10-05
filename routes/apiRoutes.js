@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const appController = require('../controllers/appController');
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 module.exports = (passport, db) => {
@@ -18,16 +19,20 @@ module.exports = (passport, db) => {
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
-  // GoodReads GET routes
+  // Project GET routes
   router.get('/booksgr', AppController.getBookInfo);
   router.get('/books', AppController.getBookInfoInternal);
-  router.get('/userInfo', AppController.getUserInfo);
+  router.get('/userInfo/:id', AppController.getUserInfo);
   router.get('/readPast/:id', AppController.getUserListPast);
   router.get('/readCurrent/:id', AppController.getUserListCurrent);
   router.get('/readFuture/:id', AppController.getUserListFuture);
   router.get('/reviews', AppController.getBookReviews);
   router.get('/reviews/:id', AppController.getBookReviewsByID);
-  // Goodreads POST routes
+  router.get('/connections/:id', AppController.getFollowers);
+  router.get('/connections/:id', AppController.getFollowing);
+
+  // Project POST routes
+
   router.post('/books', AppController.addBookInternal);
   router.post('/connections', AppController.followUser);
   router.post('/readFuture', AppController.addToFuture);
@@ -38,6 +43,7 @@ module.exports = (passport, db) => {
   router.delete('/connections', AppController.unFollow);
   router.delete('/readFuture', AppController.deleteFromFuture);
   router.delete('/readCurrent', AppController.deleteFromCurrent);
+
 
   return router;
 };

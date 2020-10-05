@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const appController = require('../controllers/appController');
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 module.exports = (passport, db) => {
@@ -27,10 +28,12 @@ module.exports = (passport, db) => {
   router.get('/readFuture/:id', AppController.getUserListFuture);
   router.get('/reviews', AppController.getBookReviews);
   router.get('/reviews/:id', AppController.getBookReviewsByID);
+  router.get('/connections/:id', AppController.getFollowers);
+  router.get('/connections/:id', AppController.getFollowing);
+
   // Goodreads POST routes
   router.post('/books', AppController.addBookInternal);
   router.post('/connections', AppController.followUser);
-  router.post('/recommendations', AppController.addRecommendation);
   router.post('/readFuture', AppController.addToFuture);
   router.post('/readCurrent', AppController.addToCurrent);
   router.post('/readPast', AppController.addToPast);

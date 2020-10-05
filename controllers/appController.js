@@ -24,7 +24,11 @@ module.exports = function (db) {
 
     // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
-      db.User.findAll({}).then(data => {
+      db.User.findOne({
+        where: {
+          userId: req.params.id
+        }
+      }).then(data => {
         res.json(data);
       }).catch(error => {
         console.log(error);
@@ -67,8 +71,13 @@ module.exports = function (db) {
       });
     },
     getBookInfo: function (req, res) {
-      const bookTitle = 'The Fault in Our Stars';
-      const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I'
+
+      const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&';
+      // const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
+      // const isbn = '978-0545162074';
+      // const searchISBN = '&isbn_to_id=' + isbn;
+      // const searchTitle = '&title=' + bookTitle;
+      const queryURL = 'https://www.goodreads.com/search/index.xml?' + apiKey + '&q=Harry Potter and the Sorcerers Stone';
       axios.get(queryURL)
         .then((response) => {
           const title = response.data.items[0].volumeInfo.title;
@@ -150,12 +159,6 @@ module.exports = function (db) {
       });
     },
 
-    addRecommendation: function (req, res) {
-      db.Recommendation.create(req.body).then(function (dbRecommendation) {
-        res.json(dbRecommendation);
-      });
-    },
-
     addToFuture: function (req, res) {
       db.readFuture.create(req.body).then(function (dbAddToFuture) {
         res.json(dbAddToFuture);
@@ -187,12 +190,6 @@ module.exports = function (db) {
           followeeID: req.params.followeeID }
       }).then(function (dbConnection) {
         res.json(dbConnection);
-      });
-    },
-    deleteFromPast: function (req, res) {
-      db.readPast.destroy({ where: { id: req.params.id }
-      }).then(function (dbReadPast) {
-        res.json(dbReadPast);
       });
     },
     deleteFromCurrent: function (req, res) {

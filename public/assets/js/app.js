@@ -54,6 +54,38 @@ $('#update-user').on('click', function (event) {
   }
 });
 
+// Get book info ***************************************************
+
+function getBookInfo (req, res) {
+  let searchTitle = '';
+
+  document.getElementById('submit-btn').addEventListener('click', function (title) {
+    // eslint-disable-next-line no-unused-vars
+    searchTitle = document.getElementById('search-value').value;
+    const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + searchTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+
+    $.ajax({
+      type: 'GET',
+      url: queryURL
+    }).then((response) => {
+      const bookTitle = response.items[0].volumeInfo.title;
+      const author = response.items[0].volumeInfo.authors[0];
+      const description = response.items[0].volumeInfo.description;
+      const bookId = response.items[0].id;
+      const image = response.items[0].volumeInfo.imageLinks.thumbnail;
+      console.log(`${bookId} \n \n${bookTitle} \n \n${author} \n \n${description} \n \n${image}`);
+      const output = `<p>${bookTitle} \n \n${author} \n \n${description} \n \n${image}</p>`;
+
+      const textArea = document.getElementById('data-output');
+
+      textArea.innerText = output;
+    }).catch(error => {
+      console.log(error);
+    });
+  });
+};
+getBookInfo();
+
 // DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
   event.preventDefault();

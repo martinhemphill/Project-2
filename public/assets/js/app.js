@@ -244,3 +244,17 @@ function deleteFromCurrent() {
     console.log(result);
   });
 }
+
+function deleteFromFuture() {
+  const data = {
+    userId: window.user,
+    BookIsbn: $('#div-name-placeholder')
+  };
+  $.ajax({
+    type: 'DELETE',
+    url: 'api/readFuture',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  });
+}

@@ -24,6 +24,7 @@ module.exports = function (db) {
 
     // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
+
       db.User.findOne({
         where: {
           userId: req.params.id

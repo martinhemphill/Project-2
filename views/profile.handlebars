@@ -4,12 +4,9 @@
 <section class="row userRow">
   <div class="col-md-6">
     <div class="card mb-3" style="max-width: 540px;">
-      <div class="card-header">Username</div>
-        <div class="col-md-4">
-          <img src="..." class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
+      <div class="card-header"> {{userInfo.firstName}} </div>
+        <div class="col-md-12">
+          <div class="card-body" id="cardBody1">
             <p class="card-text">**Member since area**</p>
             <p class="card-text">**Books read area**</p>
           </div>
@@ -18,10 +15,10 @@
     </div>
   </div>
 
-  <div class="col-md-6" id="readCard">
+  <div class="col-md-6" id="haveReadCard">
     <div class="card mb-3" style="max-width: 18rem;">
-      <div class="card-header">Read</div>
-        <div class="card-body">
+      <div class="card-header">Have Read</div>
+        <div class="card-body" id="cardBody2">
           <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
           <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
         </div>
@@ -33,11 +30,8 @@
   <div class="col-md-6">
     <div class="card mb-3" style="max-width: 540px;">
       <div class="card-header">Reading Now</div>
-        <div class="col-md-4">
-          <img src="..." class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
+        <div class="col-md-12">
+          <div class="card-body" id="cardBody3" >
             <p class="card-text">**Book Info**</p>
             <p class="card-text">**Book Info**</p>
           </div>
@@ -49,7 +43,7 @@
   <div class="col-md-6" id="readCard">
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">TBR</div>
-        <div class="card-body">
+        <div class="card-body" id="cardBody4">
           <p class="card-text">**Book info for tbr book**</p>
           <p class="card-text">**Book info for tbr book**</p>
           <p class="card-text">**Book info for tbr book**</p>
@@ -60,6 +54,23 @@
 
   	<br>
 	<br>
+
+   <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" id="copy-btn" class=" btn btn-secondary"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"> &times; </span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
 	 
 
 {{> modal/login-block}}

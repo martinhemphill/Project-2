@@ -7,94 +7,151 @@
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
           <div class="row no-gutters">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <img src={{this.img}} class="card-img" alt="bookImage">
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"> {{this.title}}</h5>
-                <p class="card-text"> {{this.reviews}} </p>
-                <div class="dropdown">
-                   <select class="selectBook" id="bookInput">
-                      <option selected>Pick me!</option>
-                      <option value="28">Read</option>
-                      <option value="12">To Read</option>
-                      <option value="16">Currently Reading</option>
-                      </select>
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <h2>Your next great read:</h2>
-          <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src={{this.img}} class="card-img" alt="bookImage">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title"> {{this.title}}</h5>
-                  <p class="card-text"> {{this.reviews}} </p>
-                  <select class="selectBook" id="bookInput">
-                      <option selected>Pick me!</option>
-                      <option value="28">Read</option>
-                      <option value="12">To Read</option>
-                      <option value="16">Currently Reading</option>
-                      </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12">
-            <h2>Your next great read:</h2>
-            <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <img src={{this.img}} class="card-img" alt="bookImage">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title"> {{this.title}}</h5>
-                    <p class="card-text"> {{this.reviews}} </p>
-                    <div class="dropdown">
-                      <select class="selectBook" id="bookInput">
-                      <option selected>Pick me!</option>
-                      <option value="28">Read</option>
-                      <option value="12">To Read</option>
-                      <option value="16">Currently Reading</option>
-                      </select>
-                      </div>
+            <div class="col-md-9">
+              <div class="card-body" id="cardBody5">
+                <h5 class="card-title"> </h5>
+                <p class="card-text">  </p>
+                <div class="card-footer text-muted">
+                  <div class="dropdown">
+                    <div class="rate">
+                      <input type="radio" id="star5" name="rate" value="5" />
+                      <label for="star5" title="text"></label>
+                      <input type="radio" id="star4" name="rate" value="4" />
+                      <label for="star4" title="text"></label>
+                      <input type="radio" id="star3" name="rate" value="3" />
+                      <label for="star3" title="text"></label>
+                      <input type="radio" id="star2" name="rate" value="2" />
+                      <label for="star2" title="text"></label>
+                      <input type="radio" id="star1" name="rate" value="1" />
+                      <label for="star1" title="text"></label>
                     </div>
+                    <select class="selectBook" id="bookInput">
+                      <option selected>Pick me!</option>
+                      <option value="28">Read</option>
+                      <option value="12">To Read</option>
+                      <option value="16">Currently Reading</option>
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
-
-            {{!-- {{#each examples}}
-            <li data-id="{{this.id}}" class="list-group-item">
-              <a href="example/{{this.id}}">{{this.text}}</a>
-              <button class="btn btn-danger float-right delete">ｘ</button>
-            </li>
-            {{/each}}
-            </ul>
           </div>
         </div>
       </div>
-    </div> --}}
 
-    <div class="refreshBtn">
-      <button onClick="window.location.reload();" type="reload" class="btnRefresh btn-primary"> Refresh Books </button>
+      <div class="col-12">
+        <h2>Your next great read:</h2>
+        <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src={{this.img}} class="card-img" alt="bookImage">
+            </div>
+            <div class="col-md-9">
+              <div class="card-body" id="cardBody6">
+                <h5 class="card-title"> {{this.title}}</h5>
+                <p class="card-text"> {{this.reviews}} </p>
+                <div class="card-footer text-muted">
+                  <div class="dropdown">
+                    <div class="rate">
+                      <input type="radio" id="star5" name="rate" value="5" />
+                      <label for="star5" title="text"></label>
+                      <input type="radio" id="star4" name="rate" value="4" />
+                      <label for="star4" title="text"></label>
+                      <input type="radio" id="star3" name="rate" value="3" />
+                      <label for="star3" title="text"></label>
+                      <input type="radio" id="star2" name="rate" value="2" />
+                      <label for="star2" title="text"></label>
+                      <input type="radio" id="star1" name="rate" value="1" />
+                      <label for="star1" title="text"></label>
+                    </div>
+                    <select class="selectBook" id="bookInput">
+                      <option selected>Pick me!</option>
+                      <option value="28">Read</option>
+                      <option value="12">To Read</option>
+                      <option value="16">Currently Reading</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <h2>Your next great read:</h2>
+        <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src={{this.img}} class="card-img" alt="bookImage">
+            </div>
+            <div class="col-md-9">
+              <div class="card-body" id="cardBody7">
+                <h5 class="card-title">  </h5>
+                <p class="card-text">  </p>
+                <div class="card-footer text-muted">
+                  <div class="dropdown">
+                    <div class="rate">
+                      <input type="radio" id="star5" name="rate" value="5" />
+                      <label for="star5" title="text"></label>
+                      <input type="radio" id="star4" name="rate" value="4" />
+                      <label for="star4" title="text"></label>
+                      <input type="radio" id="star3" name="rate" value="3" />
+                      <label for="star3" title="text"></label>
+                      <input type="radio" id="star2" name="rate" value="2" />
+                      <label for="star2" title="text"></label>
+                      <input type="radio" id="star1" name="rate" value="1" />
+                      <label for="star1" title="text"></label>
+                    </div>
+                    <select class="selectBook" id="bookInput">
+                      <option selected>Pick me!</option>
+                      <option value="28">Read</option>
+                      <option value="12">To Read</option>
+                      <option value="16">Currently Reading</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12">
+        <div class="refreshBtn">
+          <button onClick="window.location.reload();" type="reload" class="btnRefresh btn-primary"> Refresh Books
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script src="/assets/js/example.js"></script>
+ <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Reviews: </h5>
+          <button type="button" id="copy-btn" class=" btn btn-secondary"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"> &times; </span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="/assets/js/example.js"></script>
 
-    {{> modal/login-block}}
+{{> modal/login-block}}
 
-    <script>
-      var userId = {{ userInfo.id }};
-    </script>
+<script>
+  var userId = {{ userInfo.id }};
+</script>

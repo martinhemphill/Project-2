@@ -138,6 +138,23 @@ $('option').on('click', function () {
   console.log(window.userId);
 });
 
+// ========GET=========
+
+$('.followers').on('click', function () {
+  const user = window.user;
+  $.ajax({
+    type: 'GET',
+    url: `/api/connections/${user}`
+  }).then(function (res) {
+    const followerList = $('<ul>');
+    for (let i = 0; i < res.length; i++) {
+      const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
+      followerList.append(oneFollower);
+    }
+    $('.modal-body').append(followerList).css('z-index', '2');
+  });
+});
+
 // ========POST========
 
 function addToListFuture () {
@@ -201,7 +218,7 @@ function addToListPast (user, book) {
   });
 };
 
-function followUser() {
+function followUser () {
   const data = {
     followerID: window.user,
     followeeID: $(this).attr('title')
@@ -217,16 +234,16 @@ function followUser() {
 
 // ========DELETE========
 
-function unFollow() {
+function unFollow () {
   const data = {
-  followerID: window.user
-  followeeID: $('#div-name-placeholder')
-  }
+    followerId: window.user,
+    followeeId: $('#div-name-placeholder')
+  };
   $.ajax({
-    type:  'DELETE',
+    type: 'DELETE',
     url: 'api/connections',
     data: data
   }).then(function (result) {
     console.log(result);
-  })
+  });
 }

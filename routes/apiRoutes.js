@@ -6,7 +6,7 @@ module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
 
-  // Authentication
+  // Authentication (provided)
   router.post('/register', AuthController.register);
   router.post('/login', AuthController.login);
   router.get('/logout', AuthController.logout);
@@ -14,7 +14,7 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
-  // App
+  // Example App (provided)
   router.get('/examples', AppController.getExamples);
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
@@ -39,11 +39,11 @@ module.exports = (passport, db) => {
   router.post('/readCurrent', AppController.addToCurrent);
   router.post('/readPast', AppController.addToPast);
   router.post('/reviews', AppController.addReview);
+  // Goodreads DELETE routes
+  router.delete('/connections', AppController.unFollow);
+  router.delete('/readFuture', AppController.deleteFromFuture);
+  router.delete('/readCurrent', AppController.deleteFromCurrent);
 
-  // Project DELETE routes
-  router.post('/connections', AppController.unFollow);
-  router.post('/userlistcurrent', AppController.deleteFromCurrent);
-  router.post('/userlistfuture', AppController.deleteFromFuture);
 
   return router;
 };

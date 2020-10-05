@@ -24,7 +24,6 @@ module.exports = function (db) {
 
     // ========= GET ROUTES =========
     getUserInfo: function (req, res) {
-
       db.User.findOne({
         where: {
           userId: req.params.id
@@ -72,7 +71,6 @@ module.exports = function (db) {
       });
     },
     getBookInfo: function (req, res) {
-
       const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&';
       // const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
       // const isbn = '978-0545162074';

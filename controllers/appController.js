@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const convert = require('xml-js');
+// const convert = require('xml-js');
 
 module.exports = function (db) {
   return {
@@ -103,19 +103,24 @@ module.exports = function (db) {
         console.log(error);
       });
     },
-    getBookReviews: function (req, res) {
-      db.Review.findAll({}).then(data => {
+    getBookReviewsByUser: function (req, res) {
+      db.Review.findAll({
+        where: {
+          UserId: req.params.id
+        },
+        include: [db.Book]
+      }).then(data => {
         res.json(data);
       }).catch(error => {
         console.log(error);
       });
     },
-    getBookReviewsByID: function (req, res) {
+    getBookReviewsByBook: function (req, res) {
       db.Review.findAll({
         where: {
           BookIsbn: req.params.id
         },
-        include: [db.book]
+        include: [db.User]
       }).then(data => {
         res.json(data);
       }).catch(error => {

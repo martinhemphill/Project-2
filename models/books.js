@@ -38,6 +38,15 @@ module.exports = (sequelize, DataTypes) => {
     Book.hasMany(models.Recommendation, {
       onDelete: 'cascade'
     });
+    Book.hasMany(models.readPast, {
+      onDelete: 'cascade'
+    });
+    Book.hasMany(models.readCurrent, {
+      onDelete: 'cascade'
+    });
+    Book.hasMany(models.readFuture, {
+      onDelete: 'cascade'
+    });
   };
 
   return Book;

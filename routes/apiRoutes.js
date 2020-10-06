@@ -26,8 +26,8 @@ module.exports = (passport, db) => {
   router.get('/readPast/:id', AppController.getUserListPast);
   router.get('/readCurrent/:id', AppController.getUserListCurrent);
   router.get('/readFuture/:id', AppController.getUserListFuture);
-  router.get('/reviews', AppController.getBookReviews);
-  router.get('/reviews/:id', AppController.getBookReviewsByID);
+  router.get('/reviews', AppController.getBookReviewsByUser);
+  router.get('/reviews/:id', AppController.getBookReviewsByBook);
   router.get('/connections/:id', AppController.getFollowers);
   router.get('/connections/:id', AppController.getFollowing);
 

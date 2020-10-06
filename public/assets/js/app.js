@@ -59,9 +59,9 @@ $('#update-user').on('click', function (event) {
 function getBookInfo (req, res) {
   let searchTitle = '';
 
-  document.getElementById('submit-btn').addEventListener('click', function (title) {
+  $('.view-books').on('click', function (title) {
     // eslint-disable-next-line no-unused-vars
-    searchTitle = document.getElementById('search-value').value;
+    searchTitle = $('#search-value').val();
     const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + searchTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
 
     $.ajax({
@@ -76,7 +76,7 @@ function getBookInfo (req, res) {
       console.log(`${bookId} \n \n${bookTitle} \n \n${author} \n \n${description} \n \n${image}`);
       const output = `<p>${bookTitle} \n \n${author} \n \n${description} \n \n${image}</p>`;
 
-      const textArea = document.getElementById('data-output');
+      const textArea = $('#data-output').html(output);
 
       textArea.innerText = output;
     }).catch(error => {
@@ -161,18 +161,11 @@ $('#login').on('click', function (event) {
   });
 });
 
-$('select').on('change', function (event) {
-  event.preventDefault();
-  console.log($('#bookInput').val());
-});
-
-$('option').on('click', function () {
-  console.log(window.userId);
-});
+$('.profile').on('click', getMyInfo(window.userId));
 
 // ========GET=========
 
-$('.followers').on('click', function () {
+$('.followers').on('click', function getFollowers() {
   const user = window.user;
   $.ajax({
     type: 'GET',
@@ -186,6 +179,32 @@ $('.followers').on('click', function () {
     $('.modal-body').append(followerList).css('z-index', '2');
   });
 });
+
+function getMyInfo (id) {
+  const user = id;
+  $.ajax({
+    type: 'GET',
+    url: `/api/userInfo/${user}`
+  }).then(function (res) {
+    const joinDate = new Date(res.createdAt);
+    const memberSince = joinDate.toLocaleDateString();
+    $('member-since').append(memberSince);
+  });
+};
+
+function getUserListFuture (id) {
+  $.ajax({
+    type: 'GET',
+    url: `/api/readFuture/${id}`
+  }).then(function (res) {
+    const futureList = $('<ul>');
+    $('#cardBody4').append(futureList)
+    for (let i = 0; i < res.length; i++) {
+      const futureItem = $('<li>').html(res.Book.title);
+      futureList.append(futureItem);
+    }
+  });
+}
 
 // ========POST========
 

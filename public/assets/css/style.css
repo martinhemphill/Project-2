@@ -188,6 +188,28 @@ hr {
 }
 
 /*view books page*/
+
+/*search books area*/
+#searchBook{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#bookAuthor, #bookTitle{
+  margin-left: 15%;
+}
+
+/*reviews button*/
+#btnReview{
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  margin-left: 70%;
+}
+
+/*refresh button*/
 .btnRefresh {
   background: white;
   color: black;

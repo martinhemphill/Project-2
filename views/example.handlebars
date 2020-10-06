@@ -4,6 +4,13 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
+        <textarea id="searchBook" name="searchBook" rows="1" cols="50" placeholder="Search for a book here"></textarea>
+        <input type="radio" id="bookAuthor" name="author" value="author">
+<label for="bookAuthor">Author Name</label>
+<input type="radio" id="bookTitle" name="title" value="title">
+<label for="bookTitle">Book Title</label>
+      </div>
+      <div class="col-12">
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
           <div class="row no-gutters">
@@ -15,6 +22,7 @@
                 <h5 class="card-title"> </h5>
                 <p class="card-text">  </p>
                 <div class="card-footer text-muted">
+                  <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
                     <div class="rate">
                       <input type="radio" id="star5" name="rate" value="5" />
@@ -54,6 +62,7 @@
                 <h5 class="card-title"> {{this.title}}</h5>
                 <p class="card-text"> {{this.reviews}} </p>
                 <div class="card-footer text-muted">
+                  <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
                     <div class="rate">
                       <input type="radio" id="star5" name="rate" value="5" />
@@ -92,7 +101,8 @@
               <div class="card-body" id="cardBody7">
                 <h5 class="card-title">  </h5>
                 <p class="card-text">  </p>
-                <div class="card-footer text-muted">
+                <div id="cardFooter" class="card-footer text-muted">
+                  <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
                     <div class="rate">
                       <input type="radio" id="star5" name="rate" value="5" />
@@ -131,24 +141,29 @@
   </div>
 </div>
 
- <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">Reviews: </h5>
-          <button type="button" id="copy-btn" class=" btn btn-secondary"></button>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"> &times; </span>
-          </button>
-        </div>
-        <div class="modal-body">
-        <div class="modal-footer">
-        </div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Book Reviews</h4>
+      </div>
+      <div id="modalBody" class="modal-body">
+        {{!-- <p>Some text in the modal.</p> --}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+
   </div>
+</div>
+
 <script src="/assets/js/example.js"></script>
+<script src="../public/assets/js/app.js"
 
 {{> modal/login-block}}
 

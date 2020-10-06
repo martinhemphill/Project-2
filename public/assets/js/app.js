@@ -56,35 +56,70 @@ $('#update-user').on('click', function (event) {
 
 // Get book info ***************************************************
 
-function getBookInfo (req, res) {
-  let searchTitle = '';
+// function getBookInfo (req, res) {
+//   let searchTitle = 'gonzo';
 
-  $('.view-books').on('click', function (title) {
-    // eslint-disable-next-line no-unused-vars
-    searchTitle = $('#search-value').val();
-    const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + searchTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+$('.view-books').on('click', function (event) {
+  event.preventDefault();
+  console.log(`we clicked view books!`);
+  // eslint-disable-next-line no-unused-vars
+  // $('#search-value').val();
+  const searchTitle = 'gonzo';
+  const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + searchTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+  console.log(queryURL);
+  $.ajax({
+    type: 'GET',
+    url: queryURL
+  }).then((response) => {
+    // First Card
+    const bookTitle5 = response.items[0].volumeInfo.title;
+    const author5 = response.items[0].volumeInfo.authors[0];
+    const description5 = response.items[0].volumeInfo.description;
+    // const bookId = response.items[0].id;
+    const image5 = response.items[0].volumeInfo.imageLinks.thumbnail;
 
-    $.ajax({
-      type: 'GET',
-      url: queryURL
-    }).then((response) => {
-      const bookTitle = response.items[0].volumeInfo.title;
-      const author = response.items[0].volumeInfo.authors[0];
-      const description = response.items[0].volumeInfo.description;
-      const bookId = response.items[0].id;
-      const image = response.items[0].volumeInfo.imageLinks.thumbnail;
-      console.log(`${bookId} \n \n${bookTitle} \n \n${author} \n \n${description} \n \n${image}`);
-      const output = `<p>${bookTitle} \n \n${author} \n \n${description} \n \n${image}</p>`;
+    // Second Card
+    const bookTitle6 = response.items[1].volumeInfo.title;
+    const author6 = response.items[1].volumeInfo.authors[0];
+    const description6 = response.items[1].volumeInfo.description;
+    // const bookId = response.items[0].id;
+    const image6 = response.items[1].volumeInfo.imageLinks.thumbnail;
 
-      const textArea = $('#data-output').html(output);
+    // Third Card
+    const bookTitle7 = response.items[2].volumeInfo.title;
+    const author7 = response.items[2].volumeInfo.authors[0];
+    const description7 = response.items[2].volumeInfo.description;
+    // const bookId = response.items[0].id;
+    const image7 = response.items[2].volumeInfo.imageLinks.thumbnail;
 
-      textArea.innerText = output;
-    }).catch(error => {
-      console.log(error);
-    });
+    const titleAuthorSpace5 = $('<h5>').attr('class', 'title-author').html(`${bookTitle5} | ${author5}`);
+    const titleAuthorSpace6 = $('<h5>').attr('class', 'title-author').html(`${bookTitle6} | ${author6}`);
+    const titleAuthorSpace7 = $('<h5>').attr('class', 'title-author').html(`${bookTitle7} | ${author7}`);
+    const descSpace5 = $('<p>').attr('class', 'book-description').html(`${description5}`);
+    const descSpace6 = $('<p>').attr('class', 'book-description').html(`${description6}`);
+    const descSpace7 = $('<p>').attr('class', 'book-description').html(`${description7}`);
+    const imgSpace5 = $('<img>').attr('src', image5);
+    const imgSpace6 = $('<img>').attr('src', image6);
+    const imgSpace7 = $('<img>').attr('src', image7);
+
+    $('#cardBody5').append(titleAuthorSpace5, descSpace5);
+    $('.imgDiv5').append(imgSpace5);
+    $('#cardBody6').append(titleAuthorSpace6, descSpace6);
+    $('.imgDiv6').append(imgSpace6);
+    $('#cardBody7').append(titleAuthorSpace7, descSpace7);
+    $('.imgDiv7').append(imgSpace7);
+
+    // console.log(`${bookId} \n \n${bookTitle} \n \n${author} \n \n${description} \n \n${image}`);
+    // const output = `<p>${bookTitle} \n \n${author} \n \n${description} \n \n${image}</p>`;
+    // const textArea = $('#data-output').html(output);
+
+    // textArea.innerText = output;
+  }).catch(error => {
+    console.log(error);
   });
-};
-getBookInfo();
+});
+// };
+// getBookInfo();
 
 // DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
@@ -166,7 +201,7 @@ $('.profile').on('click', getMyInfo(window.userId));
 // ========GET=========
 
 // function to get users followers
-$('.followers').on('click', function getFollowers() {
+$('.followers').on('click', function getFollowers () {
   const user = window.user;
   $.ajax({
     type: 'GET',
@@ -201,7 +236,7 @@ function getUserListFuture (id) {
     url: `/api/readFuture/${id}`
   }).then(function (res) {
     const futureList = $('<ul>');
-    $('#cardBody4').append(futureList)
+    $('#cardBody4').append(futureList);
     for (let i = 0; i < res.length; i++) {
       const futureItem = $('<li>').html(res.Book.title);
       futureList.append(futureItem);
@@ -216,7 +251,7 @@ function getUserListCurrent (id) {
     url: `/api/readFuture/${id}`
   }).then(function (res) {
     const currentList = $('<ul>');
-    $('#cardBody3').append(currentList)
+    $('#cardBody3').append(currentList);
     for (let i = 0; i < res.length; i++) {
       const currentItem = $('<li>').html(res.Book.title);
       currentList.append(currentItem);
@@ -231,7 +266,7 @@ function getUserListPast (id) {
     url: `/api/readPast/${id}`
   }).then(function (res) {
     const pastList = $('<ul>');
-    $('#cardBody2').append(pastList)
+    $('#cardBody2').append(pastList);
     for (let i = 0; i < res.length; i++) {
       const pastItem = $('<li>').html(res.Book.title);
       pastList.append(pastItem);
@@ -240,19 +275,21 @@ function getUserListPast (id) {
 }
 
 // function to get reviews
-const btn = document.getElementById("btnReview");
+const btn = $('#btnReview');
+
 function getBookReviews (id) {
   $.ajax({
     type: 'GET',
     url: `/api/reviews/${id}`
-}).then(function (res){
-  const reviewsList = $('<ul>');
-    $('#modalBody').append(reviewsList)
+  }).then(function (res) {
+    const reviewsList = $('<ul>');
+    $('#modalBody').append(reviewsList);
     for (let i = 0; i < res.length; i++) {
       const reviewItem = $('<li>').html(res.Book.review);
       reviewsList.append(reviewItem);
-  }
-});
+    }
+  });
+}
 
 // ========POST========
 
@@ -361,7 +398,7 @@ function unFollow () {
   });
 }
 
-function deleteFromCurrent() {
+function deleteFromCurrent () {
   const data = {
     userId: window.user,
     BookIsbn: $('#div-name-placeholder')
@@ -375,7 +412,7 @@ function deleteFromCurrent() {
   });
 }
 
-function deleteFromFuture() {
+function deleteFromFuture () {
   const data = {
     userId: window.user,
     BookIsbn: $('#div-name-placeholder')

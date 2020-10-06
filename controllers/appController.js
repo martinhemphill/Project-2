@@ -26,7 +26,7 @@ module.exports = function (db) {
     getUserInfo: function (req, res) {
       db.User.findOne({
         where: {
-          userId: req.params.id
+          id: req.params.id
         }
       }).then(data => {
         res.json(data);
@@ -118,7 +118,7 @@ module.exports = function (db) {
     getBookReviewsByBook: function (req, res) {
       db.Review.findAll({
         where: {
-          BookIsbn: req.params.id
+          BookId: req.params.id
         },
         include: [db.User]
       }).then(data => {
@@ -130,7 +130,7 @@ module.exports = function (db) {
     getFollowers: function (req, res) {
       db.Connection.findAll({
         where: {
-          followeeID: req.params.followeeID
+          followeeId: req.params.followeeId
         }
       }).then(data => {
         res.json(data);
@@ -141,7 +141,7 @@ module.exports = function (db) {
     getFollowing: function (req, res) {
       db.Connection.findAll({
         where: {
-          followerID: req.params.followerID
+          followerId: req.params.followerId
         }
       }).then(data => {
         res.json(data);

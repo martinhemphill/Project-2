@@ -165,6 +165,7 @@ $('.profile').on('click', getMyInfo(window.userId));
 
 // ========GET=========
 
+// function to get users followers
 $('.followers').on('click', function getFollowers() {
   const user = window.user;
   $.ajax({
@@ -180,6 +181,7 @@ $('.followers').on('click', function getFollowers() {
   });
 });
 
+// function to get user information
 function getMyInfo (id) {
   const user = id;
   $.ajax({
@@ -192,6 +194,7 @@ function getMyInfo (id) {
   });
 };
 
+// function to get the users want to read list
 function getUserListFuture (id) {
   $.ajax({
     type: 'GET',
@@ -205,6 +208,51 @@ function getUserListFuture (id) {
     }
   });
 }
+
+// Function to get the users currently reading list
+function getUserListCurrent (id) {
+  $.ajax({
+    type: 'GET',
+    url: `/api/readFuture/${id}`
+  }).then(function (res) {
+    const currentList = $('<ul>');
+    $('#cardBody3').append(currentList)
+    for (let i = 0; i < res.length; i++) {
+      const currentItem = $('<li>').html(res.Book.title);
+      currentList.append(currentItem);
+    }
+  });
+}
+
+// Function to get the users currently reading list
+function getUserListPast (id) {
+  $.ajax({
+    type: 'GET',
+    url: `/api/readPast/${id}`
+  }).then(function (res) {
+    const pastList = $('<ul>');
+    $('#cardBody2').append(pastList)
+    for (let i = 0; i < res.length; i++) {
+      const pastItem = $('<li>').html(res.Book.title);
+      pastList.append(pastItem);
+    }
+  });
+}
+
+// function to get reviews
+const btn = document.getElementById("btnReview");
+function getBookReviews (id) {
+  $.ajax({
+    type: 'GET',
+    url: `/api/reviews/${id}`
+}).then(function (res){
+  const reviewsList = $('<ul>');
+    $('#modalBody').append(reviewsList)
+    for (let i = 0; i < res.length; i++) {
+      const reviewItem = $('<li>').html(res.Book.review);
+      reviewsList.append(reviewItem);
+  }
+});
 
 // ========POST========
 
@@ -283,6 +331,20 @@ function followUser () {
   });
 }
 
+// function addBookInternal () {
+//   const data = {
+//     userId: window.user,
+//     BookIsbn: $(this).attr('title')
+//   };
+//   $.ajax({
+//     type: 'POST',
+//     url: '',
+//     data: data
+//   }).then(function (result) {
+//     console.log(result);
+//   });
+// }
+
 // ========DELETE========
 
 function unFollow () {
@@ -325,6 +387,4 @@ function deleteFromFuture() {
   }).then(function (result) {
     console.log(result);
   });
-
 }
-

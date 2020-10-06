@@ -138,9 +138,9 @@ $('select').on('change', function (event) {
     data: data
   }).then(function (res) {
     console.log(res, res.year, window.userId);
-    if (res.yearCarry === 'future') {
+    if (res.year === 'future') {
       addToListFuture(res.id);
-    } else if (res.yearCarry === 'current') {
+    } else if (res.year === 'current') {
       addToListCurrent(res.id);
     } else {
       addReview(res.id);

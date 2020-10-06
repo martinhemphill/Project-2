@@ -71,12 +71,8 @@ module.exports = function (db) {
       });
     },
     getBookInfo: function (req, res) {
-      const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&';
-      // const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
-      // const isbn = '978-0545162074';
-      // const searchISBN = '&isbn_to_id=' + isbn;
-      // const searchTitle = '&title=' + bookTitle;
-      const queryURL = 'https://www.goodreads.com/search/index.xml?' + apiKey + '&q=Harry Potter and the Sorcerers Stone';
+      const searchTitle = 'Harry Potter and the Sorcerer\'s Stone';
+      const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + searchTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
       axios.get(queryURL)
         .then((response) => {
           const title = response.data.items[0].volumeInfo.title;

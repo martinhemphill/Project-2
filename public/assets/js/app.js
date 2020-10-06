@@ -194,6 +194,22 @@ function getMyInfo (id) {
   });
 };
 
+//  function to get list of people user follows
+$('.following').on('click', function getFollowing() {
+  const user = window.user;
+  $.ajax({
+    type: 'GET',
+    url: `/api/connections/${user}`
+  }).then(function (res) {
+    const followingList = $('<ul>');
+    for (let i = 0; i < res.length; i++) {
+      const oneFollowee = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
+      followingList.append(oneFollowee);
+    }
+    $('.modal-body').append(followingList).css('z-index', '2');
+  });
+});
+
 // function to get the users want to read list
 function getUserListFuture (id) {
   $.ajax({
@@ -331,19 +347,19 @@ function followUser () {
   });
 }
 
-// function addBookInternal () {
-//   const data = {
-//     userId: window.user,
-//     BookIsbn: $(this).attr('title')
-//   };
-//   $.ajax({
-//     type: 'POST',
-//     url: '',
-//     data: data
-//   }).then(function (result) {
-//     console.log(result);
-//   });
-// }
+function addBookInternal () {
+  const data = {
+    userId: window.user,
+    BookId: $(this).attr('title')
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/books',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  });
+}
 
 // ========DELETE========
 

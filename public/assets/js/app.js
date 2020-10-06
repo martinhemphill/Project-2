@@ -61,12 +61,13 @@ $('#update-user').on('click', function (event) {
 
 $('.view-books').on('click', function (event) {
   event.preventDefault();
-  console.log($(this));
-  console.log(`we clicked view books!`);
+  findBook('title', 'wildcard');
   // eslint-disable-next-line no-unused-vars
   // $('#search-value').val();
-  const searchTitle = 'gonzo';
-  const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + searchTitle + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+});
+
+function findBook (val, query) {
+  const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
   console.log(queryURL);
   $.ajax({
     type: 'GET',
@@ -112,7 +113,7 @@ $('.view-books').on('click', function (event) {
   }).catch(error => {
     console.log(error);
   });
-});
+};
 
 $('select').on('change', function (event) {
   event.preventDefault();

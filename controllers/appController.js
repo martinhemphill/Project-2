@@ -26,7 +26,7 @@ module.exports = function (db) {
     getUserInfo: function (req, res) {
       db.User.findOne({
         where: {
-          userId: req.params.id
+          id: req.params.id
         }
       }).then(data => {
         res.json(data);

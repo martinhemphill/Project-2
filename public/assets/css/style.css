@@ -1,24 +1,77 @@
 body {
   color: white;
   background-size: cover;
-  height:100%
+  height: 100%;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
 }
 
+/*login page jumbotron*/
 .jumbotron {
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
+  background-image: url("../images/bookmarked.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
+/*navbar for all pages*/
+.navbar {
+  background: #617056;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #aeb4b2;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.navbar-brand:hover {
+  color: black;
+}
+
+/* footer for all pages */
+.bottomFooter {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  padding: 7px;
+  background: #617056;
+  color: #aeb4b2;
+}
+
+
+/*login and reigster modal*/
 .modal {
   color: black;
 }
 
-.btn {
-  color:white;
-  background:#cadde1;
-  border: 1px solid white;
+.modal-header {
+  background: #aeb4b2;
+  border: 5px #617056;
 }
 
-#user-form, .header-wrap, #create-form, .create-user-wrap {
+.btn {
+  background: #aeb4b2;
+  color: black;
+  border: 2px solid #617056;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: black;
+  border: 2px solid #aeb4b2;
+}
+
+#user-form,
+.header-wrap,
+#create-form,
+.create-user-wrap {
   padding: 20px;
   border-radius: 15px;
   margin: 20px 0;
@@ -31,15 +84,17 @@ body {
 }
 
 #go-home {
- width: auto;
- height: 65px;
+  width: auto;
+  height: 65px;
 }
 
+/*container for login page*/
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
+  background: #aeb4b2;
+  height: 100%;
+  border: 5px #617056;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 600px;
@@ -48,6 +103,7 @@ body {
 [data-useremail="true"] {
   color: white !important;
 }
+
 [data-register="true"] {
   color: white !important;
 }
@@ -57,7 +113,9 @@ body {
   font-weight: 500;
 }
 
-.userId h2, .header-wrap h1 {
+
+.userId h2,
+.header-wrap h1 {
   text-transform: capitalize;
 }
 
@@ -69,6 +127,152 @@ hr {
   line-height: 2.5;
 }
 
+/*card body for all pages*/
 .card-body {
   color: #444;
+  overflow-y: auto;
 }
+
+.container {
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+/*add book button on view books page*/
+.addBook {
+  background: #aeb4b2;
+  color: black;
+  border: 2px solid #617056;
+  font-weight: bold;
+}
+
+.addBook:hover {
+  background-color: black;
+  border: 2px solid #aeb4b2;
+}
+
+/* Profile Page*/
+.userRow {
+  margin-top: 10%;
+  margin-left: 15%;
+  padding: 10px;
+}
+
+.readNowRow {
+  margin-left: 15%;
+  padding: 10px;
+}
+
+.card-header {
+  background-color: #aeb4b2;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
+}
+
+.card {
+  border: 2px solid #617056;
+  font-family: 'Antic Slab', serif;
+  font-weight: bold;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+/*view books page*/
+
+/*search books area*/
+#searchBook{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#bookAuthor, #bookTitle{
+  margin-left: 15%;
+}
+
+/*reviews button*/
+#btnReview{
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  margin-left: 70%;
+}
+
+/*refresh button*/
+.btnRefresh {
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btnRefresh:hover {
+  background-color: black;
+  border: 2px solid #aeb4b2;
+}
+
+.card-footer {
+  width: 100%;
+}
+
+.selectBook {
+  margin-left: 55%;
+}
+
+/*star rating on view books page*/
+.rate {
+  float: left;
+  height: 10px;
+  padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+  position: absolute;
+  top: -99px;
+}
+
+.rate:not(:checked)>label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+  content: '★ ';
+}
+
+.rate>input:checked~label {
+  color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+  color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+  color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */

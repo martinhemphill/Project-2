@@ -1,6 +1,59 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
+  // ======GROUP 2 ROUTES==jf==
+  // Load profile page
+  router.get('/profile', (req, res) => {
+    if (req.isAuthenticated()) {
+      db.User.findOne({
+        where: {
+          id: req.session.passport.user.id
+        }
+      }).then(() => {
+        const user = {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        };
+        // console.log(user);
+        res.render('profile', user);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // Load login page
+  router.get('/login', (req, res) => {
+    res.render('login');
+  });
+
+  // Load search page
+  router.get('/search', (req, res) => {
+    res.render('search');
+  });
+
+  // ======EXAMPLES FROM ALPERS FILE==jf==
+  router.get('/profile', (req, res) => {
+    if (req.isAuthenticated()) {
+      db.User.findOne({
+        where: {
+          id: req.session.passport.user.id
+        }
+      }).then(() => {
+        const user = {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        };
+        // console.log(user);
+        res.render('profile', user);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+  router.get('/login', (req, res) => {
+    res.render('login');
+  });
   // Load register page
   router.get('/register', (req, res) => {
     if (req.isAuthenticated()) {

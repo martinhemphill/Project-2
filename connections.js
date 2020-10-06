@@ -1,17 +1,20 @@
 module.exports = function (sequelize, DataTypes) {
   const Connection = sequelize.define('Connection', {
-
-    followerId: {
+    followerID: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    followeeId: {
+    followeeID: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   });
-
-  Connection.removeAttribute('id');
-
+  Connection.associate = function (models) {
+    Connection.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Connection;
 };

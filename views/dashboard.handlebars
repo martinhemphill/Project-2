@@ -1,10 +1,13 @@
 {{> nav/nav-block}}
 
 <div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Welcome to <strong>Sample App</strong></p>
+  <div class="jumbotron" align="center">
+    <br><br>
+  </div>
+  <div>
+    <p class="lead" align="center">Welcome to<strong> Bookmarked</strong></p>
     <hr class="my-4">
-    <div>
+    <div class="lead" align="center">
       {{#if isloggedin}}
         You are logged in as {{user.firstName}}
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>

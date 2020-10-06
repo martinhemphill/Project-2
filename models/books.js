@@ -2,25 +2,29 @@
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     // Model attributes are defined here
-    isbn: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    // bookId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   primaryKey: true
+    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
+    author: {
       type: DataTypes.TEXT,
       allowNull: false
     },
     photo: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT
+    },
+    year: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
@@ -29,6 +33,15 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'cascade'
     });
     Book.hasMany(models.Recommendation, {
+      onDelete: 'cascade'
+    });
+    Book.hasMany(models.readPast, {
+      onDelete: 'cascade'
+    });
+    Book.hasMany(models.readCurrent, {
+      onDelete: 'cascade'
+    });
+    Book.hasMany(models.readFuture, {
       onDelete: 'cascade'
     });
   };

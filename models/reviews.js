@@ -1,18 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   const Review = sequelize.define('Review', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    bookID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    userID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     rating: {
       type: DataTypes.FLOAT,
       allowNull: false
@@ -33,6 +20,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-    return Review;
   };
+  return Review;
 };

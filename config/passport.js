@@ -6,7 +6,7 @@ const moment = require('moment');
 module.exports = (db, app, passport) => {
   // Configure express-session to use MySQL for session storage
   app.use(session({
-    key: 'userId',
+    key: 'id',
     secret: process.env.AUTH_SECRET,
     store: new SequelizeStore({
       db: db.sequelize,

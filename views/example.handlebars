@@ -14,13 +14,13 @@
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
           <div class="row no-gutters">
-            <div class="col-md-3">
-              <img src={{this.img}} class="card-img" alt="bookImage">
+            <div class="col-md-3 imgDiv5">
+              {{!-- <img src={{this.img}} class="card-img" alt="bookImage"> --}}
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody5">
-                <h5 class="card-title"> </h5>
-                <p class="card-text">  </p>
+                {{!-- <h5 class="card-title"> </h5>
+                <p class="card-text">  </p> --}}
                 <div class="card-footer text-muted">
                   <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
@@ -38,9 +38,9 @@
                     </div>
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
-                      <option value="28">Read</option>
-                      <option value="12">To Read</option>
-                      <option value="16">Currently Reading</option>
+                      <option class= 'past5' value='past'>Read</option>
+                      <option class= 'future5' value='future'>To Read</option>
+                      <option class='current5' value='current'>Currently Reading</option>
                     </select>
                   </div>
                 </div>
@@ -54,13 +54,13 @@
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
           <div class="row no-gutters">
-            <div class="col-md-3">
-              <img src={{this.img}} class="card-img" alt="bookImage">
+            <div class="col-md-3 imgDiv6">
+              {{!-- <img src={{this.img}} class="card-img" alt="bookImage"> --}}
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody6">
-                <h5 class="card-title"> {{this.title}}</h5>
-                <p class="card-text"> {{this.reviews}} </p>
+                {{!-- <h5 class="card-title"> {{this.title}}</h5>
+                <p class="card-text"> {{this.reviews}} </p> --}}
                 <div class="card-footer text-muted">
                   <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
@@ -78,9 +78,9 @@
                     </div>
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
-                      <option value="28">Read</option>
-                      <option value="12">To Read</option>
-                      <option value="16">Currently Reading</option>
+                      <option class= 'past6' value='past'>Read</option>
+                      <option class= 'future6' value='future'>To Read</option>
+                      <option class='current6' value='current'>Currently Reading</option>
                     </select>
                   </div>
                 </div>
@@ -94,13 +94,13 @@
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
           <div class="row no-gutters">
-            <div class="col-md-3">
-              <img src={{this.img}} class="card-img" alt="bookImage">
+            <div class="col-md-3 imgDiv7">
+              {{!-- <img src={{this.img}} class="card-img" alt="bookImage"> --}}
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody7">
-                <h5 class="card-title">  </h5>
-                <p class="card-text">  </p>
+                {{!-- <h5 class="card-title">  </h5>
+                <p class="card-text">  </p> --}}
                 <div id="cardFooter" class="card-footer text-muted">
                   <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
@@ -118,9 +118,9 @@
                     </div>
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
-                      <option value="28">Read</option>
-                      <option value="12">To Read</option>
-                      <option value="16">Currently Reading</option>
+                      <option class= 'past7' value='past'>Read</option>
+                      <option class= 'future7' value='future'>To Read</option>
+                      <option class='current7' value='current'>Currently Reading</option>
                     </select>
                   </div>
                 </div>
@@ -161,12 +161,12 @@
 
   </div>
 </div>
+{{!-- <script src="https://code.jquery.com/jquery.js"></script>
 
 <script src="/assets/js/example.js"></script>
-<script src="../public/assets/js/app.js"
+<script src="../public/assets/js/app.js"></script> --}}
 
-{{> modal/login-block}}
 
 <script>
-  var userId = {{ userInfo.id }};
-</script>
+var userId = {{ userInfo.id }};
+</script> 

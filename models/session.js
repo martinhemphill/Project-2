@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
     },
-    userId: DataTypes.STRING,
+    id: DataTypes.STRING,
     expires: DataTypes.DATE,
     data: DataTypes.TEXT
   });

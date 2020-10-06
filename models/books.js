@@ -2,11 +2,11 @@
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     // Model attributes are defined here
-    bookId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
+    // bookId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   primaryKey: true
+    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -15,19 +15,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    img: {
+    photo: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT
     },
     year: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    rating: {
-      type: DataTypes.FLOAT
-    },
-    description: {
-      type: DataTypes.TEXT
     }
   });
 

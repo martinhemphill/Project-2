@@ -20,7 +20,7 @@ module.exports = (passport, db) => {
   router.delete('/examples/:id', AppController.deleteExample);
 
   // Project GET routes
-  router.get('/booksgr', AppController.getBookInfo);
+  // router.get('/booksgr', AppController.getBookInfo);
   router.get('/books', AppController.getBookInfoInternal);
   router.get('/userInfo/:id', AppController.getUserInfo);
   router.get('/readPast/:id', AppController.getUserListPast);
@@ -43,7 +43,6 @@ module.exports = (passport, db) => {
   router.delete('/connections', AppController.unFollow);
   router.delete('/readFuture', AppController.deleteFromFuture);
   router.delete('/readCurrent', AppController.deleteFromCurrent);
-
 
   return router;
 };

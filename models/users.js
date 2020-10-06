@@ -54,9 +54,6 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Recommendation, {
       onDelete: 'cascade'
     });
-    // User.hasMany(models.Connection, {
-    //   onDelete: 'cascade'
-    // });
     User.belongsToMany(models.User, {
       through: 'Connections',
       as: 'Follower',

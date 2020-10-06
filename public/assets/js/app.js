@@ -61,6 +61,7 @@ $('#update-user').on('click', function (event) {
 
 $('.view-books').on('click', function (event) {
   event.preventDefault();
+  console.log($(this));
   console.log(`we clicked view books!`);
   // eslint-disable-next-line no-unused-vars
   // $('#search-value').val();
@@ -75,51 +76,77 @@ $('.view-books').on('click', function (event) {
     const bookTitle5 = response.items[0].volumeInfo.title;
     const author5 = response.items[0].volumeInfo.authors[0];
     const description5 = response.items[0].volumeInfo.description;
-    // const bookId = response.items[0].id;
     const image5 = response.items[0].volumeInfo.imageLinks.thumbnail;
+    const date5 = response.items[0].volumeInfo.publishedDate;
 
     // Second Card
     const bookTitle6 = response.items[1].volumeInfo.title;
     const author6 = response.items[1].volumeInfo.authors[0];
     const description6 = response.items[1].volumeInfo.description;
-    // const bookId = response.items[0].id;
     const image6 = response.items[1].volumeInfo.imageLinks.thumbnail;
+    const date6 = response.items[1].volumeInfo.publishedDate;
 
     // Third Card
     const bookTitle7 = response.items[2].volumeInfo.title;
     const author7 = response.items[2].volumeInfo.authors[0];
     const description7 = response.items[2].volumeInfo.description;
-    // const bookId = response.items[0].id;
     const image7 = response.items[2].volumeInfo.imageLinks.thumbnail;
+    const date7 = response.items[2].volumeInfo.publishedDate;
 
-    const titleAuthorSpace5 = $('<h5>').attr('class', 'title-author').html(`${bookTitle5} | ${author5}`);
-    const titleAuthorSpace6 = $('<h5>').attr('class', 'title-author').html(`${bookTitle6} | ${author6}`);
-    const titleAuthorSpace7 = $('<h5>').attr('class', 'title-author').html(`${bookTitle7} | ${author7}`);
-    const descSpace5 = $('<p>').attr('class', 'book-description').html(`${description5}`);
-    const descSpace6 = $('<p>').attr('class', 'book-description').html(`${description6}`);
-    const descSpace7 = $('<p>').attr('class', 'book-description').html(`${description7}`);
+    const titleAuthorSpace5 = $('<h5>').attr('class', `title-author`).attr('id', `${date5}`).html(`${bookTitle5} | ${author5}`);
+    const titleAuthorSpace6 = $('<h5>').attr('class', `title-author`).attr('id', `${date6}`).html(`${bookTitle6} | ${author6}`);
+    const titleAuthorSpace7 = $('<h5>').attr('class', `title-author`).attr('id', `${date7}`).html(`${bookTitle7} | ${author7}`);
+    const descSpace5 = $('<p>').attr('class', 'book-description desc5').html(`${description5}`);
+    const descSpace6 = $('<p>').attr('class', 'book-description desc6').html(`${description6}`);
+    const descSpace7 = $('<p>').attr('class', 'book-description desc7').html(`${description7}`);
     const imgSpace5 = $('<img>').attr('src', image5);
     const imgSpace6 = $('<img>').attr('src', image6);
     const imgSpace7 = $('<img>').attr('src', image7);
 
-    $('#cardBody5').append(titleAuthorSpace5, descSpace5);
+    $('#cardBody5').prepend(titleAuthorSpace5, descSpace5);
     $('.imgDiv5').append(imgSpace5);
-    $('#cardBody6').append(titleAuthorSpace6, descSpace6);
+    $('#cardBody6').prepend(titleAuthorSpace6, descSpace6);
     $('.imgDiv6').append(imgSpace6);
-    $('#cardBody7').append(titleAuthorSpace7, descSpace7);
+    $('#cardBody7').prepend(titleAuthorSpace7, descSpace7);
     $('.imgDiv7').append(imgSpace7);
-
-    // console.log(`${bookId} \n \n${bookTitle} \n \n${author} \n \n${description} \n \n${image}`);
-    // const output = `<p>${bookTitle} \n \n${author} \n \n${description} \n \n${image}</p>`;
-    // const textArea = $('#data-output').html(output);
-
-    // textArea.innerText = output;
   }).catch(error => {
     console.log(error);
   });
 });
-// };
-// getBookInfo();
+
+$('select').on('change', function (event) {
+  event.preventDefault();
+  console.log($(this).val());
+
+  const taCarry = $(this).parent().parent().siblings().html();
+  const descCarry = $(this).parent().parent().siblings().next().html();
+  const photoCarry = $(this).parent().parent().parent().parent().siblings().html();
+  const yearCarry = $(this).val();
+  const titleCarry = taCarry.substring(0, taCarry.indexOf('|')).trim();
+  const authorCarry = taCarry.substring(taCarry.indexOf('|') + 1, taCarry.length).trim();
+
+  const data = {
+    title: titleCarry,
+    author: authorCarry,
+    photo: photoCarry,
+    description: descCarry,
+    year: yearCarry
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/books',
+    data: data
+  }).then(function (res) {
+    console.log(res, res.year, window.userId);
+    if (res.yearCarry === 'future') {
+      addToListFuture(res.id);
+    } else if (res.yearCarry === 'current') {
+      addToListCurrent(res.id);
+    } else {
+      addReview(res.id);
+    }
+  });
+});
 
 // DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
@@ -293,10 +320,10 @@ function getBookReviews (id) {
 
 // ========POST========
 
-function addToListFuture () {
+function addToListFuture (title) {
   const data = {
-    UserId: window.userId,
-    BookIsbn: $(this).attr('title')
+    BookId: title,
+    UserId: window.userId
   };
   $.ajax({
     type: 'POST',
@@ -307,10 +334,10 @@ function addToListFuture () {
   });
 }
 
-function addToListCurrent () {
+function addToListCurrent (title) {
   const data = {
-    UserId: window.userId,
-    BookIsbn: $(this).attr('title')
+    BookId: title,
+    UserId: window.userId
   };
   $.ajax({
     type: 'POST',

@@ -29,6 +29,8 @@ module.exports = (db) => {
         const readPast = [];
         const readCurrent = [];
         const readFuture = [];
+        const createdRaw = new Date(data[0].createdAt);
+        const memberSince = createdRaw.toLocaleDateString();
         for (let i = 0; i < data[1].length; i++) {
           if (data[1][i].state === 'past') {
             readPast.push(data[1][i]);
@@ -56,6 +58,7 @@ module.exports = (db) => {
             pastList: readPast,
             currentList: readCurrent,
             futureList: readFuture,
+            memberSince: memberSince,
             isloggedin: req.isAuthenticated()
           };
           console.log(userToSend);

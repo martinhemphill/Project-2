@@ -127,22 +127,30 @@ module.exports = function (db) {
         console.log(error);
       });
     },
-    getFollowers: function (req, res) {
+    // getFollowers: function (req, res) {
+    //   db.Connection.findAll({
+    //     where: {
+    //       followeeID: req.params.followeeID
+    //     }
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
+    // getFollowing: function (req, res) {
+    //   db.Connection.findAll({
+    //     where: {
+    //       followerID: req.params.followerID
+    //     }
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
+    getConnections: function (req, res) {
       db.Connection.findAll({
-        where: {
-          followeeID: req.params.followeeID
-        }
-      }).then(data => {
-        res.json(data);
-      }).catch(error => {
-        console.log(error);
-      });
-    },
-    getFollowing: function (req, res) {
-      db.Connection.findAll({
-        where: {
-          followerID: req.params.followerID
-        }
       }).then(data => {
         res.json(data);
       }).catch(error => {

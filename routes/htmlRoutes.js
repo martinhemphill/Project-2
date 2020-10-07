@@ -29,6 +29,8 @@ module.exports = (db) => {
         const readPast = [];
         const readCurrent = [];
         const readFuture = [];
+        const rawJoin = new Date(data[0].createdAt);
+        const joinDate = rawJoin.toLocaleDateString();
         for (let i = 0; i < data[1].length; i++) {
           if (data[1][i].state === 'past') {
             readPast.push(data[1][i]);
@@ -52,6 +54,7 @@ module.exports = (db) => {
           console.log('myFollowees:', myFollowees);
           const userToSend = {
             userInfo: data[0],
+            memberSince: joinDate,
             followees: myFollowees,
             pastList: readPast,
             currentList: readCurrent,

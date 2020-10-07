@@ -90,7 +90,7 @@ console.log(searchTerm);
 $('.refreshBtn').click(
   // let searchTerm = $('#searchBook').val()
   // console.log(searchTerm);
-  findBook('title', 'jaws'));
+  findBook('title', 'the chamber of secrets'));
 
 function findBook (val, query) {
   clearPage();

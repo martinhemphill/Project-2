@@ -3,6 +3,10 @@ module.exports = (sequelize, DataTypes) => {
     state: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    title: {
+      type: DataTypes.TEXT,
+      allowNull: false
     }
   });
 
@@ -16,9 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: {
         allowNull: false
       }
-    });
-    List.belongsTo(models.Book, {
-      foreignKey: 'title'
     });
   };
 

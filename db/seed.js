@@ -24,6 +24,7 @@ module.exports = (db) => {
         author: 'jim',
         title: 'book',
         description: 'udahg',
+        year: '1997',
         photo: 'jshfksa'
       });
     });

@@ -1,4 +1,5 @@
-const seedBooks = ['Harry Potter', 'Pillars of the Earth', 'World Without End', 'Column of Fire', 'Fall of Giants', 'Winter of the World', 'Edge of Eternity', 'Eye of the Needle', 'Jackdaws', 'Hornet Flight'];
+const seedBooks = ['cat', 'earth', 'run', 'fire', 'hunger', 'Winter', 'world', 'tomorrow', 'the', 'turn', 'fly', 'moon', 'tales', 'dog', 'star', 'power', 'catch', 'feel', 'house', 'event', 'game', 'valor', 'war', 'prince', 'woman', 'man', 'pirate', 'fish', 'fantasy', 'stories', 'evil', 'good', 'truth'];
+
 
 $('#add-user').on('click', function (event) {
   event.preventDefault();

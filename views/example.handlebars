@@ -4,11 +4,13 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <textarea id="searchBook" name="searchBook" rows="1" cols="50" placeholder="Search for a book here"></textarea>
-        <input type="radio" id="bookAuthor" name="author" value="author">
-<label for="bookAuthor">Author Name</label>
-<input type="radio" id="bookTitle" name="title" value="title">
-<label for="bookTitle">Book Title</label>
+        <input type="radio" id="bookAuthor" name="searchRadio" value="author">
+        <label for="bookAuthor">Author Name</label>
+        <input type="radio" id="bookTitle" name="searchRadio" value="title">
+        <label for="bookTitle">Book Title</label>        
+        <form id="searchBook" name="searchBook" rows="1" cols="100">
+          <input type="text" placeholder="Search by author or title..." autocomplete="off">
+        </form>
       </div>
       <div class="col-12">
         <h2>Your next great read:</h2>
@@ -148,7 +150,6 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Book Reviews</h4>
       </div>
       <div id="modalBody" class="modal-body">

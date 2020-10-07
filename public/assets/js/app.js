@@ -1,3 +1,5 @@
+const seedBooks = ['cat', 'earth', 'run', 'fire', 'hunger', 'Winter', 'world', 'tomorrow', 'the', 'turn', 'fly', 'moon', 'tales', 'dog', 'star', 'power', 'catch', 'feel', 'house', 'event', 'game', 'valor', 'war', 'prince', 'woman', 'man', 'pirate', 'fish', 'fantasy', 'stories', 'evil', 'good', 'truth'];
+
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
@@ -59,12 +61,33 @@ $('#update-user').on('click', function (event) {
 // function getBookInfo (req, res) {
 //   let searchTitle = 'gonzo';
 
-$('.view-books').on('click', function (event) {
-  event.preventDefault();
-  findBook('title', 'wildcard');
-  // eslint-disable-next-line no-unused-vars
-  // $('#search-value').val();
-});
+const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
+
+// $('.view-books').on('click', function (event) {
+//   randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
+//   event.preventDefault();
+//   clearPage();
+//   findBook('title', randomBook);
+//   // eslint-disable-next-line no-unused-vars
+//   // $('#search-value').val();
+// });
+
+function clearPage () {
+  $('#cardBody5').empty();
+  $('.imgDiv5').empty();
+  $('#cardBody6').empty();
+  $('.imgDiv6').empty();
+  $('#cardBody7').empty();
+  $('.imgDiv7').empty();
+};
+
+const searchTerm = $('#searchBook').val();
+console.log(searchTerm);
+
+$('.refreshBtn').click(
+  // let searchTerm = $('#searchBook').val()
+  // console.log(searchTerm);
+  findBook('title', randomBook));
 
 function findBook (val, query) {
   const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
@@ -139,15 +162,25 @@ $('select').on('change', function (event) {
     data: data
   }).then(function (res) {
     console.log(res, res.year, window.userId);
-    if (res.year === 'future') {
-      addToListFuture(res.id);
-    } else if (res.year === 'current') {
-      addToListCurrent(res.id);
-    } else {
-      addReview(res.id);
-    }
+    addToList(res.year, res.title, res.id);
   });
 });
+
+function addToList (state, name, book) {
+  const data = {
+    state: state,
+    title: name,
+    UserId: window.userId,
+    BookId: book
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/lists',
+    data: data
+  }).then(function (res) {
+    console.log(res);
+  });
+}
 
 // DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {
@@ -229,18 +262,34 @@ $('.profile').on('click', getMyInfo(window.userId));
 // ========GET=========
 
 // function to get users followers
-$('.followers').on('click', function getFollowers () {
-  const user = window.user;
+$('.btnFollowers').on('click', function getFollowers () {
+  // const user = window.user;
   $.ajax({
     type: 'GET',
-    url: `/api/connections/${user}`
+    url: '/api/connections/'
   }).then(function (res) {
     const followerList = $('<ul>');
     for (let i = 0; i < res.length; i++) {
       const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
       followerList.append(oneFollower);
     }
-    $('.modal-body').append(followerList).css('z-index', '2');
+    $('#myModal1').append(followerList).css('z-index', '2');
+  });
+});
+
+// function to see who the user is following
+$('.btnFollowing').on('click', function getFollowing () {
+  // const user = window.user;
+  $.ajax({
+    type: 'GET',
+    url: '/api/connections/'
+  }).then(function (res) {
+    const followingList = $('<ul>');
+    for (let i = 0; i < res.length; i++) {
+      const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
+      followingList.append(oneFollower);
+    }
+    $('#myModal1').append(followingList).css('z-index', '2');
   });
 });
 
@@ -303,7 +352,7 @@ function getUserListPast (id) {
 }
 
 // function to get reviews
-const btn = $('#btnReview');
+// const btn = $('#btnReview');
 
 function getBookReviews (id) {
   $.ajax({
@@ -382,6 +431,7 @@ function addToListPast (user, book) {
   });
 };
 
+// function to follow user
 function followUser () {
   const data = {
     followerID: window.user,

@@ -51,7 +51,7 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Review, {
       onDelete: 'cascade'
     });
-    User.hasMany(models.Recommendation, {
+    User.hasMany(models.List, {
       onDelete: 'cascade'
     });
     User.belongsToMany(models.User, {

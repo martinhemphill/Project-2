@@ -1,10 +1,11 @@
 {{> nav/nav-block user=true register=false}}
 
-
+<!--Card for user Profile-->
 <section class="row userRow">
   <div class="col-md-6">
     <div class="card mb-3" style="max-width: 540px;">
       <div class="card-header"> {{userInfo.firstName}} </div>
+<<<<<<< HEAD
         <div class="col-md-12">
           <div class="card-body" id="cardBody1">
             <div class="row">
@@ -16,73 +17,129 @@
               <div class="col-md-12">
                 <p class="card-text">**Books read area**</p> 
               </div>
+=======
+      <div class="col-md-12">
+        <div class="card-body" id="cardBody1">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="card-text id=" member-since"">**Member since area**</p>
+>>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
             </div>
-            <div class="row">
-              <div class="col-md-6 followers">User Followers</div>
-              <div class="col-md-6 following">User Following</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="card-text">**Books read area**</p>
             </div>
+          </div>
+          <div class="row">
+            <button id="btnReview" data-toggle="modal" data-target="#myModal1" type="button">Followers</button>
+            <button id="btnReview" data-toggle="modal" data-target="#myModal1" type="button">Following</button>
+            {{#each userInfo.followees}}
+              <div>{{this.firstName}} {{this.lastName}}</div>
+            {{/each}}
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!--Card for the users have read-->
   <div class="col-md-6" id="haveReadCard">
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">Have Read</div>
+<<<<<<< HEAD
         <div class="card-body" id="cardBody2">
           <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p> <!-- SELECT * FROM read-past -->
           <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
         </div>
+=======
+      <div class="card-body" id="cardBody2">
+        <ul class='future-list'>
+          {{#each pastList}}
+          <p>{{title}}</p>
+          {{/each}}
+        </ul>
+>>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
       </div>
     </div>
+  </div>
 </section>
 
+<!--Card for the users Reading Now-->
 <section class="row readNowRow">
   <div class="col-md-6">
     <div class="card mb-3" style="max-width: 540px;">
       <div class="card-header">Reading Now</div>
+<<<<<<< HEAD
         <div class="col-md-12">
           <div class="card-body" id="cardBody3" >
             <p class="card-text">**Book Info**</p> <!-- SELECT * FROM read-current and use title for getBookInfo to get details from google books -->
             <p class="card-text">**Book Info**</p>
           </div>
+=======
+      <div class="col-md-12">
+        <div class="card-body" id="cardBody3">
+          <ul class='present-list'>
+            {{#each currentList}}
+          <p>{{title}}</p>
+          {{/each}}
+          </ul>
+>>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
         </div>
       </div>
     </div>
   </div>
 
+  <!--Card for the users TBR-->
   <div class="col-md-6" id="readCard">
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">TBR</div>
+<<<<<<< HEAD
         <div class="card-body" id="cardBody4">
           <p class="card-text">**Book info for tbr book**</p> <!-- SELECT * FROM read-future -->
           <p class="card-text">**Book info for tbr book**</p>
           <p class="card-text">**Book info for tbr book**</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  	<br>
-	<br>
-
-   <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" id="copy-btn" class=" btn btn-secondary"></button>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"> &times; </span>
-          </button>
-        </div>
-        <div class="modal-body">
-        <div class="modal-footer">
-        </div>
+=======
+      <div class="card-body" id="cardBody4">
+        <ul class='future-list'>
+          {{#each futureList}}
+          <p>{{title}}</p>
+          {{/each}}
+        </ul>
+>>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
       </div>
     </div>
   </div>
-	 
+</section>
+
+<br>
+<br>
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h4 class="modal-title">Modal Header</h4>
+      </div> -->
+      <div class="modal-body">
+        <!-- <p>Some text in the modal.</p> -->
+        <!--ADD ACCORDIAN  FROM BOOTSTRAP!!! IT IS UNDER COLLAPSE-->
+        {{#each followees}}
+          <div><a href="/profile/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></div>
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var userId = {{ userInfo.id }};
+</script>
 
 {{> modal/login-block}}

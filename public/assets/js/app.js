@@ -61,7 +61,7 @@ $('#update-user').on('click', function (event) {
 // function getBookInfo (req, res) {
 //   let searchTitle = 'gonzo';
 
-let randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
+const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
 // $('.view-books').on('click', function (event) {
 //   randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
@@ -81,7 +81,7 @@ function clearPage () {
   $('.imgDiv7').empty();
 };
 
-let searchTerm = $('#searchBook').val();
+const searchTerm = $('#searchBook').val();
 console.log(searchTerm);
 
 $('.refreshBtn').click(
@@ -162,15 +162,25 @@ $('select').on('change', function (event) {
     data: data
   }).then(function (res) {
     console.log(res, res.year, window.userId);
-    if (res.year === 'future') {
-      addToListFuture(res.id);
-    } else if (res.year === 'current') {
-      addToListCurrent(res.id);
-    } else {
-      addReview(res.id);
-    }
+    addToList(res.year, res.title, res.id);
   });
 });
+
+function addToList (state, name, book) {
+  const data = {
+    state: state,
+    title: name,
+    UserId: window.userId,
+    BookId: book
+  };
+  $.ajax({
+    type: 'POST',
+    url: '/api/lists',
+    data: data
+  }).then(function (res) {
+    console.log(res);
+  });
+}
 
 // DELETE   ***************************************************
 $('#delete-user').on('click', function (event) {

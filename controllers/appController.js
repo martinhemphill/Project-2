@@ -27,49 +27,50 @@ module.exports = function (db) {
       db.User.findOne({
         where: {
           id: req.params.id
-        }
-      }).then(data => {
-        res.json(data);
-      }).catch(error => {
-        console.log(error);
-      });
-    },
-    getUserListPast: function (req, res) {
-      db.readPast.findAll({
-        where: {
-          UserId: req.params.id
         },
-        include: [db.Book]
+        include: [db.List]
       }).then(data => {
         res.json(data);
       }).catch(error => {
         console.log(error);
       });
     },
-    getUserListCurrent: function (req, res) {
-      db.readCurrent.findAll({
-        where: {
-          UserId: req.params.id
-        },
-        include: [db.Book]
-      }).then(data => {
-        res.json(data);
-      }).catch(error => {
-        console.log(error);
-      });
-    },
-    getUserListFuture: function (req, res) {
-      db.readFuture.findAll({
-        where: {
-          UserId: req.params.id
-        },
-        include: [db.Book]
-      }).then(data => {
-        res.json(data);
-      }).catch(error => {
-        console.log(error);
-      });
-    },
+    // getUserListPast: function (req, res) {
+    //   db.readPast.findAll({
+    //     where: {
+    //       UserId: req.params.id
+    //     },
+    //     include: [db.Book]
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
+    // getUserListCurrent: function (req, res) {
+    //   db.readCurrent.findAll({
+    //     where: {
+    //       UserId: req.params.id
+    //     },
+    //     include: [db.Book]
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
+    // getUserListFuture: function (req, res) {
+    //   db.readFuture.findAll({
+    //     where: {
+    //       UserId: req.params.id
+    //     },
+    //     include: [db.Book]
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
     // getBookInfo: function (req, res) {
     //   const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&';
     //   // const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
@@ -103,30 +104,39 @@ module.exports = function (db) {
         console.log(error);
       });
     },
-    getBookReviewsByUser: function (req, res) {
-      db.Review.findAll({
-        where: {
-          UserId: req.params.id
-        },
-        include: [db.Book]
-      }).then(data => {
+
+    getUserList: function (req, res) {
+      db.List.findAll({}).then(data => {
         res.json(data);
       }).catch(error => {
         console.log(error);
       });
     },
-    getBookReviewsByBook: function (req, res) {
-      db.Review.findAll({
-        where: {
-          BookIsbn: req.params.id
-        },
-        include: [db.User]
-      }).then(data => {
-        res.json(data);
-      }).catch(error => {
-        console.log(error);
-      });
-    },
+
+    // getBookReviewsByUser: function (req, res) {
+    //   db.Review.findAll({
+    //     where: {
+    //       UserId: req.params.id
+    //     },
+    //     include: [db.Book]
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
+    // getBookReviewsByBook: function (req, res) {
+    //   db.Review.findAll({
+    //     where: {
+    //       BookIsbn: req.params.id
+    //     },
+    //     include: [db.User]
+    //   }).then(data => {
+    //     res.json(data);
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // },
     // getFollowers: function (req, res) {
     //   db.Connection.findAll({
     //     where: {
@@ -171,29 +181,35 @@ module.exports = function (db) {
       });
     },
 
-    addToFuture: function (req, res) {
-      db.readFuture.create(req.body).then(function (dbAddToFuture) {
-        res.json(dbAddToFuture);
+    // addToFuture: function (req, res) {
+    //   db.readFuture.create(req.body).then(function (dbAddToFuture) {
+    //     res.json(dbAddToFuture);
+    //   });
+    // },
+
+    addToList: function (req, res) {
+      db.List.create(req.body).then(function (dbAddToList) {
+        res.json(dbAddToList);
       });
     },
 
-    addToCurrent: function (req, res) {
-      db.readCurrent.create(req.body).then(function (dbAddToCurrent) {
-        res.json(dbAddToCurrent);
-      });
-    },
+    // addToCurrent: function (req, res) {
+    //   db.readCurrent.create(req.body).then(function (dbAddToCurrent) {
+    //     res.json(dbAddToCurrent);
+    //   });
+    // },
 
-    addToPast: function (req, res) {
-      db.readPast.create(req.body).then(function (dbAddToPast) {
-        res.json(dbAddToPast);
-      });
-    },
+    // addToPast: function (req, res) {
+    //   db.readPast.create(req.body).then(function (dbAddToPast) {
+    //     res.json(dbAddToPast);
+    //   });
+    // },
 
-    addReview: function (req, res) {
-      db.Review.create(req.body).then(function (dbAddReview) {
-        res.json(dbAddReview);
-      });
-    },
+    // addReview: function (req, res) {
+    //   db.Review.create(req.body).then(function (dbAddReview) {
+    //     res.json(dbAddReview);
+    //   });
+    // },
 
     // ========= DELETE ROUTES =========
     unFollow: function (req, res) {

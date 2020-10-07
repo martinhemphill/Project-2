@@ -111,46 +111,45 @@ function findBook (val, query) {
         response.items[i].volumeInfo.imageLinks.thumbnail === undefined ||
         response.items[i].volumeInfo.publishedDate === undefined) {
         findBook('title', randomBook);
-      } else {
-        // First Card
-        const bookTitle5 = response.items[0].volumeInfo.title;
-        const author5 = response.items[0].volumeInfo.authors[0];
-        const description5 = response.items[0].volumeInfo.description;
-        const image5 = response.items[0].volumeInfo.imageLinks.thumbnail;
-        const date5 = response.items[0].volumeInfo.publishedDate;
-
-        // Second Card
-        const bookTitle6 = response.items[1].volumeInfo.title;
-        const author6 = response.items[1].volumeInfo.authors[0];
-        const description6 = response.items[1].volumeInfo.description;
-        const image6 = response.items[1].volumeInfo.imageLinks.thumbnail;
-        const date6 = response.items[1].volumeInfo.publishedDate;
-
-        // Third Card
-        const bookTitle7 = response.items[2].volumeInfo.title;
-        const author7 = response.items[2].volumeInfo.authors[0];
-        const description7 = response.items[2].volumeInfo.description;
-        const image7 = response.items[2].volumeInfo.imageLinks.thumbnail;
-        const date7 = response.items[2].volumeInfo.publishedDate;
-
-        const titleAuthorSpace5 = $('<h5>').attr('class', `title-author`).attr('id', `${date5}`).html(`${bookTitle5} | ${author5}`);
-        const titleAuthorSpace6 = $('<h5>').attr('class', `title-author`).attr('id', `${date6}`).html(`${bookTitle6} | ${author6}`);
-        const titleAuthorSpace7 = $('<h5>').attr('class', `title-author`).attr('id', `${date7}`).html(`${bookTitle7} | ${author7}`);
-        const descSpace5 = $('<p>').attr('class', 'book-description desc5').html(`${description5}`);
-        const descSpace6 = $('<p>').attr('class', 'book-description desc6').html(`${description6}`);
-        const descSpace7 = $('<p>').attr('class', 'book-description desc7').html(`${description7}`);
-        const imgSpace5 = $('<img>').attr('src', image5);
-        const imgSpace6 = $('<img>').attr('src', image6);
-        const imgSpace7 = $('<img>').attr('src', image7);
-
-        $('#cardBody5').prepend(titleAuthorSpace5, descSpace5);
-        $('.imgDiv5').append(imgSpace5);
-        $('#cardBody6').prepend(titleAuthorSpace6, descSpace6);
-        $('.imgDiv6').append(imgSpace6);
-        $('#cardBody7').prepend(titleAuthorSpace7, descSpace7);
-        $('.imgDiv7').append(imgSpace7);
       }
     };
+    // First Card
+    const bookTitle5 = response.items[0].volumeInfo.title;
+    const author5 = response.items[0].volumeInfo.authors[0];
+    const description5 = response.items[0].volumeInfo.description;
+    const image5 = response.items[0].volumeInfo.imageLinks.thumbnail;
+    const date5 = response.items[0].volumeInfo.publishedDate;
+
+    // Second Card
+    const bookTitle6 = response.items[1].volumeInfo.title;
+    const author6 = response.items[1].volumeInfo.authors[0];
+    const description6 = response.items[1].volumeInfo.description;
+    const image6 = response.items[1].volumeInfo.imageLinks.thumbnail;
+    const date6 = response.items[1].volumeInfo.publishedDate;
+
+    // Third Card
+    const bookTitle7 = response.items[2].volumeInfo.title;
+    const author7 = response.items[2].volumeInfo.authors[0];
+    const description7 = response.items[2].volumeInfo.description;
+    const image7 = response.items[2].volumeInfo.imageLinks.thumbnail;
+    const date7 = response.items[2].volumeInfo.publishedDate;
+
+    const titleAuthorSpace5 = $('<h5>').attr('class', `title-author`).attr('id', `${date5}`).html(`${bookTitle5} | ${author5}`);
+    const titleAuthorSpace6 = $('<h5>').attr('class', `title-author`).attr('id', `${date6}`).html(`${bookTitle6} | ${author6}`);
+    const titleAuthorSpace7 = $('<h5>').attr('class', `title-author`).attr('id', `${date7}`).html(`${bookTitle7} | ${author7}`);
+    const descSpace5 = $('<p>').attr('class', 'book-description desc5').html(`${description5}`);
+    const descSpace6 = $('<p>').attr('class', 'book-description desc6').html(`${description6}`);
+    const descSpace7 = $('<p>').attr('class', 'book-description desc7').html(`${description7}`);
+    const imgSpace5 = $('<img>').attr('src', image5);
+    const imgSpace6 = $('<img>').attr('src', image6);
+    const imgSpace7 = $('<img>').attr('src', image7);
+
+    $('#cardBody5').prepend(titleAuthorSpace5, descSpace5);
+    $('.imgDiv5').append(imgSpace5);
+    $('#cardBody6').prepend(titleAuthorSpace6, descSpace6);
+    $('.imgDiv6').append(imgSpace6);
+    $('#cardBody7').prepend(titleAuthorSpace7, descSpace7);
+    $('.imgDiv7').append(imgSpace7);
   });
 };
 

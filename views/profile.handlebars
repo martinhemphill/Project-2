@@ -5,25 +5,12 @@
   <div class="col-md-6">
     <div class="card mb-3" style="max-width: 540px;">
       <div class="card-header"> {{userInfo.firstName}} </div>
-<<<<<<< HEAD
-        <div class="col-md-12">
-          <div class="card-body" id="cardBody1">
-            <div class="row">
-              <div class="col-md-12">
-                <p class="card-text id="member-since"">**Member since area**</p> <!-- user.timeStamp -->
-              </div>
-            </div> 
-            <div class="row">
-              <div class="col-md-12">
-                <p class="card-text">**Books read area**</p> 
-              </div>
-=======
+
       <div class="col-md-12">
         <div class="card-body" id="cardBody1">
           <div class="row">
             <div class="col-md-12">
               <p class="card-text id=" member-since"">**Member since area**</p>
->>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
             </div>
           </div>
           <div class="row">
@@ -47,19 +34,12 @@
   <div class="col-md-6" id="haveReadCard">
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">Have Read</div>
-<<<<<<< HEAD
-        <div class="card-body" id="cardBody2">
-          <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p> <!-- SELECT * FROM read-past -->
-          <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
-        </div>
-=======
       <div class="card-body" id="cardBody2">
         <ul class='future-list'>
           {{#each pastList}}
           <p>{{title}}</p>
           {{/each}}
         </ul>
->>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
       </div>
     </div>
   </div>
@@ -70,13 +50,6 @@
   <div class="col-md-6">
     <div class="card mb-3" style="max-width: 540px;">
       <div class="card-header">Reading Now</div>
-<<<<<<< HEAD
-        <div class="col-md-12">
-          <div class="card-body" id="cardBody3" >
-            <p class="card-text">**Book Info**</p> <!-- SELECT * FROM read-current and use title for getBookInfo to get details from google books -->
-            <p class="card-text">**Book Info**</p>
-          </div>
-=======
       <div class="col-md-12">
         <div class="card-body" id="cardBody3">
           <ul class='present-list'>
@@ -84,7 +57,6 @@
           <p>{{title}}</p>
           {{/each}}
           </ul>
->>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
         </div>
       </div>
     </div>
@@ -94,20 +66,12 @@
   <div class="col-md-6" id="readCard">
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">TBR</div>
-<<<<<<< HEAD
-        <div class="card-body" id="cardBody4">
-          <p class="card-text">**Book info for tbr book**</p> <!-- SELECT * FROM read-future -->
-          <p class="card-text">**Book info for tbr book**</p>
-          <p class="card-text">**Book info for tbr book**</p>
-        </div>
-=======
       <div class="card-body" id="cardBody4">
         <ul class='future-list'>
           {{#each futureList}}
           <p>{{title}}</p>
           {{/each}}
         </ul>
->>>>>>> ae5183318f3e9363b37f2f1f83210e6a919eb00c
       </div>
     </div>
   </div>

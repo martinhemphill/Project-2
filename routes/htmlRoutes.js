@@ -18,7 +18,8 @@ module.exports = (db) => {
           console.log('followees:', followees);
           const myFollowees = [];
 
-          db.User.findAll({ raw: true }).then(allUsers => {
+          db.User.findAll({ raw: true 
+          }).then(allUsers => {
             allUsers.forEach(user => {
               followees.forEach(fol => {
                 if (fol.followeeId === user.id) {

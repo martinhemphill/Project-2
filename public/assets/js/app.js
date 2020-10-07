@@ -1,6 +1,5 @@
 const seedBooks = ['cat', 'earth', 'run', 'fire', 'hunger', 'Winter', 'world', 'tomorrow', 'the', 'turn', 'fly', 'moon', 'tales', 'dog', 'star', 'power', 'catch', 'feel', 'house', 'event', 'game', 'valor', 'war', 'prince', 'woman', 'man', 'pirate', 'fish', 'fantasy', 'stories', 'evil', 'good', 'truth'];
 
-
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
@@ -94,51 +93,64 @@ $('.refreshBtn').click(
   findBook('title', 'jaws'));
 
 function findBook (val, query) {
+  clearPage();
   const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
   console.log(queryURL);
   $.ajax({
     type: 'GET',
     url: queryURL
   }).then((response) => {
-    // First Card
-    const bookTitle5 = response.items[0].volumeInfo.title;
-    const author5 = response.items[0].volumeInfo.authors[0];
-    const description5 = response.items[0].volumeInfo.description;
-    const image5 = response.items[0].volumeInfo.imageLinks.thumbnail;
-    const date5 = response.items[0].volumeInfo.publishedDate;
+    console.log('first response: ', response.items[0].volumeInfo.title);
+    console.log('second response: ', response.items[1].volumeInfo.title);
+    console.log('third response: ', response.items[2].volumeInfo.title);
 
-    // Second Card
-    const bookTitle6 = response.items[1].volumeInfo.title;
-    const author6 = response.items[1].volumeInfo.authors[0];
-    const description6 = response.items[1].volumeInfo.description;
-    const image6 = response.items[1].volumeInfo.imageLinks.thumbnail;
-    const date6 = response.items[1].volumeInfo.publishedDate;
+    for (let i = 0; i < 3; i++) {
+      if (response.items[i].volumeInfo.title === undefined ||
+        response.items[i].volumeInfo.authors[0] === undefined ||
+        response.items[i].volumeInfo.description === undefined ||
+        response.items[i].volumeInfo.imageLinks.thumbnail === undefined ||
+        response.items[i].volumeInfo.publishedDate === undefined) {
+        findBook('title', randomBook);
+      } else {
+        // First Card
+        const bookTitle5 = response.items[0].volumeInfo.title;
+        const author5 = response.items[0].volumeInfo.authors[0];
+        const description5 = response.items[0].volumeInfo.description;
+        const image5 = response.items[0].volumeInfo.imageLinks.thumbnail;
+        const date5 = response.items[0].volumeInfo.publishedDate;
 
-    // Third Card
-    const bookTitle7 = response.items[2].volumeInfo.title;
-    const author7 = response.items[2].volumeInfo.authors[0];
-    const description7 = response.items[2].volumeInfo.description;
-    const image7 = response.items[2].volumeInfo.imageLinks.thumbnail;
-    const date7 = response.items[2].volumeInfo.publishedDate;
+        // Second Card
+        const bookTitle6 = response.items[1].volumeInfo.title;
+        const author6 = response.items[1].volumeInfo.authors[0];
+        const description6 = response.items[1].volumeInfo.description;
+        const image6 = response.items[1].volumeInfo.imageLinks.thumbnail;
+        const date6 = response.items[1].volumeInfo.publishedDate;
 
-    const titleAuthorSpace5 = $('<h5>').attr('class', `title-author`).attr('id', `${date5}`).html(`${bookTitle5} | ${author5}`);
-    const titleAuthorSpace6 = $('<h5>').attr('class', `title-author`).attr('id', `${date6}`).html(`${bookTitle6} | ${author6}`);
-    const titleAuthorSpace7 = $('<h5>').attr('class', `title-author`).attr('id', `${date7}`).html(`${bookTitle7} | ${author7}`);
-    const descSpace5 = $('<p>').attr('class', 'book-description desc5').html(`${description5}`);
-    const descSpace6 = $('<p>').attr('class', 'book-description desc6').html(`${description6}`);
-    const descSpace7 = $('<p>').attr('class', 'book-description desc7').html(`${description7}`);
-    const imgSpace5 = $('<img>').attr('src', image5);
-    const imgSpace6 = $('<img>').attr('src', image6);
-    const imgSpace7 = $('<img>').attr('src', image7);
+        // Third Card
+        const bookTitle7 = response.items[2].volumeInfo.title;
+        const author7 = response.items[2].volumeInfo.authors[0];
+        const description7 = response.items[2].volumeInfo.description;
+        const image7 = response.items[2].volumeInfo.imageLinks.thumbnail;
+        const date7 = response.items[2].volumeInfo.publishedDate;
 
-    $('#cardBody5').prepend(titleAuthorSpace5, descSpace5);
-    $('.imgDiv5').append(imgSpace5);
-    $('#cardBody6').prepend(titleAuthorSpace6, descSpace6);
-    $('.imgDiv6').append(imgSpace6);
-    $('#cardBody7').prepend(titleAuthorSpace7, descSpace7);
-    $('.imgDiv7').append(imgSpace7);
-  }).catch(error => {
-    console.log(error);
+        const titleAuthorSpace5 = $('<h5>').attr('class', `title-author`).attr('id', `${date5}`).html(`${bookTitle5} | ${author5}`);
+        const titleAuthorSpace6 = $('<h5>').attr('class', `title-author`).attr('id', `${date6}`).html(`${bookTitle6} | ${author6}`);
+        const titleAuthorSpace7 = $('<h5>').attr('class', `title-author`).attr('id', `${date7}`).html(`${bookTitle7} | ${author7}`);
+        const descSpace5 = $('<p>').attr('class', 'book-description desc5').html(`${description5}`);
+        const descSpace6 = $('<p>').attr('class', 'book-description desc6').html(`${description6}`);
+        const descSpace7 = $('<p>').attr('class', 'book-description desc7').html(`${description7}`);
+        const imgSpace5 = $('<img>').attr('src', image5);
+        const imgSpace6 = $('<img>').attr('src', image6);
+        const imgSpace7 = $('<img>').attr('src', image7);
+
+        $('#cardBody5').prepend(titleAuthorSpace5, descSpace5);
+        $('.imgDiv5').append(imgSpace5);
+        $('#cardBody6').prepend(titleAuthorSpace6, descSpace6);
+        $('.imgDiv6').append(imgSpace6);
+        $('#cardBody7').prepend(titleAuthorSpace7, descSpace7);
+        $('.imgDiv7').append(imgSpace7);
+      }
+    };
   });
 };
 

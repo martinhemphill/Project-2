@@ -151,6 +151,12 @@ module.exports = function (db) {
     },
 
     // ========= POST ROUTES ========
+
+    // updateUserTable: function (req, res) {
+    //   db.User.create(req.body).then(function (dbUsers) {
+    //     res.json(dbUser);
+    //   });
+    // },
     addBookInternal: function (req, res) {
       db.Book.create(req.body).then(function (dbBook) {
         res.json(dbBook);

@@ -34,8 +34,11 @@
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">Have Read</div>
       <div class="card-body" id="cardBody2">
-        <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
-        <p class="card-text">**LIST OF BOOKS THE USER HAS READ**</p>
+        <ul class='future-list'>
+          {{#each pastList}}
+          <p>{{title}}</p>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
@@ -48,8 +51,11 @@
       <div class="card-header">Reading Now</div>
       <div class="col-md-12">
         <div class="card-body" id="cardBody3">
-          <p class="card-text">**Book Info**</p>
-          <p class="card-text">**Book Info**</p>
+          <ul class='present-list'>
+            {{#each currentList}}
+          <p>{{title}}</p>
+          {{/each}}
+          </ul>
         </div>
       </div>
     </div>
@@ -60,9 +66,11 @@
     <div class="card mb-3" style="max-width: 18rem;">
       <div class="card-header">TBR</div>
       <div class="card-body" id="cardBody4">
-        <p class="card-text">**Book info for tbr book**</p>
-        <p class="card-text">**Book info for tbr book**</p>
-        <p class="card-text">**Book info for tbr book**</p>
+        <ul class='future-list'>
+          {{#each futureList}}
+          <p>{{title}}</p>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>

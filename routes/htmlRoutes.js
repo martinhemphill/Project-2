@@ -5,37 +5,61 @@ module.exports = (db) => {
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
-      db.User.findOne({
+      Promise.all([db.User.findOne({
         where: {
           id: req.session.passport.user.id
         },
         raw: true
-      }).then((data) => {
-        db.Connection.findAll({
-          where: { followerId: req.session.passport.user.id },
+      }),
+      db.List.findAll({
+        where: {
+          UserId: req.session.passport.user.id
+        },
+        raw: true
+      }),
+      db.Connection.findAll({
+        where: {
+          followerId: req.session.passport.user.id
+        },
+        raw: true
+      })
+      ]).then(data => {
+        console.log('whole result:', data[0].firstName, data[0].lastName);
+        const myFollowees = [];
+        const readPast = [];
+        const readCurrent = [];
+        const readFuture = [];
+        for (let i = 0; i < data[1].length; i++) {
+          if (data[1][i].state === 'past') {
+            readPast.push(data[1][i]);
+          } else if (data[1][i].state === 'future') {
+            readFuture.push(data[1][i]);
+          } else {
+            readCurrent.push(data[1][i]);
+          }
+        };
+        db.User.findAll({
           raw: true
-        }).then(followees => {
-          console.log('followees:', followees);
-          const myFollowees = [];
-
-          db.User.findAll({ raw: true 
-          }).then(allUsers => {
-            allUsers.forEach(user => {
-              followees.forEach(fol => {
-                if (fol.followeeId === user.id) {
-                  myFollowees.push(user);
-                }
-              });
+        }).then(allUsers => {
+          allUsers.forEach(user => {
+            data[2].forEach(fol => {
+              if (fol.followeeId === user.id) {
+                myFollowees.push(user);
+              }
             });
-            console.log('myFollowees:', myFollowees);
-            const userToSend = {
-              userInfo: data,
-              followees: myFollowees,
-              isloggedin: req.isAuthenticated()
-            };
-            console.log(userToSend);
-            res.render('profile', userToSend);
           });
+          console.log(readCurrent, readFuture, readPast);
+          console.log('myFollowees:', myFollowees);
+          const userToSend = {
+            userInfo: data[0],
+            followees: myFollowees,
+            pastList: readPast,
+            currentList: readCurrent,
+            futureList: readFuture,
+            isloggedin: req.isAuthenticated()
+          };
+          console.log(userToSend);
+          res.render('profile', userToSend);
         });
       });
     } else {
@@ -55,9 +79,12 @@ module.exports = (db) => {
         // add book possibly with join
         res.render('profile-detail', {
           user: data,
-          currentBooks: [
-            { title: 'aaa' },
-            { title: 'bbb' }
+          currentBooks: [{
+            title: 'aaa'
+          },
+          {
+            title: 'bbb'
+          }
           ]
         });
       });
@@ -156,7 +183,12 @@ module.exports = (db) => {
   // Load example index page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
+      db.Example.findAll({
+        where: {
+          UserId: req.session.passport.user.id
+        },
+        raw: true
+      }).then(function (dbExamples) {
         res.render('example', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
@@ -172,7 +204,12 @@ module.exports = (db) => {
   // Load example page and pass in an example by id
   router.get('/example/:id', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbExample) {
+      db.Example.findOne({
+        where: {
+          id: req.params.id
+        },
+        raw: true
+      }).then(function (dbExample) {
         res.render('example-detail', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
@@ -191,7 +228,9 @@ module.exports = (db) => {
       if (err) {
         return next(err);
       }
-      res.clearCookie('connect.sid', { path: '/' });
+      res.clearCookie('connect.sid', {
+        path: '/'
+      });
       res.redirect('/');
     });
   });

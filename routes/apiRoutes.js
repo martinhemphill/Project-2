@@ -33,9 +33,7 @@ module.exports = (passport, db) => {
   router.get('/connections', AppController.getConnections);
   router.get('/lists', AppController.getUserList);
 
-
   // Project POST routes
-
   router.post('/books', AppController.addBookInternal);
   router.post('/connections', AppController.followUser);
   router.post('/lists', AppController.addToList);

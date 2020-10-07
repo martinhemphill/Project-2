@@ -27,7 +27,8 @@ module.exports = function (db) {
       db.User.findOne({
         where: {
           id: req.params.id
-        }
+        },
+        include: [db.List]
       }).then(data => {
         res.json(data);
       }).catch(error => {

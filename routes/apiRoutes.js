@@ -28,8 +28,9 @@ module.exports = (passport, db) => {
   router.get('/readFuture/:id', AppController.getUserListFuture);
   router.get('/reviews', AppController.getBookReviewsByUser);
   router.get('/reviews/:id', AppController.getBookReviewsByBook);
-  router.get('/connections/:id', AppController.getFollowers);
-  router.get('/connections/:id', AppController.getFollowing);
+  // router.get('/connections/:id', AppController.getFollowers);
+  // router.get('/connections/:id', AppController.getFollowing);
+  router.get('/connections', AppController.getConnections);
 
   // Project POST routes
 

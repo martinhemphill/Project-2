@@ -229,18 +229,34 @@ $('.profile').on('click', getMyInfo(window.userId));
 // ========GET=========
 
 // function to get users followers
-$('.followers').on('click', function getFollowers () {
-  const user = window.user;
+$('.btnFollowers').on('click', function getFollowers () {
+  // const user = window.user;
   $.ajax({
     type: 'GET',
-    url: `/api/connections/${user}`
+    url: '/api/connections/'
   }).then(function (res) {
     const followerList = $('<ul>');
     for (let i = 0; i < res.length; i++) {
       const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
       followerList.append(oneFollower);
     }
-    $('.modal-body').append(followerList).css('z-index', '2');
+    $('#myModal1').append(followerList).css('z-index', '2');
+  });
+});
+
+// function to see who the user is following
+$('.btnFollowing').on('click', function getFollowing () {
+  // const user = window.user;
+  $.ajax({
+    type: 'GET',
+    url: '/api/connections/'
+  }).then(function (res) {
+    const followingList = $('<ul>');
+    for (let i = 0; i < res.length; i++) {
+      const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
+      followingList.append(oneFollower);
+    }
+    $('#myModal1').append(followingList).css('z-index', '2');
   });
 });
 
@@ -303,7 +319,7 @@ function getUserListPast (id) {
 }
 
 // function to get reviews
-const btn = $('#btnReview');
+// const btn = $('#btnReview');
 
 function getBookReviews (id) {
   $.ajax({
@@ -382,6 +398,7 @@ function addToListPast (user, book) {
   });
 };
 
+// function to follow user
 function followUser () {
   const data = {
     followerID: window.user,

@@ -58,20 +58,23 @@ $('#update-user').on('click', function (event) {
 });
 
 // Get book info ***************************************************
-
-// function getBookInfo (req, res) {
-//   let searchTitle = 'gonzo';
+// function findSingleBook (title) {
+//   const singleBookQuery = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + title + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+//   $.ajax({
+//     type: 'GET',
+//     url: singleBookQuery
+//   }).then(response => {
+//     const bookTitle = response.items[0].volumeInfo.title;
+//     const author = response.items[0].volumeInfo.authors[0];
+//     const description = response.items[0].volumeInfo.description;
+//     const image = response.items[0].volumeInfo.imageLinks.thumbnail;
+//     const date = response.items[0].volumeInfo.publishedDate;
+//   }).catch(error => {
+//     console.log(error);
+//   });
+// };
 
 const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-
-// $('.view-books').on('click', function (event) {
-//   randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-//   event.preventDefault();
-//   clearPage();
-//   findBook('title', randomBook);
-//   // eslint-disable-next-line no-unused-vars
-//   // $('#search-value').val();
-// });
 
 function clearPage () {
   $('#cardBody5').empty();
@@ -82,13 +85,13 @@ function clearPage () {
   $('.imgDiv7').empty();
 };
 
-const searchTerm = $('#searchBook').val();
+const searchTerm = $('#search-value').val();
 console.log(searchTerm);
 
 $('.refreshBtn').click(
   // let searchTerm = $('#searchBook').val()
   // console.log(searchTerm);
-  findBook('title', randomBook));
+  findBook('title', 'jaws'));
 
 function findBook (val, query) {
   const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';

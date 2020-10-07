@@ -1,3 +1,5 @@
+const seedBooks = ['Harry Potter', 'Pillars of the Earth', 'World Without End', 'Column of Fire', 'Fall of Giants', 'Winter of the World', 'Edge of Eternity', 'Eye of the Needle', 'Jackdaws', 'Hornet Flight'];
+
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
@@ -59,12 +61,33 @@ $('#update-user').on('click', function (event) {
 // function getBookInfo (req, res) {
 //   let searchTitle = 'gonzo';
 
-$('.view-books').on('click', function (event) {
-  event.preventDefault();
-  findBook('title', 'wildcard');
-  // eslint-disable-next-line no-unused-vars
-  // $('#search-value').val();
-});
+let randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
+
+// $('.view-books').on('click', function (event) {
+//   randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
+//   event.preventDefault();
+//   clearPage();
+//   findBook('title', randomBook);
+//   // eslint-disable-next-line no-unused-vars
+//   // $('#search-value').val();
+// });
+
+function clearPage () {
+  $('#cardBody5').empty();
+  $('.imgDiv5').empty();
+  $('#cardBody6').empty();
+  $('.imgDiv6').empty();
+  $('#cardBody7').empty();
+  $('.imgDiv7').empty();
+};
+
+let searchTerm = $('#searchBook').val();
+console.log(searchTerm);
+
+$('.refreshBtn').click(
+  // let searchTerm = $('#searchBook').val()
+  // console.log(searchTerm);
+  findBook('title', randomBook));
 
 function findBook (val, query) {
   const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';

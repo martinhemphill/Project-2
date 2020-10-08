@@ -35,7 +35,9 @@ body {
   margin-bottom: 20px;
 }
 
-.imgDiv5, .imgDiv6, .imgDiv7 {
+.imgDiv5,
+.imgDiv6,
+.imgDiv7 {
   margin-top: 10%;
   margin-left: calc(50% - 70px);
   margin-bottom: 20px;
@@ -46,7 +48,7 @@ body {
   color: black;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   border: solid 3px #aeb4b2;
   font-size: 15px;
 }
@@ -150,7 +152,9 @@ hr {
 }
 
 /*card body for all pages*/
-#cardBody5, #cardBody6, #cardBody7 {
+#cardBody5,
+#cardBody6,
+#cardBody7 {
   color: #444;
   overflow-y: auto;
   text-align: center;
@@ -188,12 +192,13 @@ hr {
   padding: 10px;
 }
 
-.readRow, .tbrRow{
+.readRow,
+.tbrRow {
   margin-left: 15%;
   padding: 10px;
 }
 
-#addUserButton{
+#addUserButton {
   background: white;
   color: black;
   border: 2px solid #617056;
@@ -210,7 +215,7 @@ hr {
 }
 
 
-#btnFollow{
+#btnFollow {
   margin-top: 15px;
   background-color: #0066FF;
   border: none;
@@ -238,15 +243,16 @@ hr {
   justify-content: center;
 }
 
-.flex-item + .flex-item {
+.flex-item+.flex-item {
   margin-left: 10px;
 }
 
-#cardBody1{
+#cardBody1 {
   text-align: center;
 }
 
-#cardBody4, #cardBody2{
+#cardBody4,
+#cardBody2 {
   text-align: center;
 }
 
@@ -276,57 +282,53 @@ hr {
 }
 
 /*close button for books*/
-.close{
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*follower/following modal with pop-out modal*/
-#myModal1, #myModal2, #myModal3, #myModal4{
+#myModal1,
+#myModal2,
+#myModal3,
+#myModal4 {
   margin-top: 5%;
 }
 
 #myModal2:nth-of-type(even) {
   z-index: 1054 !important;
 }
+
 #myModal1-backdrop.show:nth-of-type(even) {
   z-index: 1051 !important;
 }
+
 #myModal3-backdrop.show:nth-of-type(even) {
   z-index: 1050 !important;
 }
 
-  
+
 
 /*view books page*/
-
 /*search books area*/
-#searchBook{
+#searchBook {
   width: 100%;
   margin-top: 10px;
   text-align: center;
 }
 
-#bookAuthor, #bookTitle{
+#bookAuthor,
+#bookTitle {
   margin-left: 15%;
-}
-
-/*reviews button*/
-#btnReview{
-  background: white;
-  color: black;
-  border: 2px solid #617056;
-  border-radius: 5px;
-  margin-left: 70%;
 }
 
 /*refresh button*/
@@ -351,73 +353,28 @@ hr {
   border-top: white;
 }
 
+@media screen and (max-width: 1050px) {
 
-
-/*star rating on view books page*/
-.rate {
-  float: left;
-  height: 10px;
-  padding: 0 10px;
-}
-
-.rate:not(:checked)>input {
-  position: absolute;
-  top: -99px;
-}
-
-.rate:not(:checked)>label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ccc;
-}
-
-.rate:not(:checked)>label:before {
-  content: '★ ';
-}
-
-.rate>input:checked~label {
-  color: #ffc700;
-}
-
-.rate:not(:checked)>label:hover,
-.rate:not(:checked)>label:hover~label {
-  color: #deb217;
-}
-
-.rate>input:checked+label:hover,
-.rate>input:checked+label:hover~label,
-.rate>input:checked~label:hover,
-.rate>input:checked~label:hover~label,
-.rate>label:hover~input:checked~label {
-  color: #c59b08;
-}
-
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
-
-
-@media screen and (max-width: 1050px){
-
-  .userRow{
+  .userRow {
     margin-top: 15%;
   }
 
-  #addUserButton{
+  #addUserButton {
     width: fit-content;
   }
-  .readRow{
+
+  .readRow {
     position: relative;
     margin-right: 15%;
   }
 }
-@media only screen 
-  and (max-device-width: 480px) {
 
-    #cardBody5, #cardBody6, #cardBody7 {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
+@media only screen and (max-device-width: 480px) {
+
+  #cardBody5,
+  #cardBody6,
+  #cardBody7 {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }

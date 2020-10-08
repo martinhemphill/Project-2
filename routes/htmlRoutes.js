@@ -9,7 +9,8 @@ module.exports = (db) => {
         where: {
           id: req.session.passport.user.id
         },
-        raw: true
+        raw: true,
+        include: [db.List]
       }),
       db.List.findAll({
         where: {

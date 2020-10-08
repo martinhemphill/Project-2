@@ -301,7 +301,7 @@ $(document).ready(function () {
         const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
         followingList.append(oneFollower);
       }
-      $('#myModal1').append(followingList).css('z-index', '2');
+      $('#myModal3').append(followingList).css('z-index', '2');
     });
   });
 

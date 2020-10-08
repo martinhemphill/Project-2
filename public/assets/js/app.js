@@ -1,3 +1,4 @@
+
 const seedBooks = ['cat', 'earth', 'run', 'fire', 'hunger', 'Winter', 'world', 'tomorrow', 'the', 'turn', 'fly', 'moon', 'tales', 'dog', 'star', 'power', 'catch', 'feel', 'house', 'event', 'game', 'valor', 'war', 'prince', 'woman', 'man', 'pirate', 'fish', 'fantasy', 'stories', 'evil', 'good', 'truth'];
 
 $('#add-user').on('click', function (event) {
@@ -84,13 +85,16 @@ function clearPage () {
   $('.imgDiv7').empty();
 };
 
-const searchTerm = $('#search-value').val();
-console.log(searchTerm);
+$('#searchBtn').on('click', () => {
+  const searchTerm = $('#search-value').val();
+  console.log(searchTerm);
+  findBook('title', searchTerm);
+});
 
 $('.refreshBtn').click(
   // let searchTerm = $('#searchBook').val()
   // console.log(searchTerm);
-  findBook('title', 'the chamber of secrets'));
+  findBook('title', randomBook));
 
 function findBook (val, query) {
   clearPage();

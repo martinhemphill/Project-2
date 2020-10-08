@@ -184,18 +184,14 @@ hr {
 
 /* Profile Page*/
 .userRow {
-  margin-top: 10%;
-  margin-left: 15%;
+  margin-top: 5%;
   padding: 10px;
 }
 
-/* #imgGoesHere{
-  background-image: url("../images/smallpng.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100px;
-  height: 100px;
-}  */
+.readRow, .tbrRow{
+  margin-left: 15%;
+  padding: 10px;
+}
 
 #addUserButton{
   background: white;
@@ -213,9 +209,6 @@ hr {
   color: #aeb4b2;
 }
 
-#userCard{
-  width: 100%;
-}
 
 #btnFollow{
   margin-top: 15px;
@@ -253,22 +246,16 @@ hr {
   text-align: center;
 }
 
-/* #haveReadCard{
-  margin-left: 30%;
-} 
-
-#readCard{
-  margin-left: 30%;
-} */
-
-#cardBody4, #ardBody2{
+#cardBody4, #cardBody2{
   overflow-y: auto;
+  text-align: center;
 }
 
 .card-header {
   background-color: #aeb4b2;
   font-family: 'Antic Slab', serif;
   font-weight: bold;
+  text-align: center;
 }
 
 .card {
@@ -298,6 +285,23 @@ hr {
     text-decoration: none;
     cursor: pointer;
 }
+
+/*follower/following modal with pop-out modal*/
+#myModal1, #myModal2, #myModal3, #myModal4{
+  margin-top: 5%;
+}
+
+#myModal2:nth-of-type(even) {
+  z-index: 1054 !important;
+}
+#myModal1-backdrop.show:nth-of-type(even) {
+  z-index: 1051 !important;
+}
+#myModal3-backdrop.show:nth-of-type(even) {
+  z-index: 1050 !important;
+}
+
+  
 
 /*view books page*/
 
@@ -390,6 +394,21 @@ hr {
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
 
+
+@media screen and (max-width: 1050px){
+
+  .userRow{
+    margin-top: 15%;
+  }
+
+  #addUserButton{
+    width: fit-content;
+  }
+  .readRow{
+    position: relative;
+    margin-right: 15%;
+  }
+}
 @media only screen 
   and (max-device-width: 480px) {
 

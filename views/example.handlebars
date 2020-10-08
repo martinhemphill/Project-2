@@ -4,11 +4,13 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-             
+
         {{!-- <form id="searchBook" name="searchBook" rows="1" cols="100"> --}}
+
 
           <input class= "search-field" type="text" placeholder="Search by author or title..." autocomplete="off">
 <button type="button" class="btn btn-primary submit-search">Search</button>
+
 
         {{!-- </form> --}}
       </div>
@@ -20,13 +22,13 @@
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody5">
-               
+
                 <div class="card-footer text-muted">
                   <div class="dropdown">
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
-                      <option class= 'past5' value='past'>Read</option>
-                      <option class= 'future5' value='future'>To Read</option>
+                      <option class='past5' value='past'>Read</option>
+                      <option class='future5' value='future'>To Read</option>
                       <option class='current5' value='current'>Currently Reading</option>
                     </select>
                   </div>
@@ -45,13 +47,13 @@
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody6">
-               
+
                 <div class="card-footer text-muted">
                   <div class="dropdown">
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
-                      <option class= 'past6' value='past'>Read</option>
-                      <option class= 'future6' value='future'>To Read</option>
+                      <option class='past6' value='past'>Read</option>
+                      <option class='future6' value='future'>To Read</option>
                       <option class='current6' value='current'>Currently Reading</option>
                     </select>
                   </div>
@@ -70,13 +72,13 @@
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody7">
-              
+
                 <div id="cardFooter" class="card-footer text-muted">
                  
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
-                      <option class= 'past7' value='past'>Read</option>
-                      <option class= 'future7' value='future'>To Read</option>
+                      <option class='past7' value='past'>Read</option>
+                      <option class='future7' value='future'>To Read</option>
                       <option class='current7' value='current'>Currently Reading</option>
                     </select>
                   </div>
@@ -124,5 +126,7 @@
 
 
 <script>
+
 var userId = {{ userInfo.id }};
 </script> 
+

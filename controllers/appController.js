@@ -1,4 +1,3 @@
-const axios = require('axios').default;
 // const convert = require('xml-js');
 
 module.exports = function (db) {

@@ -237,5 +237,6 @@ module.exports = function (db) {
     //     res.json(dbExample);
     //   });
     // },
+
   };
 };

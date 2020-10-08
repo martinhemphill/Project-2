@@ -29,8 +29,26 @@ body {
   color: black;
 }
 
+.title-author {
+  font-weight: 800;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.imgDiv5, .imgDiv6, .imgDiv7 {
+  margin-top: 10%;
+  margin-left: calc(50% - 70px);
+  margin-bottom: 20px;
+}
+
+
 .navbar-brand:hover {
   color: black;
+}
+
+.navbar-toggler{
+  border: solid 3px #aeb4b2;
+  font-size: 15px;
 }
 
 /* footer for all pages */
@@ -126,10 +144,19 @@ hr {
   line-height: 2.5;
 }
 
-/*card body for all pages*/
 .card-body {
   color: #444;
   overflow-y: auto;
+}
+
+/*card body for all pages*/
+#cardBody5, #cardBody6, #cardBody7 {
+  color: #444;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+  margin-left: 25%;
+  padding: 0;
 }
 
 .container {
@@ -177,6 +204,7 @@ hr {
   border-radius: 5px;
   font-weight: bold;
   width: 20%;
+  position: relative;
 }
 
 #addUserButton:hover {
@@ -186,7 +214,7 @@ hr {
 }
 
 #userCard{
-  margin-left: 5%;
+  width: 100%;
 }
 
 #btnFollow{
@@ -225,9 +253,16 @@ hr {
   text-align: center;
 }
 
-.readNowRow {
-  margin-left: 15%;
-  padding: 10px;
+/* #haveReadCard{
+  margin-left: 30%;
+} 
+
+#readCard{
+  margin-left: 30%;
+} */
+
+#cardBody4, #ardBody2{
+  overflow-y: auto;
 }
 
 .card-header {
@@ -247,6 +282,21 @@ hr {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+/*close button for books*/
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /*view books page*/
@@ -339,3 +389,12 @@ hr {
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+@media only screen 
+  and (max-device-width: 480px) {
+
+    #cardBody5, #cardBody6, #cardBody7 {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+}

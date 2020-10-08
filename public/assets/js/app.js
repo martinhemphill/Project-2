@@ -62,9 +62,21 @@ $('#update-user').on('click', function (event) {
 });
 
 // Get book info ***************************************************
-
-// function getBookInfo (req, res) {
-//   let searchTitle = 'gonzo';
+// function findSingleBook (title) {
+//   const singleBookQuery = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + title + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+//   $.ajax({
+//     type: 'GET',
+//     url: singleBookQuery
+//   }).then(response => {
+//     const bookTitle = response.items[0].volumeInfo.title;
+//     const author = response.items[0].volumeInfo.authors[0];
+//     const description = response.items[0].volumeInfo.description;
+//     const image = response.items[0].volumeInfo.imageLinks.thumbnail;
+//     const date = response.items[0].volumeInfo.publishedDate;
+//   }).catch(error => {
+//     console.log(error);
+//   });
+// };
 
 const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
@@ -85,8 +97,9 @@ function clearPage () {
   $('.imgDiv7').empty();
 };
 
-const searchTerm = $('#searchBook').val();
+const searchTerm = $('#search-value').val();
 console.log(searchTerm);
+
 
 $('.refreshBtn').on('click', function (event) {
   // event.preventDefault();
@@ -101,6 +114,7 @@ $('.refreshBtn').on('click', function (event) {
 function findBook (val, query) {
   clearPage();
   const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyD4ZQGfP48TvvbRtI9n15dkldL2KrDeiaE';
+
   console.log(queryURL);
   $.ajax({
     type: 'GET',
@@ -338,6 +352,10 @@ function getUserListFuture (id) {
     for (let i = 0; i < res.length; i++) {
       const futureItem = $('<li>').html(res.Book.title);
       futureList.append(futureItem);
+      // futureItem.on("click", "span", function (e) {
+      //   e.preventDefault();
+      //   $(this).sibling().remove();
+      // });
     }
   });
 }
@@ -349,7 +367,7 @@ function getUserListCurrent (id) {
     url: `/api/readFuture/${id}`
   }).then(function (res) {
     const currentList = $('<ul>');
-    $('#cardBody3').append(currentList);
+    $('#cardBody1').append(currentList);
     for (let i = 0; i < res.length; i++) {
       const currentItem = $('<li>').html(res.Book.title);
       currentList.append(currentItem);
@@ -497,19 +515,28 @@ function unFollow () {
   });
 }
 
-function deleteFromCurrent () {
-  const data = {
-    userId: window.user,
-    BookIsbn: $('#div-name-placeholder')
-  };
+function deleteFromList () {
+  const data = $(this).attr('id');
   $.ajax({
     type: 'DELETE',
-    url: 'api/readCurrent',
+    url: `api/list/${data}`,
     data: data
   }).then(function (result) {
     console.log(result);
+  }).then(function (res) {
+    const futureList = $('<ul>');
+    $('#cardBody4').append(futureList);
+    for (let i = 0; i < res.length; i++) {
+      const futureItem = $('<li>').html(res.Book.title);
+      futureList.append(futureItem);
+      // futureItem.on("click", "span", function (e) {
+      //   e.preventDefault();
+      //   $(this).sibling().remove();
+      // });
+    }
   });
 }
+
 
 function deleteFromFuture () {
   const data = {
@@ -542,3 +569,4 @@ $('.fake-class').on('click', function () {
     console.log(result);
   });
 });
+

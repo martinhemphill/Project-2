@@ -89,8 +89,8 @@ $(document).ready(function () {
       type: 'GET',
       url: queryURL
     }).then((response) => {
-      $('h5').remove();
-      $('p').remove();
+      $('.title-author').remove();
+      $('.book-description').remove();
       $('img').remove();
     // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
@@ -119,9 +119,9 @@ $(document).ready(function () {
       const descSpace5 = $('<p>').attr('class', 'book-description desc5').html(`${description5}`);
       const descSpace6 = $('<p>').attr('class', 'book-description desc6').html(`${description6}`);
       const descSpace7 = $('<p>').attr('class', 'book-description desc7').html(`${description7}`);
-      const imgSpace5 = $('<img>').attr('src', image5);
-      const imgSpace6 = $('<img>').attr('src', image6);
-      const imgSpace7 = $('<img>').attr('src', image7);
+      const imgSpace5 = $('<img>').attr('src', image5).attr('class', 'book-image');
+      const imgSpace6 = $('<img>').attr('src', image6).attr('class', 'book-image');
+      const imgSpace7 = $('<img>').attr('src', image7).attr('class', 'book-image');
 
       $('#cardBody5').prepend(titleAuthorSpace5, descSpace5);
       $('.imgDiv5').append(imgSpace5);

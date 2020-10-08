@@ -66,12 +66,12 @@ $(document).ready(function () {
   // Get book info ***************************************************
 
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-
   const searchTerm = $('#searchBook').val();
   console.log(searchTerm);
 
-  $('.refreshBtn').click(
-    findBook('title', randomBook));
+  $('.refreshBtn').on('click', function () {
+    findBook('title', randomBook);
+  });
 
   function findBook (val, query) {
     const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
@@ -288,8 +288,6 @@ $(document).ready(function () {
     });
   });
 
-  $('.profile').on('click', getMyInfo(window.userId));
-
   // ========GET=========
 
   // function to get users followers
@@ -325,17 +323,6 @@ $(document).ready(function () {
   });
 
   // function to get user information
-  function getMyInfo (id) {
-    const user = id;
-    $.ajax({
-      type: 'GET',
-      url: `/api/userInfo/${user}`
-    }).then(function (res) {
-      const joinDate = new Date(res.createdAt);
-      const memberSince = joinDate.toLocaleDateString();
-      $('member-since').append(memberSince);
-    });
-  };
 
   // ========DELETE========
   $('.fake-class').on('click', function () {

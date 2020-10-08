@@ -238,6 +238,10 @@ hr {
   color: #aeb4b2;
 }
 
+#userCard {
+  margin-left:15%;
+}
+
 .flex {
   display: flex;
   justify-content: center;
@@ -331,6 +335,25 @@ hr {
   margin-left: 15%;
 }
 
+<<<<<<< HEAD
+/*reviews button*/
+#btnReview{
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  margin-left: 70%;
+}
+
+/* delete book */
+.fake-class {
+  border: 2px solid #617056;
+  background-color:white;
+  border-radius: 5px
+}
+
+=======
+>>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
 /*refresh button*/
 .btnRefresh {
   background: white;

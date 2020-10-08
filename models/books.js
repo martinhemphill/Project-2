@@ -22,19 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Book.associate = function (models) {
-    Book.hasMany(models.Review, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.Recommendation, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.readPast, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.readCurrent, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.readFuture, {
+    Book.hasMany(models.List, {
       onDelete: 'cascade'
     });
   };

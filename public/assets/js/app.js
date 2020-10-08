@@ -89,6 +89,9 @@ $(document).ready(function () {
       type: 'GET',
       url: queryURL
     }).then((response) => {
+      $('h5').remove();
+      $('p').remove();
+      $('img').remove();
     // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];

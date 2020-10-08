@@ -90,7 +90,9 @@ $(document).ready(function () {
     }).then((response) => {
       $('.title-author').remove();
       $('.book-description').remove();
-      $('img').remove();
+
+      $('.book-image').remove();
+
       // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];
@@ -183,8 +185,8 @@ $(document).ready(function () {
         }
       };
       console.log('pastArr length is ', pastArr.length, 'current is ', currentArr.length, 'and future is ', futureArr.length);
-      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');
-      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading');
+      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read' + '<hr />');
+      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading' + '<hr />');
       const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
 
       for (let i = 0; i < pastArr.length; i++) {
@@ -331,16 +333,8 @@ $(document).ready(function () {
 
   // function to get user information
 
-  // function to get the users want to read list
-
-  // ========POST========
 
   // ========DELETE========
-
-  // $('.test-icon').on('click', () => {
-  //   $(this).attr('class', 'jshalseuudjks');
-  // });
-
   $('.fake-class').on('click', function () {
     const entryId = $(this).attr('id');
     console.log($(this).parent());

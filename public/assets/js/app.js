@@ -178,7 +178,7 @@ $(document).ready(function () {
       console.log('pastArr length is ', pastArr.length, 'current is ', currentArr.length, 'and future is ', futureArr.length);
       const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read' + '<hr />');
       const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading' + '<hr />');
-      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read' + '<hr />');
+      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
 
       for (let i = 0; i < pastArr.length; i++) {
         const pastBook = $('<p>').attr('class', 'connection-book-name').text(pastArr[i].title);

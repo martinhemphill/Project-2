@@ -19,14 +19,12 @@ module.exports = (db) => {
         raw: true
       }),
       db.Connection.findAll({
-        where: {
-          followerId: req.session.passport.user.id
-        },
         raw: true
       })
       ]).then(data => {
-        console.log('whole result:', data[2]);
-        const myFollowees = [];
+        // console.log('whole result:', data[2]);
+        const followingUser = [];
+        const userFollowing = [];
         const readPast = [];
         const readCurrent = [];
         const readFuture = [];
@@ -47,15 +45,18 @@ module.exports = (db) => {
           allUsers.forEach(user => {
             data[2].forEach(fol => {
               if (fol.followeeId === user.id) {
-                myFollowees.push(user);
+                followingUser.push(user);
+              } else if (fol.followerId === user.id) {
+                userFollowing.push(user);
               }
             });
           });
-          console.log(readCurrent, readFuture, readPast);
-          console.log('myFollowees:', myFollowees);
+          // console.log(readCurrent, readFuture, readPast);
+          console.log(`followers: ${followingUser} and im following ${userFollowing}`);
           const userToSend = {
             userInfo: data[0],
-            followees: myFollowees,
+            userFollwing: userFollowing,
+            followingUser: followingUser,
             pastList: readPast,
             currentList: readCurrent,
             futureList: readFuture,

@@ -2,36 +2,53 @@
 
 <!--Card for user Profile-->
 <section class="row userRow">
-  <div class="col-md-6">
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="card-header"> {{userInfo.firstName}} </div>
+  <div class="col-md-12">
+    <div id="userCard" class="card mb-3" style="max-width: 900px;">
+      <div id="cardHeader" class="card-header">
+        <button id="addUserButton" type="button" class="btn btn-default btn-sm">
+          <i class="fa fa-user-plus">Add</i>
+        <h5> {{ userInfo.firstName}}</h5>
+        </button>
+        {{!-- <img src="../public/assets/images/smallpng."> --}}
+      </div>
+
       <div class="col-md-12">
         <div class="card-body" id="cardBody1">
           <div class="row">
+            <div id="imgGoesHere" class="col-md-12">
+             {{!-- <img src="../public/assets/images/smallpng.png"> --}}
+            
+      
+              <div class="row">
             <div class="col-md-12">
               <p class="card-text id=""">Member since {{memberSince}}</p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <p class="card-text">**Books read area**</p>
+              <p class="card-text">{{userInfo.firstName}} is currently reading:
+              </p>
             </div>
           </div>
-          <div class="row">
-            <button id="btnReview" data-toggle="modal" data-target="#myModal1" type="button">Followers</button>
-            <button id="btnReview" data-toggle="modal" data-target="#myModal1" type="button">Following</button>
+          <div class="flex">
+            <button class="flex-item" id="btnFollow" data-toggle="modal" data-target="#myModal1"
+              type="button">Followers</button>
+            <button class="flex-item" id="btnFollow" data-toggle="modal" data-target="#myModal2"
+              type="button">Following</button>
             {{#each userInfo.followees}}
-              <div>{{this.firstName}} {{this.lastName}}</div>
+            <div>{{this.firstName}} {{this.lastName}}</div>
             {{/each}}
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!--Card for the users have read-->
+<!--Card for the users Reading Now-->
+<section class="row readNowRow">
   <div class="col-md-6" id="haveReadCard">
-    <div class="card mb-3" style="max-width: 18rem;">
+    <div class="card mb-3" style="max-width: 30rem;">
       <div class="card-header">Have Read</div>
       <div class="card-body" id="cardBody2">
         <ul class='future-list'>
@@ -42,28 +59,10 @@
       </div>
     </div>
   </div>
-</section>
-
-<!--Card for the users Reading Now-->
-<section class="row readNowRow">
-  <div class="col-md-6">
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="card-header">Reading Now</div>
-      <div class="col-md-12">
-        <div class="card-body" id="cardBody3">
-          <ul class='present-list'>
-            {{#each currentList}}
-          <p>{{title}}</p>
-          {{/each}}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!--Card for the users TBR-->
   <div class="col-md-6" id="readCard">
-    <div class="card mb-3" style="max-width: 18rem;">
+    <div class="card mb-3" style="max-width: 30rem;">
       <div class="card-header">TBR</div>
       <div class="card-body" id="cardBody4">
         <ul class='future-list'>
@@ -91,7 +90,28 @@
         <!-- <p>Some text in the modal.</p> -->
         <!--ADD ACCORDIAN  FROM BOOTSTRAP!!! IT IS UNDER COLLAPSE-->
         {{#each followees}}
-          <div><a href="/profile/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></div>
+        <div><a href="/profile/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></div>
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h4 class="modal-title">Modal Header</h4>
+      </div> -->
+      <div class="modal-body">
+        <!-- <p>Some text in the modal.</p> -->
+        <!--ADD ACCORDIAN  FROM BOOTSTRAP!!! IT IS UNDER COLLAPSE-->
+        {{#each followees}}
+        <div><a href="/profile/{{this.id}}">{{this.firstName}} {{this.lastName}}</a></div>
         {{/each}}
       </div>
       <div class="modal-footer">

@@ -82,9 +82,9 @@ $(document).ready(function () {
     }).then((response) => {
       $('.title-author').remove();
       $('.book-description').remove();
-      $('img').remove();
-      
-    // First Card
+      $('.book-image').remove();
+
+      // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];
       const description5 = response.items[0].volumeInfo.description;

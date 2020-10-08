@@ -1,8 +1,7 @@
 $(document).ready(function () {
-
-  $('.submit-search').on('click', function () {
+  $('.submit-search').on('click', function() {
     const param = $('.search-field').val();
-
+    clearPage();
     findBook('title', param);
   });
 
@@ -159,49 +158,6 @@ $(document).ready(function () {
     });
   });
 
-  $('.user-connection').on('click', function () {
-    const userTarget = ($(this).attr('id'));
-    const pastArr = [];
-    const currentArr = [];
-    const futureArr = [];
-    $.ajax({
-      type: 'GET',
-      url: 'api/lists'
-    }).then(function (res) {
-      console.log(res);
-      for (let i = 0; i < res.length; i++) {
-        if (res[i].UserId.toString() === userTarget && res[i].state === 'past') {
-          pastArr.push(res[i]);
-        } else if (res[i].UserId.toString() === userTarget && res[i].state === 'current') {
-          currentArr.push(res[i]);
-        } else {
-          futureArr.push(res[i]);
-        }
-        console.log('this is userid', res[i].UserId.toString(), 'and this is usertarget', userTarget);
-        console.log('arrays!', pastArr, currentArr, futureArr);
-      };
-
-      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');
-      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading');
-      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
-
-      for (let i = 0; i < pastArr.length; i++) {
-        const pastBook = $('<p>').attr('class', 'connection-book-name').text(pastArr[i].title);
-        pastHeading.append(pastBook);
-      };
-      for (let i = 0; i < currentArr.length; i++) {
-        const currentBook = $('<p>').attr('class', 'connection-book-name').text(currentArr[i].title);
-        currentHeading.append(currentBook);
-      };
-      for (let i = 0; i < futureArr.length; i++) {
-        const futureBook = $('<p>').attr('class', 'connection-book-name').text(futureArr[i].title);
-        futureHeading.append(futureBook);
-      };
-
-      $('.modal-books').append(pastHeading, currentHeading, futureHeading);
-    });
-  });
-
   function addToList (state, name, book) {
     const data = {
       state: state,
@@ -325,7 +281,7 @@ $(document).ready(function () {
         const oneFollower = $('<li>').text(`${res.User.firstName} ${res.User.lastName}`);
         followingList.append(oneFollower);
       }
-      $('#myModal3').append(followingList).css('z-index', '2');
+      $('#myModal1').append(followingList).css('z-index', '2');
     });
   });
 

@@ -7,8 +7,10 @@
 
         {{!-- <form id="searchBook" name="searchBook" rows="1" cols="100"> --}}
 
-        <input class="search-field" type="text" placeholder="Search book by title..." autocomplete="off">
-        <button type="button" class="btn btn-primary submit-search">Search</button>
+
+          <input class= "search-field" type="text" placeholder="Search by author or title..." autocomplete="off">
+<button type="button" class="btn btn-primary submit-search">Search</button>
+
 
         {{!-- </form> --}}
       </div>
@@ -22,20 +24,7 @@
               <div class="card-body" id="cardBody5">
 
                 <div class="card-footer text-muted">
-                  <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
-                    <div class="rate">
-                      <input type="radio" id="star5" name="rate" value="5" />
-                      <label for="star5" title="text"></label>
-                      <input type="radio" id="star4" name="rate" value="4" />
-                      <label for="star4" title="text"></label>
-                      <input type="radio" id="star3" name="rate" value="3" />
-                      <label for="star3" title="text"></label>
-                      <input type="radio" id="star2" name="rate" value="2" />
-                      <label for="star2" title="text"></label>
-                      <input type="radio" id="star1" name="rate" value="1" />
-                      <label for="star1" title="text"></label>
-                    </div>
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
                       <option class='past5' value='past'>Read</option>
@@ -60,20 +49,7 @@
               <div class="card-body" id="cardBody6">
 
                 <div class="card-footer text-muted">
-                  <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
                   <div class="dropdown">
-                    <div class="rate">
-                      <input type="radio" id="star5" name="rate" value="5" />
-                      <label for="star5" title="text"></label>
-                      <input type="radio" id="star4" name="rate" value="4" />
-                      <label for="star4" title="text"></label>
-                      <input type="radio" id="star3" name="rate" value="3" />
-                      <label for="star3" title="text"></label>
-                      <input type="radio" id="star2" name="rate" value="2" />
-                      <label for="star2" title="text"></label>
-                      <input type="radio" id="star1" name="rate" value="1" />
-                      <label for="star1" title="text"></label>
-                    </div>
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
                       <option class='past6' value='past'>Read</option>
@@ -98,20 +74,7 @@
               <div class="card-body" id="cardBody7">
 
                 <div id="cardFooter" class="card-footer text-muted">
-                  <button id="btnReview" data-toggle="modal" data-target="#myModal" type="button">Reviews</button>
-                  <div class="dropdown">
-                    <div class="rate">
-                      <input type="radio" id="star5" name="rate" value="5" />
-                      <label for="star5" title="text"></label>
-                      <input type="radio" id="star4" name="rate" value="4" />
-                      <label for="star4" title="text"></label>
-                      <input type="radio" id="star3" name="rate" value="3" />
-                      <label for="star3" title="text"></label>
-                      <input type="radio" id="star2" name="rate" value="2" />
-                      <label for="star2" title="text"></label>
-                      <input type="radio" id="star1" name="rate" value="1" />
-                      <label for="star1" title="text"></label>
-                    </div>
+                 
                     <select class="selectBook" id="bookInput">
                       <option selected>Pick me!</option>
                       <option class='past7' value='past'>Read</option>
@@ -163,5 +126,7 @@
 
 
 <script>
-  var userId = {{ userInfo.id }};
-</script>
+
+var userId = {{ userInfo.id }};
+</script> 
+

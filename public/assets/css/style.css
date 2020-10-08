@@ -343,11 +343,11 @@ hr {
 
 .card-footer {
   width: 100%;
+  background-color: white;
+  border-top: white;
 }
 
-.selectBook {
-  margin-left: 55%;
-}
+
 
 /*star rating on view books page*/
 .rate {

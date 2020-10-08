@@ -2,7 +2,7 @@
 
 <!--Card for user Profile-->
 <section class="row userRow">
-  <div class="col-md-12">
+  <div class="col-md-12" width="100%">
     <div id="userCard" class="card mb-3" style="max-width: 900px;">
       <div id="cardHeader" class="card-header">
         <button id="addUserButton" type="button" class="btn btn-default btn-sm">
@@ -11,14 +11,11 @@
         </button>
         {{!-- <img src="../public/assets/images/smallpng."> --}}
       </div>
-
       <div class="col-md-12">
         <div class="card-body" id="cardBody1">
           <div class="row">
             <div id="imgGoesHere" class="col-md-12">
-             {{!-- <img src="../public/assets/images/smallpng.png"> --}}
-            
-      
+             {{!-- <img src="../public/assets/images/smallpng.png"> --}}   
               <div class="row">
             <div class="col-md-12">
               <p class="card-text id=""">Member since {{memberSince}}</p>
@@ -26,7 +23,11 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <p class="card-text">{{userInfo.firstName}} is currently reading:
+              <p class="card-text">{{userInfo.firstName}} is currently reading: 
+                {{#each currentList}}
+                <br>
+                {{ title }}
+                {{/each}}
               </p>
             </div>
           </div>
@@ -47,27 +48,29 @@
 
 <!--Card for the users Reading Now-->
 <section class="row readNowRow">
-  <div class="col-md-6" id="haveReadCard">
-    <div class="card mb-3" style="max-width: 30rem;">
+  <div id="haveReadCard" class="col-md-12" width="100%">
+    <div class="card mb-3" style="max-width: 450px;">
       <div class="card-header">Have Read</div>
       <div class="card-body" id="cardBody2">
         <ul class='future-list'>
           {{#each pastList}}
-          <p>{{title}}</p>
+         <p>{{title}}<span class="close">&times;</span></p>
           {{/each}}
         </ul>
       </div>
     </div>
   </div>
+  </section>
 
   <!--Card for the users TBR-->
-  <div class="col-md-6" id="readCard">
-    <div class="card mb-3" style="max-width: 30rem;">
+  <section class="row toReadRow">
+ <div id="haveReadCard" class="col-md-12" width="100%">
+    <div class="card mb-3" style="max-width: 450px;">
       <div class="card-header">To Read</div>
       <div class="card-body" id="cardBody4">
         <ul class='future-list'>
           {{#each futureList}}
-          <p>{{title}}</p>
+          <p>{{title}}<span id={{id}} class="close"> &times;</span></p>
           {{/each}}
         </ul>
       </div>

@@ -46,6 +46,11 @@ body {
   color: black;
 }
 
+.navbar-toggler{
+  border: solid 3px #aeb4b2;
+  font-size: 15px;
+}
+
 /* footer for all pages */
 .bottomFooter {
   position: fixed;
@@ -199,6 +204,7 @@ hr {
   border-radius: 5px;
   font-weight: bold;
   width: 20%;
+  position: relative;
 }
 
 #addUserButton:hover {
@@ -208,7 +214,7 @@ hr {
 }
 
 #userCard{
-  margin-left: 5%;
+  width: 100%;
 }
 
 #btnFollow{
@@ -247,9 +253,16 @@ hr {
   text-align: center;
 }
 
-.readNowRow {
-  margin-left: 15%;
-  padding: 10px;
+/* #haveReadCard{
+  margin-left: 30%;
+} 
+
+#readCard{
+  margin-left: 30%;
+} */
+
+#cardBody4, #ardBody2{
+  overflow-y: auto;
 }
 
 .card-header {
@@ -269,6 +282,21 @@ hr {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+/*close button for books*/
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /*view books page*/

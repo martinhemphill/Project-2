@@ -93,8 +93,8 @@ $('.refreshBtn').click(
   findBook('title', 'the chamber of secrets'));
 
 function findBook (val, query) {
-  clearPage();
-  const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
+  const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyD4ZQGfP48TvvbRtI9n15dkldL2KrDeiaE';
+
   console.log(queryURL);
   $.ajax({
     type: 'GET',
@@ -332,6 +332,10 @@ function getUserListFuture (id) {
     for (let i = 0; i < res.length; i++) {
       const futureItem = $('<li>').html(res.Book.title);
       futureList.append(futureItem);
+      // futureItem.on("click", "span", function (e) {
+      //   e.preventDefault();
+      //   $(this).sibling().remove();
+      // });
     }
   });
 }
@@ -343,7 +347,7 @@ function getUserListCurrent (id) {
     url: `/api/readFuture/${id}`
   }).then(function (res) {
     const currentList = $('<ul>');
-    $('#cardBody3').append(currentList);
+    $('#cardBody1').append(currentList);
     for (let i = 0; i < res.length; i++) {
       const currentItem = $('<li>').html(res.Book.title);
       currentList.append(currentItem);
@@ -491,30 +495,38 @@ function unFollow () {
   });
 }
 
-function deleteFromCurrent () {
-  const data = {
-    userId: window.user,
-    BookIsbn: $('#div-name-placeholder')
-  };
+function deleteFromList () {
+  const data = $(this).attr('id');
   $.ajax({
     type: 'DELETE',
-    url: 'api/readCurrent',
+    url: `api/list/${data}`,
     data: data
   }).then(function (result) {
     console.log(result);
+  }).then(function (res) {
+    const futureList = $('<ul>');
+    $('#cardBody4').append(futureList);
+    for (let i = 0; i < res.length; i++) {
+      const futureItem = $('<li>').html(res.Book.title);
+      futureList.append(futureItem);
+      // futureItem.on("click", "span", function (e) {
+      //   e.preventDefault();
+      //   $(this).sibling().remove();
+      // });
+    }
   });
 }
 
-function deleteFromFuture () {
-  const data = {
-    userId: window.user,
-    BookIsbn: $('#div-name-placeholder')
-  };
-  $.ajax({
-    type: 'DELETE',
-    url: 'api/readFuture',
-    data: data
-  }).then(function (result) {
-    console.log(result);
-  });
-}
+// function deleteFromFuture () {
+//   const data = {
+//     userId: window.user,
+//     BookIsbn: $('#div-name-placeholder')
+//   };
+//   $.ajax({
+//     type: 'DELETE',
+//     url: 'api/readFuture',
+//     data: data
+//   }).then(function (result) {
+//     console.log(result);
+//   });
+// }

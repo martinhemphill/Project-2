@@ -1,6 +1,8 @@
 $(document).ready(function () {
+
   $('.submit-search').on('click', function () {
     const param = $('.search-field').val();
+
     findBook('title', param);
   });
 
@@ -64,26 +66,13 @@ $(document).ready(function () {
 
   // Get book info ***************************************************
 
-  // function getBookInfo (req, res) {
-  //   let searchTitle = 'gonzo';
-
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
-  // $('.view-books').on('click', function (event) {
-  //   randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-  //   event.preventDefault();
-  //   clearPage();
-  //   findBook('title', randomBook);
-  //   // eslint-disable-next-line no-unused-vars
-  //   // $('#search-value').val();
-  // });
-
   function clearPage () {
-    $('#cardBody5').empty();
+    $('.title-author').empty();
+    $('.book-description').empty();
     $('.imgDiv5').empty();
-    $('#cardBody6').empty();
     $('.imgDiv6').empty();
-    $('#cardBody7').empty();
     $('.imgDiv7').empty();
   };
 
@@ -91,17 +80,9 @@ $(document).ready(function () {
   console.log(searchTerm);
 
   $('.refreshBtn').click(
-  // let searchTerm = $('#searchBook').val()
-  // console.log(searchTerm);
     findBook('title', randomBook));
 
   function findBook (val, query) {
-    $('#cardBody5').empty();
-    $('.imgDiv5').empty();
-    $('#cardBody6').empty();
-    $('.imgDiv6').empty();
-    $('#cardBody7').empty();
-    $('.imgDiv7').empty();
     const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
     console.log(queryURL);
     $.ajax({

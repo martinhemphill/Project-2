@@ -296,20 +296,14 @@ hr {
   margin-top: 5%;
 }
 
-/*followers modal*/
 #myModal2:nth-of-type(even) {
-  z-index: 1052 !important;
+  z-index: 1054 !important;
 }
 #myModal1-backdrop.show:nth-of-type(even) {
   z-index: 1051 !important;
 }
-
-/*following modal*/
-#myModal4:nth-of-type(even) {
-  z-index: 1052 !important;
-}
 #myModal3-backdrop.show:nth-of-type(even) {
-  z-index: 1051 !important;
+  z-index: 1050 !important;
 }
 
   

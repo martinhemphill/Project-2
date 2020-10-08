@@ -25,7 +25,7 @@ module.exports = (db) => {
         raw: true
       })
       ]).then(data => {
-        console.log('whole result:', data[0].firstName, data[0].lastName);
+        console.log('whole result:', data[2]);
         const myFollowees = [];
         const readPast = [];
         const readCurrent = [];

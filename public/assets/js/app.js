@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   $('.submit-search').on('click', function () {
     const param = $('.search-field').val();
 
@@ -68,14 +67,6 @@ $(document).ready(function () {
 
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
-  function clearPage () {
-    $('.title-author').empty();
-    $('.book-description').empty();
-    $('.imgDiv5').empty();
-    $('.imgDiv6').empty();
-    $('.imgDiv7').empty();
-  };
-
   const searchTerm = $('#searchBook').val();
   console.log(searchTerm);
 
@@ -92,6 +83,7 @@ $(document).ready(function () {
       $('.title-author').remove();
       $('.book-description').remove();
       $('img').remove();
+      
     // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];
@@ -184,9 +176,9 @@ $(document).ready(function () {
         }
       };
       console.log('pastArr length is ', pastArr.length, 'current is ', currentArr.length, 'and future is ', futureArr.length);
-      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');
-      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading');
-      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
+      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read' + '<hr />');
+      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading' + '<hr />');
+      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read' + '<hr />');
 
       for (let i = 0; i < pastArr.length; i++) {
         const pastBook = $('<p>').attr('class', 'connection-book-name').text(pastArr[i].title);
@@ -345,220 +337,7 @@ $(document).ready(function () {
     });
   };
 
-  // function to get the users want to read list
-  function getUserListFuture (id) {
-    $.ajax({
-      type: 'GET',
-      url: `/api/readFuture/${id}`
-    }).then(function (res) {
-      const futureList = $('<ul>');
-      $('#cardBody4').append(futureList);
-      for (let i = 0; i < res.length; i++) {
-        const futureItem = $('<li>').html(res.Book.title);
-        futureList.append(futureItem);
-        // futureItem.on("click", "span", function (e) {
-        //   e.preventDefault();
-        //   $(this).sibling().remove();
-        // });
-      }
-    });
-  }
-
-  // Function to get the users currently reading list
-  function getUserListCurrent (id) {
-    $.ajax({
-      type: 'GET',
-      url: `/api/readFuture/${id}`
-    }).then(function (res) {
-      const currentList = $('<ul>');
-      $('#cardBody1').append(currentList);
-      for (let i = 0; i < res.length; i++) {
-        const currentItem = $('<li>').html(res.Book.title);
-        currentList.append(currentItem);
-      }
-    });
-  }
-
-  // Function to get the users currently reading list
-  function getUserListPast (id) {
-    $.ajax({
-      type: 'GET',
-      url: `/api/readPast/${id}`
-    }).then(function (res) {
-      const pastList = $('<ul>');
-      $('#cardBody2').append(pastList);
-      for (let i = 0; i < res.length; i++) {
-        const pastItem = $('<li>').html(res.Book.title);
-        pastList.append(pastItem);
-      }
-    });
-  }
-
-  // function to get reviews
-  // const btn = $('#btnReview');
-
-  function getBookReviews (id) {
-    $.ajax({
-      type: 'GET',
-      url: `/api/reviews/${id}`
-    }).then(function (res) {
-      const reviewsList = $('<ul>');
-      $('#modalBody').append(reviewsList);
-      for (let i = 0; i < res.length; i++) {
-        const reviewItem = $('<li>').html(res.Book.review);
-        reviewsList.append(reviewItem);
-      }
-    });
-  }
-
-  // ========POST========
-
-  function addToListFuture (title) {
-    const data = {
-      BookId: title,
-      UserId: window.userId
-    };
-    $.ajax({
-      type: 'POST',
-      url: '/api/readFuture',
-      data: data
-    }).then((result) => {
-      console.log(result);
-    });
-  }
-
-  function addToListCurrent (title) {
-    const data = {
-      BookId: title,
-      UserId: window.userId
-    };
-    $.ajax({
-      type: 'POST',
-      url: '/api/readCurrent',
-      data: data
-    }).then((result) => {
-      console.log(result);
-    });
-  }
-
-  function addReview () {
-    const data = {
-      rating: $('#ratings-div-placeholder').val(),
-      comments: $('#comments-div-placeholder').val(),
-      BookIsbn: $(this).attr('title'),
-      UserId: window.userId
-    };
-    $.ajax({
-      type: 'POST',
-      url: '/api/reviews',
-      data: data
-    }).then(function (data) {
-      const user = data.userId;
-      const book = data.bookIsbn;
-
-      addToListPast(user, book);
-    });
-  }
-
-  function addToListPast (user, book) {
-    const data = {
-      UserId: user,
-      BookIsbn: book
-    };
-    $.ajax({
-      type: 'POST',
-      url: '/api/readPast',
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    });
-  };
-
-  // function to follow user
-  function followUser () {
-    const data = {
-      followerID: window.user,
-      followeeID: $(this).attr('title')
-    };
-    $.ajax({
-      type: 'POST',
-      url: 'api/connections',
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    });
-  }
-
-  // function addBookInternal () {
-  //   const data = {
-  //     userId: window.user,
-  //     BookIsbn: $(this).attr('title')
-  //   };
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '',
-  //     data: data
-  //   }).then(function (result) {
-  //     console.log(result);
-  //   });
-  // }
-
   // ========DELETE========
-
-  function unFollow () {
-    const data = {
-      followerId: window.user,
-      followeeId: $('#div-name-placeholder')
-    };
-    $.ajax({
-      type: 'DELETE',
-      url: 'api/connections',
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    });
-  }
-
-  function deleteFromList () {
-    const data = $(this).attr('id');
-    $.ajax({
-      type: 'DELETE',
-      url: `api/list/${data}`,
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    }).then(function (res) {
-      const futureList = $('<ul>');
-      $('#cardBody4').append(futureList);
-      for (let i = 0; i < res.length; i++) {
-        const futureItem = $('<li>').html(res.Book.title);
-        futureList.append(futureItem);
-        // futureItem.on("click", "span", function (e) {
-        //   e.preventDefault();
-        //   $(this).sibling().remove();
-        // });
-      }
-    });
-  }
-
-  function deleteFromFuture () {
-    const data = {
-      userId: window.user,
-      BookIsbn: $('#div-name-placeholder')
-    };
-    $.ajax({
-      type: 'DELETE',
-      url: 'api/readFuture',
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    });
-  }
-
-  // $('.test-icon').on('click', () => {
-  //   $(this).attr('class', 'jshalseuudjks');
-  // });
-
   $('.fake-class').on('click', function () {
     const entryId = $(this).attr('id');
     console.log($(this).parent());

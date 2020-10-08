@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('.submit-search').on('click', function() {
-    const param = $('.search-field').val()
+    const param = $('.search-field').val();
+    clearPage();
     findBook('title', param);
   });
 
@@ -64,113 +65,29 @@ $(document).ready(function () {
 
   // Get book info ***************************************************
 
-  // function getBookInfo (req, res) {
-  //   let searchTitle = 'gonzo';
-
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
-  // $('.view-books').on('click', function (event) {
-  //   randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-  //   event.preventDefault();
-  //   clearPage();
-  //   findBook('title', randomBook);
-  //   // eslint-disable-next-line no-unused-vars
-  //   // $('#search-value').val();
-  // });
-
   function clearPage () {
-    $('#cardBody5').empty();
+    $('.title-author').empty();
+    $('.book-description').empty();
     $('.imgDiv5').empty();
-    $('#cardBody6').empty();
     $('.imgDiv6').empty();
-    $('#cardBody7').empty();
     $('.imgDiv7').empty();
   };
 
   const searchTerm = $('#searchBook').val();
   console.log(searchTerm);
 
-<<<<<<< HEAD
-// Get book info ***************************************************
-// function findSingleBook (title) {
-//   const singleBookQuery = 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + title + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
-//   $.ajax({
-//     type: 'GET',
-//     url: singleBookQuery
-//   }).then(response => {
-//     const bookTitle = response.items[0].volumeInfo.title;
-//     const author = response.items[0].volumeInfo.authors[0];
-//     const description = response.items[0].volumeInfo.description;
-//     const image = response.items[0].volumeInfo.imageLinks.thumbnail;
-//     const date = response.items[0].volumeInfo.publishedDate;
-//   }).catch(error => {
-//     console.log(error);
-//   });
-// };
-
-const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-
-function clearPage () {
-  $('#cardBody5').empty();
-  $('.imgDiv5').empty();
-  $('#cardBody6').empty();
-  $('.imgDiv6').empty();
-  $('#cardBody7').empty();
-  $('.imgDiv7').empty();
-};
-
-$('#searchBtn').on('click', () => {
-  const searchTerm = $('#search-value').val();
-  console.log(searchTerm);
-  findBook('title', searchTerm);
-});
-
-$('.refreshBtn').click(
-  // let searchTerm = $('#searchBook').val()
-  // console.log(searchTerm);
-  findBook('title', randomBook));
-
-function findBook (val, query) {
-  clearPage();
-  const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
-  console.log(queryURL);
-  $.ajax({
-    type: 'GET',
-    url: queryURL
-  }).then((response) => {
-    console.log('first response: ', response.items[0].volumeInfo.title);
-    console.log('second response: ', response.items[1].volumeInfo.title);
-    console.log('third response: ', response.items[2].volumeInfo.title);
-
-    for (let i = 0; i < 3; i++) {
-      if (response.items[i].volumeInfo.title === undefined ||
-        response.items[i].volumeInfo.authors[0] === undefined ||
-        response.items[i].volumeInfo.description === undefined ||
-        response.items[i].volumeInfo.imageLinks.thumbnail === undefined ||
-        response.items[i].volumeInfo.publishedDate === undefined) {
-        findBook('title', randomBook);
-      }
-    };
-=======
   $('.refreshBtn').click(
-  // let searchTerm = $('#searchBook').val()
-  // console.log(searchTerm);
     findBook('title', randomBook));
 
   function findBook (val, query) {
-    $('#cardBody5').empty();
-    $('.imgDiv5').empty();
-    $('#cardBody6').empty();
-    $('.imgDiv6').empty();
-    $('#cardBody7').empty();
-    $('.imgDiv7').empty();
     const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
     console.log(queryURL);
     $.ajax({
       type: 'GET',
       url: queryURL
     }).then((response) => {
->>>>>>> 4f28100ea43d0a6a0c07adbe6000d4865e54fa02
     // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];

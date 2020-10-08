@@ -66,23 +66,12 @@ $(document).ready(function () {
   // Get book info ***************************************************
 
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
-
-<<<<<<< HEAD
-  // function clearPage () {
-  //   $('.title-author').empty();
-  //   $('.book-description').empty();
-  //   $('.imgDiv5').empty();
-  //   $('.imgDiv6').empty();
-  //   $('.imgDiv7').empty();
-  // };
-
-=======
->>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
   const searchTerm = $('#searchBook').val();
   console.log(searchTerm);
 
-  $('.refreshBtn').click(
-    findBook('title', randomBook));
+  $('.refreshBtn').on('click', function () {
+    findBook('title', randomBook);
+  });
 
   function findBook (val, query) {
     const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
@@ -93,12 +82,8 @@ $(document).ready(function () {
     }).then((response) => {
       $('.title-author').remove();
       $('.book-description').remove();
-<<<<<<< HEAD
-      $('img').remove();
-=======
       $('.book-image').remove();
 
->>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
       // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];
@@ -339,20 +324,7 @@ $(document).ready(function () {
 
   // function to get user information
 
-<<<<<<< HEAD
-  // function to get the users want to read list
-
-  // ========POST========
-
   // ========DELETE========
-
-  // $('.test-icon').on('click', () => {
-  //   $(this).attr('class', 'jshalseuudjks');
-  // });
-
-=======
-  // ========DELETE========
->>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
   $('.fake-class').on('click', function () {
     const entryId = $(this).attr('id');
     console.log($(this).parent());

@@ -1,8 +1,4 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-// const appController = require('../controllers/appController');
-=======
->>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 module.exports = (passport, db) => {
@@ -17,6 +13,11 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
+  // Example App (provided)
+  router.get('/examples', AppController.getExamples);
+  router.post('/examples', AppController.createExample);
+  router.delete('/examples/:id', AppController.deleteExample);
+
   // Project GET routes
   router.get('/books', AppController.getBookInfoInternal);
   router.get('/userInfo/:id', AppController.getUserInfo);
@@ -28,7 +29,8 @@ module.exports = (passport, db) => {
   router.post('/connections', AppController.followUser);
   router.post('/lists', AppController.addToList);
 
-  // Project DELETE routes
+  // Goodreads DELETE routes
+
   router.delete('/connections', AppController.unFollow);
   router.delete('/lists/:id', AppController.deleteFromList);
 

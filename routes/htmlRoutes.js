@@ -9,7 +9,8 @@ module.exports = (db) => {
         where: {
           id: req.session.passport.user.id
         },
-        raw: true
+        raw: true,
+        include: [db.List]
       }),
       db.List.findAll({
         where: {
@@ -24,7 +25,7 @@ module.exports = (db) => {
         raw: true
       })
       ]).then(data => {
-        console.log('whole result:', data[0].firstName, data[0].lastName);
+        console.log('whole result:', data[2]);
         const myFollowees = [];
         const readPast = [];
         const readCurrent = [];

@@ -29,8 +29,26 @@ body {
   color: black;
 }
 
+.title-author {
+  font-weight: 800;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.imgDiv5, .imgDiv6, .imgDiv7 {
+  margin-top: 10%;
+  margin-left: calc(50% - 70px);
+  margin-bottom: 20px;
+}
+
+
 .navbar-brand:hover {
   color: black;
+}
+
+.navbar-toggler{
+  border: solid 3px #aeb4b2;
+  font-size: 15px;
 }
 
 /* footer for all pages */
@@ -126,10 +144,19 @@ hr {
   line-height: 2.5;
 }
 
-/*card body for all pages*/
 .card-body {
   color: #444;
   overflow-y: auto;
+}
+
+/*card body for all pages*/
+#cardBody5, #cardBody6, #cardBody7 {
+  color: #444;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+  margin-left: 25%;
+  padding: 0;
 }
 
 .container {
@@ -162,9 +189,80 @@ hr {
   padding: 10px;
 }
 
-.readNowRow {
-  margin-left: 15%;
-  padding: 10px;
+/* #imgGoesHere{
+  background-image: url("../images/smallpng.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}  */
+
+#addUserButton{
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 20%;
+  position: relative;
+}
+
+#addUserButton:hover {
+  background-color: black;
+  border: 2px solid #aeb4b2;
+  color: #aeb4b2;
+}
+
+#userCard{
+  width: 100%;
+}
+
+#btnFollow{
+  margin-top: 15px;
+  background-color: #0066FF;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  color: black;
+  border: 2px solid #617056;
+  border-radius: 5px;
+}
+
+#btnFollow:hover {
+  background-color: black;
+  border: 2px solid #aeb4b2;
+  color: #aeb4b2;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-item + .flex-item {
+  margin-left: 10px;
+}
+
+#cardBody1{
+  text-align: center;
+}
+
+/* #haveReadCard{
+  margin-left: 30%;
+} 
+
+#readCard{
+  margin-left: 30%;
+} */
+
+#cardBody4, #ardBody2{
+  overflow-y: auto;
 }
 
 .card-header {
@@ -184,6 +282,21 @@ hr {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+/*close button for books*/
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /*view books page*/
@@ -220,6 +333,7 @@ hr {
 
 .btnRefresh:hover {
   background-color: black;
+  color: #aeb4b2;
   border: 2px solid #aeb4b2;
 }
 
@@ -275,3 +389,12 @@ hr {
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+@media only screen 
+  and (max-device-width: 480px) {
+
+    #cardBody5, #cardBody6, #cardBody7 {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+}

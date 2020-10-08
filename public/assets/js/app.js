@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   $('.submit-search').on('click', function () {
     const param = $('.search-field').val();
 
@@ -68,21 +67,13 @@ $(document).ready(function () {
 
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
-  function clearPage () {
-    $('.title-author').empty();
-    $('.book-description').empty();
-    $('.imgDiv5').empty();
-    $('.imgDiv6').empty();
-    $('.imgDiv7').empty();
-  };
-
   const searchTerm = $('#searchBook').val();
   console.log(searchTerm);
 
   $('.refreshBtn').click(
     findBook('title', randomBook));
 
-  function findBook (val, query) {
+  function findBook(val, query) {
     const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyAGwS80on7Jfqi4kEejw10c-FfiMIUDj_I';
     console.log(queryURL);
     $.ajax({
@@ -93,6 +84,7 @@ $(document).ready(function () {
       $('p').remove();
       $('img').remove();
     // First Card
+
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];
       const description5 = response.items[0].volumeInfo.description;
@@ -184,9 +176,9 @@ $(document).ready(function () {
         }
       };
       console.log('pastArr length is ', pastArr.length, 'current is ', currentArr.length, 'and future is ', futureArr.length);
-      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');
-      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading');
-      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
+      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read' + '<hr />');
+      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading' + '<hr />');
+      const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read' + '<hr />');
 
       for (let i = 0; i < pastArr.length; i++) {
         const pastBook = $('<p>').attr('class', 'connection-book-name').text(pastArr[i].title);
@@ -205,7 +197,7 @@ $(document).ready(function () {
     });
   });
 
-  function addToList (state, name, book) {
+  function addToList(state, name, book) {
     const data = {
       state: state,
       title: name,
@@ -301,7 +293,7 @@ $(document).ready(function () {
   // ========GET=========
 
   // function to get users followers
-  $('.btnFollowers').on('click', function getFollowers () {
+  $('.btnFollowers').on('click', function getFollowers() {
     // const user = window.user;
     $.ajax({
       type: 'GET',
@@ -317,7 +309,7 @@ $(document).ready(function () {
   });
 
   // function to see who the user is following
-  $('.btnFollowing').on('click', function getFollowing () {
+  $('.btnFollowing').on('click', function getFollowing() {
     // const user = window.user;
     $.ajax({
       type: 'GET',
@@ -333,7 +325,7 @@ $(document).ready(function () {
   });
 
   // function to get user information
-  function getMyInfo (id) {
+  function getMyInfo(id) {
     const user = id;
     $.ajax({
       type: 'GET',
@@ -346,7 +338,7 @@ $(document).ready(function () {
   };
 
   // function to get the users want to read list
-  function getUserListFuture (id) {
+  function getUserListFuture(id) {
     $.ajax({
       type: 'GET',
       url: `/api/readFuture/${id}`
@@ -365,7 +357,7 @@ $(document).ready(function () {
   }
 
   // Function to get the users currently reading list
-  function getUserListCurrent (id) {
+  function getUserListCurrent(id) {
     $.ajax({
       type: 'GET',
       url: `/api/readFuture/${id}`
@@ -380,7 +372,7 @@ $(document).ready(function () {
   }
 
   // Function to get the users currently reading list
-  function getUserListPast (id) {
+  function getUserListPast(id) {
     $.ajax({
       type: 'GET',
       url: `/api/readPast/${id}`
@@ -397,7 +389,7 @@ $(document).ready(function () {
   // function to get reviews
   // const btn = $('#btnReview');
 
-  function getBookReviews (id) {
+  function getBookReviews(id) {
     $.ajax({
       type: 'GET',
       url: `/api/reviews/${id}`
@@ -413,7 +405,7 @@ $(document).ready(function () {
 
   // ========POST========
 
-  function addToListFuture (title) {
+  function addToListFuture(title) {
     const data = {
       BookId: title,
       UserId: window.userId
@@ -427,7 +419,7 @@ $(document).ready(function () {
     });
   }
 
-  function addToListCurrent (title) {
+  function addToListCurrent(title) {
     const data = {
       BookId: title,
       UserId: window.userId
@@ -441,7 +433,7 @@ $(document).ready(function () {
     });
   }
 
-  function addReview () {
+  function addReview() {
     const data = {
       rating: $('#ratings-div-placeholder').val(),
       comments: $('#comments-div-placeholder').val(),
@@ -460,7 +452,7 @@ $(document).ready(function () {
     });
   }
 
-  function addToListPast (user, book) {
+  function addToListPast(user, book) {
     const data = {
       UserId: user,
       BookIsbn: book
@@ -475,7 +467,7 @@ $(document).ready(function () {
   };
 
   // function to follow user
-  function followUser () {
+  function followUser() {
     const data = {
       followerID: window.user,
       followeeID: $(this).attr('title')
@@ -489,76 +481,7 @@ $(document).ready(function () {
     });
   }
 
-  // function addBookInternal () {
-  //   const data = {
-  //     userId: window.user,
-  //     BookIsbn: $(this).attr('title')
-  //   };
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '',
-  //     data: data
-  //   }).then(function (result) {
-  //     console.log(result);
-  //   });
-  // }
-
   // ========DELETE========
-
-  function unFollow () {
-    const data = {
-      followerId: window.user,
-      followeeId: $('#div-name-placeholder')
-    };
-    $.ajax({
-      type: 'DELETE',
-      url: 'api/connections',
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    });
-  }
-
-  function deleteFromList () {
-    const data = $(this).attr('id');
-    $.ajax({
-      type: 'DELETE',
-      url: `api/list/${data}`,
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    }).then(function (res) {
-      const futureList = $('<ul>');
-      $('#cardBody4').append(futureList);
-      for (let i = 0; i < res.length; i++) {
-        const futureItem = $('<li>').html(res.Book.title);
-        futureList.append(futureItem);
-        // futureItem.on("click", "span", function (e) {
-        //   e.preventDefault();
-        //   $(this).sibling().remove();
-        // });
-      }
-    });
-  }
-
-  function deleteFromFuture () {
-    const data = {
-      userId: window.user,
-      BookIsbn: $('#div-name-placeholder')
-    };
-    $.ajax({
-      type: 'DELETE',
-      url: 'api/readFuture',
-      data: data
-    }).then(function (result) {
-      console.log(result);
-    });
-  }
-
-  // $('.test-icon').on('click', () => {
-  //   $(this).attr('class', 'jshalseuudjks');
-  // });
-
   $('.fake-class').on('click', function () {
     const entryId = $(this).attr('id');
     console.log($(this).parent());
@@ -572,4 +495,4 @@ $(document).ready(function () {
       console.log(result);
     });
   });
-});
+})

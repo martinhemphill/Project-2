@@ -29,6 +29,19 @@ body {
   color: black;
 }
 
+.title-author {
+  font-weight: 800;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.imgDiv5, .imgDiv6, .imgDiv7 {
+  margin-top: 10%;
+  margin-left: calc(50% - 70px);
+  margin-bottom: 20px;
+}
+
+
 .navbar-brand:hover {
   color: black;
 }
@@ -126,10 +139,19 @@ hr {
   line-height: 2.5;
 }
 
-/*card body for all pages*/
 .card-body {
   color: #444;
   overflow-y: auto;
+}
+
+/*card body for all pages*/
+#cardBody5, #cardBody6, #cardBody7 {
+  color: #444;
+  overflow-y: auto;
+  text-align: center;
+  display: inline-block;
+  margin-left: 25%;
+  padding: 0;
 }
 
 .container {
@@ -275,3 +297,12 @@ hr {
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+@media only screen 
+  and (max-device-width: 480px) {
+
+    #cardBody5, #cardBody6, #cardBody7 {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+}

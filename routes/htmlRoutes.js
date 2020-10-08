@@ -53,7 +53,7 @@ module.exports = (db) => {
           console.log(`followers: ${followingUser} and im following ${userFollowing}`);
           const userToSend = {
             userInfo: data[0],
-            userFollwing: userFollowing,
+            userFollowing: userFollowing,
             followingUser: followingUser,
             pastList: readPast,
             currentList: readCurrent,

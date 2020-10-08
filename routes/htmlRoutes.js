@@ -70,59 +70,11 @@ module.exports = (db) => {
     }
   });
 
-  router.get('/profile/:id', (req, res) => {
-    if (req.isAuthenticated()) {
-      db.User.findOne({
-        where: {
-          id: req.session.passport.user.id
-        },
-        raw: true
-      }).then((data) => {
-        // add book possibly with join
-        res.render('profile-detail', {
-          user: data,
-          currentBooks: [{
-            title: 'aaa'
-          },
-          {
-            title: 'bbb'
-          }
-          ]
-        });
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-
   // Load login page
   router.get('/login', (req, res) => {
     res.render('login');
   });
 
-  // Load search page
-  router.get('/search', (req, res) => {
-    res.render('search');
-  });
-
-  // ======EXAMPLES FROM ALPERS FILE==jf==
-  router.get('/profile', (req, res) => {
-    if (req.isAuthenticated()) {
-      db.User.findOne({
-        where: {
-          id: req.session.passport.user.id
-        }
-      }).then(() => {
-        const user = {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated()
-        };
-        res.render('profile', user);
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
   router.get('/login', (req, res) => {
     res.render('login');
   });
@@ -132,25 +84,6 @@ module.exports = (db) => {
       res.redirect('/profile');
     } else {
       res.render('register');
-    }
-  });
-
-  // Load profile page
-  router.get('/profile', (req, res) => {
-    if (req.isAuthenticated()) {
-      db.User.findOne({
-        where: {
-          id: req.session.passport.user.id
-        }
-      }).then(() => {
-        const user = {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated()
-        };
-        res.render('profile', user);
-      });
-    } else {
-      res.redirect('/');
     }
   });
 
@@ -180,7 +113,7 @@ module.exports = (db) => {
     }
   });
 
-  // Load example index page
+  // Load View Books page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
       db.Example.findAll({
@@ -194,26 +127,6 @@ module.exports = (db) => {
           isloggedin: req.isAuthenticated(),
           msg: 'Welcome!',
           examples: dbExamples
-        });
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-
-  // Load example page and pass in an example by id
-  router.get('/example/:id', function (req, res) {
-    if (req.isAuthenticated()) {
-      db.Example.findOne({
-        where: {
-          id: req.params.id
-        },
-        raw: true
-      }).then(function (dbExample) {
-        res.render('example-detail', {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated(),
-          example: dbExample
         });
       });
     } else {

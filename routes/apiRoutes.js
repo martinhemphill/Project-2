@@ -13,11 +13,6 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
-  // Example App (provided)
-  router.get('/examples', AppController.getExamples);
-  router.post('/examples', AppController.createExample);
-  router.delete('/examples/:id', AppController.deleteExample);
-
   // Project GET routes
   router.get('/books', AppController.getBookInfoInternal);
   router.get('/userInfo/:id', AppController.getUserInfo);
@@ -29,7 +24,7 @@ module.exports = (passport, db) => {
   router.post('/connections', AppController.followUser);
   router.post('/lists', AppController.addToList);
 
-  // Goodreads DELETE routes
+  // Project DELETE routes
   router.delete('/connections', AppController.unFollow);
   router.delete('/lists/:id', AppController.deleteFromList);
 

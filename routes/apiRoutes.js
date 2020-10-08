@@ -43,9 +43,9 @@ module.exports = (passport, db) => {
   // router.post('/reviews', AppController.addReview);
 
   // Goodreads DELETE routes
-  // router.delete('/connections', AppController.unFollow);
-  // router.delete('/readFuture', AppController.deleteFromFuture);
-  // router.delete('/readCurrent', AppController.deleteFromCurrent);
+
+  router.delete('/connections', AppController.unFollow);
+
   router.delete('/lists/:id', AppController.deleteFromList);
 
   return router;

@@ -1,3 +1,8 @@
+$('.submit-serach').on('click', () => {
+  // event.preventDefault();
+  console.log($('.search-field').val());
+});
+
 const seedBooks = ['cat', 'earth', 'run', 'fire', 'hunger', 'Winter', 'world', 'tomorrow', 'the', 'turn', 'fly', 'moon', 'tales', 'dog', 'star', 'power', 'catch', 'feel', 'house', 'event', 'game', 'valor', 'war', 'prince', 'woman', 'man', 'pirate', 'fish', 'fantasy', 'stories', 'evil', 'good', 'truth'];
 
 $('#add-user').on('click', function (event) {
@@ -75,6 +80,14 @@ $('#update-user').on('click', function (event) {
 
 const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
+$('.view-books').on('click', function (event) {
+  // event.preventDefault();
+  clearPage();
+  findBook('title', randomBook);
+  // eslint-disable-next-line no-unused-vars
+  // $('#search-value').val();
+});
+
 function clearPage () {
   $('#cardBody5').empty();
   $('.imgDiv5').empty();
@@ -87,12 +100,19 @@ function clearPage () {
 const searchTerm = $('#search-value').val();
 console.log(searchTerm);
 
-$('.refreshBtn').click(
-  // let searchTerm = $('#searchBook').val()
-  // console.log(searchTerm);
-  findBook('title', 'the chamber of secrets'));
+
+$('.refreshBtn').on('click', function (event) {
+  // event.preventDefault();
+  console.log('we clicked refresh');
+  findBook('title', randomBook);
+});
+
+// let searchTerm = $('#searchBook').val()
+// console.log(searchTerm);
+// findBook('title', randomBook);
 
 function findBook (val, query) {
+  clearPage();
   const queryURL = 'https://www.googleapis.com/books/v1/volumes?q=in' + val + ':' + query + '&key=AIzaSyD4ZQGfP48TvvbRtI9n15dkldL2KrDeiaE';
 
   console.log(queryURL);
@@ -104,15 +124,15 @@ function findBook (val, query) {
     console.log('second response: ', response.items[1].volumeInfo.title);
     console.log('third response: ', response.items[2].volumeInfo.title);
 
-    for (let i = 0; i < 3; i++) {
-      if (response.items[i].volumeInfo.title === undefined ||
-        response.items[i].volumeInfo.authors[0] === undefined ||
-        response.items[i].volumeInfo.description === undefined ||
-        response.items[i].volumeInfo.imageLinks.thumbnail === undefined ||
-        response.items[i].volumeInfo.publishedDate === undefined) {
-        findBook('title', randomBook);
-      }
-    };
+    // for (let i = 0; i < 3; i++) {
+    //   if (response.items[i].volumeInfo.title === undefined ||
+    //     response.items[i].volumeInfo.authors[0] === undefined ||
+    //     response.items[i].volumeInfo.description === undefined ||
+    //     response.items[i].volumeInfo.imageLinks.thumbnail === undefined ||
+    //     response.items[i].volumeInfo.publishedDate === undefined) {
+    //     findBook('title', randomBook);
+    //   }
+    // };
     // First Card
     const bookTitle5 = response.items[0].volumeInfo.title;
     const author5 = response.items[0].volumeInfo.authors[0];
@@ -517,16 +537,36 @@ function deleteFromList () {
   });
 }
 
-// function deleteFromFuture () {
-//   const data = {
-//     userId: window.user,
-//     BookIsbn: $('#div-name-placeholder')
-//   };
-//   $.ajax({
-//     type: 'DELETE',
-//     url: 'api/readFuture',
-//     data: data
-//   }).then(function (result) {
-//     console.log(result);
-//   });
-// }
+
+function deleteFromFuture () {
+  const data = {
+    userId: window.user,
+    BookIsbn: $('#div-name-placeholder')
+  };
+  $.ajax({
+    type: 'DELETE',
+    url: 'api/readFuture',
+    data: data
+  }).then(function (result) {
+    console.log(result);
+  });
+}
+
+// $('.test-icon').on('click', () => {
+//   $(this).attr('class', 'jshalseuudjks');
+// });
+
+$('.fake-class').on('click', function () {
+  const entryId = $(this).attr('id');
+  console.log($(this).parent());
+  console.log(entryId);
+  $.ajax({
+    type: 'DELETE',
+    url: `api/lists/${entryId}`,
+    data: entryId
+  }).then(function (result) {
+    location.reload();
+    console.log(result);
+  });
+});
+

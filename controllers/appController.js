@@ -227,22 +227,16 @@ module.exports = function (db) {
       });
     },
     deleteFromList: function (req, res) {
-      db.Lists.destroy({ where: { id: req.params.id }
+      db.List.destroy({ where: { id: req.params.id }
       }).then(function (dbList) {
         res.json(dbList);
       });
     }
-    // deleteFromCurrent: function (req, res) {
-    //   db.readCurrent.destroy({ where: { id: req.params.id }
-    //   }).then(function (dbReadCurrent) {
-    //     res.json(dbReadCurrent);
+    // deleteExample: function (req, res) {
+    //   db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+    //     res.json(dbExample);
     //   });
     // },
-    // deleteFromFuture: function (req, res) {
-    //   db.readFuture.destroy({ where: { id: req.params.id }
-    //   }).then(function (dbReadFuture) {
-    //     res.json(dbReadFuture);
-    //   });
-    // }
+
   };
 };

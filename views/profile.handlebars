@@ -46,44 +46,48 @@
   </div>
 </section>
 
-<!--Card for the users Reading Now-->
-<section class="row readNowRow">
-  <div id="haveReadCard" class="col-md-12" width="100%">
-    <div class="card mb-3" style="max-width: 450px;">
-      <div class="card-header">Have Read</div>
-      <div class="card-body" id="cardBody2">
-        <ul class='future-list'>
-          {{#each pastList}}
-         <p class={{id}}>{{title}} 
-             <button id={{id}} class="fake-class" {{id}}><i class="fa fa-times test-icon"></i>
-              <span hidden>
-                {{id}}</span></button></p>
-          {{/each}}
-        </ul>
+<section class="container-fluid">
+  <div class="row readRow">
+    <div class="col-8 mx-auto">
+      <div id="haveReadCard" class="card mb-3" style="max-width: 500px;">
+        <div class="card-block">
+          <div class="card-header">Have Read</div>
+          <div class="card-body" id="cardBody2">
+            <ul class='future-list'>
+              {{#each pastList}}
+              <p class={{id}}>{{title}}
+                <button id={{id}} class="fake-class" {{id}}><i class="fa fa-times test-icon"></i>
+                  <span hidden>
+                    {{id}}</span></button></p>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   </section>
-
-  <!--Card for the users TBR-->
-  <section class="row toReadRow">
- <div id="haveReadCard" class="col-md-12" width="100%">
-    <div class="card mb-3" style="max-width: 450px;">
-      <div class="card-header">To Read</div>
-      <div class="card-body" id="cardBody4">
-        <ul class='future-list'>
-          {{#each futureList}}
-
-          <p class={{id}}>{{title}} 
-             <button id={{id}} class="fake-class" {{id}}><i class="fa fa-times test-icon"></i>
-              <span hidden>
-                {{id}}</span></button></p>
-          {{/each}}
-        </ul>
+<section class="container-fluid">
+  <div class="row readRow">
+    <div class="col-8 mx-auto">
+      <div id="haveReadCard" class="card mb-3" style="max-width: 500px;">
+        <div class="card-block">
+          <div class="card-header">Want To Read</div>
+          <div class="card-body" id="cardBody2">
+            <ul class='future-list'>
+              {{#each futureList}}
+              <p class={{id}}>{{title}}
+                <button id={{id}} class="fake-class" {{id}}><i class="fa fa-times test-icon"></i>
+                  <span hidden>
+                    {{id}}</span></button></p>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+  </section>
 
 <br>
 <br>
@@ -150,7 +154,6 @@
         </div>
         <div class="modal-footer">
           <a href="#" data-dismiss="modal" class="btn">Close</a>
-          <a href="#" class="btn btn-primary">Save changes</a>
         </div>
       </div>
     </div>

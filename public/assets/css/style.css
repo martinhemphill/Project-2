@@ -253,14 +253,6 @@ hr {
   text-align: center;
 }
 
-/* #haveReadCard{
-  margin-left: 30%;
-} 
-
-#readCard{
-  margin-left: 30%;
-} */
-
 #cardBody4, #ardBody2{
   overflow-y: auto;
 }
@@ -298,6 +290,29 @@ hr {
     text-decoration: none;
     cursor: pointer;
 }
+
+/*follower/following modal with pop-out modal*/
+#myModal1, #myModal2, #myModal3, #myModal4{
+  margin-top: 5%;
+}
+
+/*followers modal*/
+#myModal2:nth-of-type(even) {
+  z-index: 1052 !important;
+}
+#myModal1-backdrop.show:nth-of-type(even) {
+  z-index: 1051 !important;
+}
+
+/*following modal*/
+#myModal4:nth-of-type(even) {
+  z-index: 1052 !important;
+}
+#myModal3-backdrop.show:nth-of-type(even) {
+  z-index: 1051 !important;
+}
+
+  
 
 /*view books page*/
 

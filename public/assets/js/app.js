@@ -161,6 +161,7 @@ $(document).ready(function () {
 
   $('.user-connection').on('click', function () {
     const userTarget = ($(this).attr('id'));
+    console.log('user target', userTarget);
     const pastArr = [];
     const currentArr = [];
     const futureArr = [];
@@ -174,11 +175,9 @@ $(document).ready(function () {
           pastArr.push(res[i]);
         } else if (res[i].UserId.toString() === userTarget && res[i].state === 'current') {
           currentArr.push(res[i]);
-        } else {
+        } else if (res[i].UserId.toString() === userTarget && res[i].state === 'future') {
           futureArr.push(res[i]);
         }
-        console.log('this is userid', res[i].UserId.toString(), 'and this is usertarget', userTarget);
-        console.log('arrays!', pastArr, currentArr, futureArr);
       };
 
       const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');

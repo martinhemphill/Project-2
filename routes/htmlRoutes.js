@@ -22,7 +22,6 @@ module.exports = (db) => {
         raw: true
       })
       ]).then(data => {
-        // console.log('whole result:', data[2]);
         const followingUser = [];
         const userFollowing = [];
         const readPast = [];
@@ -44,14 +43,13 @@ module.exports = (db) => {
         }).then(allUsers => {
           allUsers.forEach(user => {
             data[2].forEach(fol => {
-              if (fol.followeeId === user.id) {
+              if (fol.followerId === user.id && fol.followeeId === req.session.passport.user.id) {
                 followingUser.push(user);
-              } else if (fol.followerId === user.id) {
+              } else if (fol.followeeId === user.id && fol.followerId === req.session.passport.user.id) {
                 userFollowing.push(user);
               }
             });
           });
-          // console.log(readCurrent, readFuture, readPast);
           console.log(`followers: ${followingUser} and im following ${userFollowing}`);
           const userToSend = {
             userInfo: data[0],
@@ -80,7 +78,6 @@ module.exports = (db) => {
         },
         raw: true
       }).then((data) => {
-        console.log(data);
         // add book possibly with join
         res.render('profile-detail', {
           user: data,
@@ -120,7 +117,6 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         };
-        // console.log(user);
         res.render('profile', user);
       });
     } else {
@@ -151,7 +147,6 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         };
-        // console.log(user);
         res.render('profile', user);
       });
     } else {

@@ -67,6 +67,7 @@ $(document).ready(function () {
 
   const randomBook = seedBooks[Math.floor(Math.random() * seedBooks.length)];
 
+<<<<<<< HEAD
   // function clearPage () {
   //   $('.title-author').empty();
   //   $('.book-description').empty();
@@ -75,6 +76,8 @@ $(document).ready(function () {
   //   $('.imgDiv7').empty();
   // };
 
+=======
+>>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
   const searchTerm = $('#searchBook').val();
   console.log(searchTerm);
 
@@ -90,7 +93,12 @@ $(document).ready(function () {
     }).then((response) => {
       $('.title-author').remove();
       $('.book-description').remove();
+<<<<<<< HEAD
       $('img').remove();
+=======
+      $('.book-image').remove();
+
+>>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
       // First Card
       const bookTitle5 = response.items[0].volumeInfo.title;
       const author5 = response.items[0].volumeInfo.authors[0];
@@ -183,8 +191,8 @@ $(document).ready(function () {
         }
       };
       console.log('pastArr length is ', pastArr.length, 'current is ', currentArr.length, 'and future is ', futureArr.length);
-      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');
-      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading');
+      const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read' + '<hr />');
+      const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading' + '<hr />');
       const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
 
       for (let i = 0; i < pastArr.length; i++) {
@@ -331,6 +339,7 @@ $(document).ready(function () {
 
   // function to get user information
 
+<<<<<<< HEAD
   // function to get the users want to read list
 
   // ========POST========
@@ -341,6 +350,9 @@ $(document).ready(function () {
   //   $(this).attr('class', 'jshalseuudjks');
   // });
 
+=======
+  // ========DELETE========
+>>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
   $('.fake-class').on('click', function () {
     const entryId = $(this).attr('id');
     console.log($(this).parent());

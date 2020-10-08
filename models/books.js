@@ -1,12 +1,5 @@
-
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
-    // Model attributes are defined here
-    // bookId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   primaryKey: true
-    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -29,19 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Book.associate = function (models) {
-    Book.hasMany(models.Review, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.Recommendation, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.readPast, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.readCurrent, {
-      onDelete: 'cascade'
-    });
-    Book.hasMany(models.readFuture, {
+    Book.hasMany(models.List, {
       onDelete: 'cascade'
     });
   };

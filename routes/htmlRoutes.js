@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
-  // ======GROUP 2 ROUTES==jf==
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {

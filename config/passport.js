@@ -13,9 +13,7 @@ module.exports = (db, app, passport) => {
       table: 'Session',
       extendDefaultFields: (defaults, session) => {
         const userId = session && session.passport && session.passport.user && session.passport.user.id;
-        // console.log('-------------------------------------------------------');
-        // console.log('userId:', userId);
-        // console.log('-------------------------------------------------------');
+
         if (userId) {
           return {
             data: defaults.data,
@@ -46,7 +44,6 @@ module.exports = (db, app, passport) => {
 
   // Hook up Passport Local Strategy
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-    // console.log('new local strategy', email, password);
     // When a user tries to log in this code runs
     db.User.findOne({ where: { email: email } }).then((user) => {
       // If there's no user with the given email

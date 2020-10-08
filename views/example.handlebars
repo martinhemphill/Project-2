@@ -5,6 +5,7 @@
     <div class="row">
       <div class="col-12">
 
+<<<<<<< HEAD
         {{!-- <form id="searchBook" name="searchBook" rows="1" cols="100"> --}}
 
 
@@ -13,7 +14,14 @@
 
 
         {{!-- </form> --}}
+=======
+        <!--Search Button-->
+        <input class="search-field" type="text" placeholder="Search by author or title..." autocomplete="off">
+        <button type="button" class="btn btn-primary submit-search">Search</button>
+>>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
       </div>
+
+      <!--card one, of view books-->
       <div class="col-12">
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
@@ -22,7 +30,6 @@
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody5">
-
                 <div class="card-footer text-muted">
                   <div class="dropdown">
                     <select class="selectBook" id="bookInput">
@@ -39,6 +46,7 @@
         </div>
       </div>
 
+      <!--card two, of view books-->
       <div class="col-12">
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
@@ -47,7 +55,6 @@
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody6">
-
                 <div class="card-footer text-muted">
                   <div class="dropdown">
                     <select class="selectBook" id="bookInput">
@@ -64,6 +71,7 @@
         </div>
       </div>
 
+      <!--card three, of view books-->
       <div class="col-12">
         <h2>Your next great read:</h2>
         <div id="viewBooksTop" class="card mb-3" style="max-width: 740px;">
@@ -72,61 +80,31 @@
             </div>
             <div class="col-md-9">
               <div class="card-body" id="cardBody7">
-
                 <div id="cardFooter" class="card-footer text-muted">
-                 
-                    <select class="selectBook" id="bookInput">
-                      <option selected>Pick me!</option>
-                      <option class='past7' value='past'>Read</option>
-                      <option class='future7' value='future'>To Read</option>
-                      <option class='current7' value='current'>Currently Reading</option>
-                    </select>
-                  </div>
+                  <select class="selectBook" id="bookInput">
+                    <option selected>Pick me!</option>
+                    <option class='past7' value='past'>Read</option>
+                    <option class='future7' value='future'>To Read</option>
+                    <option class='current7' value='current'>Currently Reading</option>
+                  </select>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-
-      <div class="col-12">
-        <div class="refreshBtn">
-          <button onClick="window.location.reload();" type="reload" class="btnRefresh btn-primary"> Refresh Books
-          </button>
-        </div>
+    <!--button to refresh books-->
+    <div class="col-12">
+      <div class="refreshBtn">
+        <button onClick="window.location.reload();" type="reload" class="btnRefresh btn-primary"> Refresh Books
+        </button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Book Reviews</h4>
-      </div>
-      <div id="modalBody" class="modal-body">
-        {{!-- <p>Some text in the modal.</p> --}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-{{!-- <script src="https://code.jquery.com/jquery.js"></script>
-
-<script src="/assets/js/example.js"></script>
-<script src="../public/assets/js/app.js"></script> --}}
-
 
 <script>
-
-var userId = {{ userInfo.id }};
-</script> 
-
+  var userId = {{ userInfo.id }};
+</script>

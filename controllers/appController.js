@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // const convert = require('xml-js');
 
+=======
+>>>>>>> ac6faedb1f5a7903e7dec23ffd1964248aee4693
 module.exports = function (db) {
   return {
     // Get all examples
@@ -34,68 +37,6 @@ module.exports = function (db) {
         console.log(error);
       });
     },
-    // getUserListPast: function (req, res) {
-    //   db.readPast.findAll({
-    //     where: {
-    //       UserId: req.params.id
-    //     },
-    //     include: [db.Book]
-    //   }).then(data => {
-    //     res.json(data);
-    //   }).catch(error => {
-    //     console.log(error);
-    //   });
-    // },
-    // getUserListCurrent: function (req, res) {
-    //   db.readCurrent.findAll({
-    //     where: {
-    //       UserId: req.params.id
-    //     },
-    //     include: [db.Book]
-    //   }).then(data => {
-    //     res.json(data);
-    //   }).catch(error => {
-    //     console.log(error);
-    //   });
-    // },
-    // getUserListFuture: function (req, res) {
-    //   db.readFuture.findAll({
-    //     where: {
-    //       UserId: req.params.id
-    //     },
-    //     include: [db.Book]
-    //   }).then(data => {
-    //     res.json(data);
-    //   }).catch(error => {
-    //     console.log(error);
-    //   });
-    // },
-    // getBookInfo: function (req, res) {
-    //   const apiKey = 'key=xSYGRFm0UFtN1PLA8A0DwA&';
-    //   // const bookTitle = 'Harry Potter and the Sorcerer\'s Stone';
-    //   // const isbn = '978-0545162074';
-    //   // const searchISBN = '&isbn_to_id=' + isbn;
-    //   // const searchTitle = '&title=' + bookTitle;
-    //   const queryURL = 'https://www.goodreads.com/search/index.xml?' + apiKey + '&q=Harry Potter and the Sorcerers Stone';
-    //   axios.get(queryURL)
-    //     .then((response) => {
-    //       const title = response.data.items[0].volumeInfo.title;
-    //       const bookId = response.data.items[0].id;
-    //       const author = response.data.items[0].volumeInfo.authors[0];
-    //       const publishYear = response.data.items[0].volumeInfo.publishedDate;
-    //       const description = response.data.items[0].volumeInfo.description;
-    //       const image = response.data.items[0].volumeInfo.imageLinks.thumbnail;
-
-    //       console.log(bookId);
-    //       console.log(title);
-    //       console.log(author);
-    //       console.log(publishYear);
-    //       console.log(description);
-    //       console.log(image);
-    //     }).catch(error => {
-    //       console.log(error);
-    //     });
-    // },
     getBookInfoInternal: function (req, res) {
       db.Book.findAll({}).then(data => {
         res.json(data);

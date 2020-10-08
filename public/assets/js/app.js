@@ -169,6 +169,7 @@ $(document).ready(function () {
       type: 'GET',
       url: 'api/lists'
     }).then(function (res) {
+      $('.modal-books').empty();
       console.log(res);
       for (let i = 0; i < res.length; i++) {
         if (res[i].UserId.toString() === userTarget && res[i].state === 'past') {
@@ -179,7 +180,7 @@ $(document).ready(function () {
           futureArr.push(res[i]);
         }
       };
-
+      console.log('pastArr length is ', pastArr.length, 'current is ', currentArr.length, 'and future is ', futureArr.length);
       const pastHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I have read');
       const currentHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I am currently reading');
       const futureHeading = $('<ul>').attr('class', 'connection-book-header').text('Books I would like to read');
